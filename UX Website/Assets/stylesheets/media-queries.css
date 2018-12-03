@@ -1,0 +1,533 @@
+/* CSS Document */
+
+@media (max-width: 1920px){
+	header{
+		height: 80px
+	}
+	
+	.primary-nav{
+		padding-top:32px;
+
+	}
+	
+	.poster{
+		width:280px;
+		height:450px;
+	
+	}
+	
+	.button{
+		font-size: 17px;
+	}
+
+	.overlay-text{
+		font-size: 28px;
+
+	}	
+	
+	.runtime{
+		padding-bottom: 20px;
+	}
+	
+
+}
+
+@media (max-width: 1680px){
+	.poster{
+		width:230px;
+		height:340px;
+	
+	}
+	
+	.button{
+		font-size: 14px;
+		margin-bottom: 10px;
+	}
+
+	.overlay-text{
+		font-size: 25px;
+
+	}	
+	.rating{
+		margin-bottom: 10%;
+	}
+	
+	.runtime{
+		padding-bottom: 20px;
+		font-size: 16px;
+	}
+}
+
+@media screen and (max-width:1366px){
+	
+	header{
+		height: 70px
+	}
+	
+	.primary-nav{
+		padding-top:28px;
+
+	}
+	
+	.header-text{
+		padding-top: 23px;
+		font-size: 17px;
+	}
+	
+	.poster{
+		width:210px;
+		height:310px;
+	
+	}
+	.button{
+		padding: 10px 10px;
+	}
+	
+	.runtime{
+		font-size: 15px;
+	}
+	
+}
+@media screen and (max-width: 1230px){
+
+	.nav li {
+	margin: 0 20px;
+	}
+	
+	.primary-nav {
+	font-size: 15px;
+	}
+	
+	.poster{
+		width:180px;
+		height:280px;
+	
+	}
+	
+	.button{
+		padding: 9px 10px;
+	}
+	
+	.overlay-text{
+		font-size: 20px;
+	}
+	
+	.runtime{
+		font-size: 13px;
+	}
+
+}
+
+
+@media screen and (max-width: 1100px){
+	.poster-column{
+		width: 25%
+	}
+	
+	.col{
+		width: 100%
+	}
+	
+	h1{
+		font-size: 35px;
+	}
+	
+	.poster-column{
+		padding-top: 10px;
+		padding-bottom: 10px;
+
+	}
+	
+	.button{
+		font-size: 12px;
+	}
+
+	.overlay-text{
+		font-size: 20px;
+		margin-bottom:7%;
+
+	}	
+	
+	.rating {
+		margin-bottom:8%;
+	}
+}
+
+
+
+@media screen and (max-width: 880px){
+	
+	header{
+		height: 60px;
+	}
+		
+	.nav li {
+		margin: 0 5px;
+	}
+	
+	.top{
+		margin-top:60px;
+
+	}
+	
+	.primary-nav {
+		font-size: 15px;
+		letter-spacing:0;
+		padding-top: 23px; 
+	}
+	
+	.secondary-nav {
+		font-size: 11px;
+		letter-spacing:0;
+	}
+	
+	.header-text{
+		padding-top: 20px; 
+		font-size: 15px;
+	}
+	
+	.logo {
+		padding-top: 3px;
+		height: 60px;
+		width: 60px;
+		
+	}
+	
+	.poster{
+		width:150px;
+		height:250px;
+	
+	}
+	
+	.genre li{
+		padding-left: 10px;
+	}
+	
+	.genre {
+		font-size: 15px;
+	}
+	
+	h1{
+		font-size: 27px;
+		padding-bottom: 10px;
+	}
+	
+	.button{
+		font-size: 10px;
+		margin-bottom: 7px
+	}
+
+	.overlay-text{
+		font-size: 15px;
+		margin-bottom:5%;
+
+	}	
+	
+	.rating{
+		margin-bottom:10%;
+	}
+	
+	.runtime{
+		font-size: 12px;
+	}
+	
+
+}
+
+@media screen and (max-width: 880px) and (orientation: portrait) {
+	.carousel{
+		height: 250px;
+	}
+}
+
+
+@media screen and (max-width: 745px){
+	.poster{
+		width:130px;
+		height:200px;
+	}
+	
+	.poster-column{
+		width: 33.33%
+	}
+	
+	.movie-poster{
+		padding-left: 30px;
+		padding-right: 30px;
+
+	}
+	
+	.genre{
+		padding-left: 30px;
+	}
+	
+	.button{
+		font-size: 10px;
+		width: 50%;
+		margin-bottom: 10px
+	}
+
+	.overlay-text{
+		font-size: 15px;
+		margin-bottom:3%;
+
+	}	
+	
+	.rating{
+		margin-bottom: 5%;
+	}
+	
+	.runtime{
+		padding-bottom: 10px;
+	}
+	
+	.overlay{
+		height: 83%;
+		width: 60%
+	}
+}
+
+@media screen and (max-width: 670px){
+	.logo {
+		padding-top: 2px;
+		height: 50px;
+		width: 50px;
+		
+	}
+		
+	.header-text{
+		padding-top: 18px; 
+		font-size: 13px;
+	}
+	
+	header{
+		height: 60px;
+	}
+	
+	h1{
+		font-size: 25px
+	}
+	
+	.poster-column{
+		width: 33.33%
+	}
+	
+	.runtime{
+		font-size: 10px;
+	}
+	
+	.button{
+		padding-top: 7px;
+	}
+	
+	.overlay{
+		width: 80%;
+	}
+
+	
+/*
+========================================
+Hamburger
+========================================
+*/
+	.line {
+		border-radius:10px;
+		border-bottom:4px solid #FFFFFF;
+		width:29px;
+		margin-bottom:4px;
+		-webkit-transition: 0.35s all; 
+		
+	}
+	
+	.primary-nav{
+		display: none;
+	}
+	
+	.hamburger{
+		padding:20px;
+		padding-right:20px;
+		display:inline;
+		cursor:pointer;
+		box-sizing:border-box;
+		float:right;
+	}
+}
+
+@media screen and (max-width: 550px){
+	
+	.genre{
+		font-size: 12px;
+	}
+	
+	.genre li {
+		padding-right: 10px;
+		padding-left: 10px;
+	}
+	
+	.poster-column{
+		width: 50%;
+	}
+	
+	
+	footer{
+		padding-top: 15px;
+		padding-right: 5px;
+		padding-left: 5px;
+		padding-bottom: 5px;
+		font-size: 8px;
+		text-align: left;
+	}
+	
+	.secondary-nav {
+		float: right;
+		display: inline-block;
+	}	
+	
+	.button{
+		margin-bottom: 7px;
+	}
+
+	.overlay-text{
+		font-size: 15px;
+		margin-bottom:5%;
+	}
+	.rating{
+		margin-bottom: 5%;
+	}
+	
+	.overlay{
+		width: 75%;
+		height: 80%;
+		padding-left: 5px;
+		padding-right: 5px;
+
+	}
+	
+	.spacer{
+		padding: 15px;
+	}
+	
+	
+}
+
+@media screen and (max-width: 400px){
+	
+	
+	.secondary-nav {
+		font-size: 10px;
+	}	
+	
+	.genre{
+		font-size: 9px;
+	}
+	
+	.genre li {
+		padding-right: 7px;
+		padding-left: 5px;
+	}
+	
+	.poster-column{
+		width: 50%;
+	}
+	
+	h1{
+		font-size: 20px;
+	}
+	
+	
+	footer{
+		font-size: 8px;
+	}
+	
+	.poster{
+		width:110px;
+		height:160px;
+	
+	}
+	
+	.secondary-nav {
+		font-size: 8px;
+	}
+	
+	.button{
+		font-size: 8px;
+		width: 40%;
+		padding: 7px;
+	}
+
+	.overlay-text{
+		font-size: 12px;
+		color: #fff;
+		margin-bottom:2%;
+
+	}	
+	.overlay{
+		width: 100%;
+		height: 80%
+	}
+	
+	.spacer{
+		padding: 9px;
+	}
+	
+	.runtime{
+		font-size: 8px
+	}
+	
+	.rating{
+		margin-bottom: 3%;
+	}
+	
+	.overlay-text{
+		margin-bottom: 1%;
+	}
+	
+}
+
+@media (max-width: 331px){
+	
+	footer{
+		font-size: 6px;
+	}
+	
+	.secondary-nav{
+		padding-left: 5px;
+		padding-right: 5px;
+		font-size: 7px;
+
+	}
+	
+	.poster{
+		width:100px;
+		height:150px;
+	
+	}
+	
+	.genre{
+		font-size: 9px;
+		margin: 0;
+	}
+	
+	.genre li{
+		padding-left: 1px;
+		padding-right: 5px;
+	}
+	
+	.button{
+		margin-bottom: 5px;
+		width: 60%;
+	}
+	
+	.overlay-text{
+		margin-bottom: 2%;
+	}
+	
+	.overlay{
+		width: 90%;
+	}
+	
+	.runtime{
+		padding-bottom: 5px;
+	}
+	
+}

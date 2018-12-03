@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="Assets/stylesheets/main.css">
+       	<link rel="stylesheet" href="Assets/stylesheets/media-queries.css">        
+       	<link href="https://fonts.googleapis.com/css?family=Muli:300,400,900" rel="stylesheet">
+
+		<title>Blockbuster Theatres</title>
+	</head>
+	<body>
+		<header>
+
+			<a href="index.html">
+				<div>
+				<img class="logo" src="Assets/Images/logo.png" alt="Blockbuster Theatres">
+				<h1 class="header-text">BLOCKBUSTER<br>THEATRE</h1>
+				</div>
+			</a>
+			<nav class="nav primary-nav">
+				<ul>
+					<li><a href ="index.html">Home</a></li>
+					<li><a href ="nowShowing.html">Now Showing</a></li>
+					<li><a class ="current" href ="comingSoon.html">Coming Soon</a></li>
+					<li><a href ="about.html">About</a></li>
+				</ul>
+			</nav>
+			
+			<div href="#" class="hamburger">
+				<div class="line"></div>
+				<div class="line"></div>
+				<div class="line"></div>
+			</div>	
+		</header>
+		
+
+
+		<section class="poster-section">
+		
+         <section class="genre">
+      		<h1>Coming Soon</h1>
+		</section>
+          
+            <section class="grid movie-poster">
+
+                <div class="poster-column">
+                    <img class="poster" src="Assets/Images/Posters/Comedy/elf.jpg" alt="Elf">
+                    <div class="overlay">
+						<div class="overlay-text">Elf</div>
+						<div class = "runtime">Run Time: 92 mins</div>
+						<img class="rating" src="Assets/Images/Ratings/pg.png" alt="12A">
+						<!-- Display the countdown timer in an element -->
+						<p id="ELF"></p>
+						<script>
+						// Set the date we're counting down to
+						var countDownDate = new Date("December 25, 2018 00:00:00").getTime();
+
+						// Update the count down every 1 second
+						var x = setInterval(function() {
+
+						  // Get todays date and time
+						  var now = new Date().getTime();
+
+						  // Find the distance between now and the count down date
+						  var distance = countDownDate - now;
+
+						  // Time calculations for days, hours, minutes and seconds
+						  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+						  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+						  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+						  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+						  // Display the result in the element with id="demo"
+						  document.getElementById("ELF").innerHTML = days + "d " + hours + "h "
+						  + minutes + "m " + seconds + "s ";
+
+						  // If the count down is finished, write some text 
+						  if (distance < 0) {
+							clearInterval(x);
+							document.getElementById("ELF").innerHTML = "EXPIRED";
+						  }
+						}, 1000);
+						</script>
+					</div>
+                </div>
+                <div class="poster-column">
+                    <img class="poster" src="Assets/Images/Posters/Comedy/johnny-english.jpg" alt="Johnny English">
+                     <div class="overlay">
+						<div class="overlay-text">Johnny English: Strikes Again</div>
+						<div class = "runtime">Run Time: 88 mins</div>
+						<img class="rating" src="Assets/Images/Ratings/pg.png" alt="PG">
+						<div class = "button"><a href="register.html">Book Now</a></div>
+						<div class = "button"><a href="register.html">More Info</a></div>
+					</div>
+                </div>
+                <div class="poster-column">
+                    <img class="poster" src="Assets/Images/Posters/Comedy/the-grinch.jpg" alt="The Grinch">
+                    <div class="overlay">
+						<div class="overlay-text">The Grinch</div>
+						<div class = "runtime">Run Time: 90 mins</div>
+						<img class="rating" src="Assets/Images/Ratings/pg.png" alt="PG">
+						<div class = "button"><a href="register.html">Book Now</a></div>
+						<div class = "button"><a href="register.html">More Info</a></div>
+					</div>
+                </div>
+                <div class="poster-column">
+                    <img class="poster" src="Assets/Images/Posters/Comedy/nobodys-fool.jpg" alt="Nobodys Fool">
+                    <div class="overlay">
+						<div class="overlay-text">Nobody's Fool</div>
+						<div class = "runtime">Run Time: 110 mins</div>
+						<img class="rating" src="Assets/Images/Ratings/12A.png" alt="12A">
+						<div class = "button"><a href="register.html">Book Now</a></div>
+						<div class = "button"><a href="register.html">More Info</a></div>
+					</div>
+                </div>
+                <div class="poster-column">
+                    <img class="poster" src="Assets/Images/Posters/Comedy/wreck-it-ralph.jpg" alt="Wreck It Ralph">
+                    <div class="overlay">
+						<div class="overlay-text">Ralph Breaks the Internet</div>
+						<div class = "runtime">Run Time: 115 mins</div>
+						<img class="rating" src="Assets/Images/Ratings/pg.png" alt="PG">
+						<div class = "button"><a href="register.html">Book Now</a></div>
+						<div class = "button"><a href="register.html">More Info</a></div>
+					</div>
+                </div>
+           
+            </section>
+           
+            <section class="grid movie-poster">
+
+                <div class="poster-column">
+                    <img class="poster" src="Assets/Images/Posters/infinity-war.jpg" alt="Infinity War">
+                </div>
+                <div class="poster-column">
+                    <img class="poster" src="Assets/Images/Posters/bohemian-rhapsody.jpg" alt="Bohemian Rhapsody">
+                </div>
+                <div class="poster-column">
+                    <img class="poster" src="Assets/Images/Posters/spiderman.jpg" alt="Spiderman Homecoming">
+                </div>
+                <div class="poster-column">
+                    <img class="poster" src="Assets/Images/Posters/stan-lee.jpg" alt="RIP Stan Lee">
+                </div>
+                <div class="poster-column">
+                    <img class="poster" src="Assets/Images/Posters/infinity-war.jpg" alt="RIP Stan Lee">
+                </div>
+            </section>
+		</section>       
+			
+		<footer>
+			<small>&copy; Blockbuster Theatres</small>
+			<nav class="nav secondary-nav">
+				<ul>
+					<li><a href ="index.html">Home</a></li>
+					<li><a href ="nowShowing.html">Now Showing</a></li>
+					<li><a class ="current" href ="comingSoon.html">Coming Soon</a></li>
+					<li><a href ="about.html">About</a></li>
+				</ul>
+			</nav>
+		</footer>
+	</body>
+</html>
