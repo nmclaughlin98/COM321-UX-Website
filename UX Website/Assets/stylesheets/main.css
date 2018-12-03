@@ -184,8 +184,8 @@ Body
   	backface-visibility: hidden;
 }
 .movie-poster{
-	padding-left:50px;
-	padding-right:50px;
+	margin-left:50px;
+	margin-right:50px;
 	
 }
 
@@ -211,6 +211,7 @@ Body
 	padding: 0;
 	width: 80%;
 	z-index: -1;
+
 
 }
 
@@ -252,12 +253,16 @@ Body
 }
 
 .overlay-text{
-	font-size: 30px;
+	font-size: 28px;
 	color: #fff;
 	margin-bottom: 5%;
 	box-sizing: border-box;
-	height: 20%;
+	width: 80%;
 	line-height: auto;
+	text-align: center;
+	align-content: center;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .rating{
@@ -277,8 +282,9 @@ Body
 	height:auto;
 	
 }
-.movie, .show-time{
-	float:right;
+.movie {
+	display: block;
+	float: right;
 }
 /*
 ========================================
@@ -290,12 +296,14 @@ Carousel
 	position:absolute;
 	bottom:0;
 	right:0;
-	background-color: rgba(0,0,0,0.7);
+	background-color:rgba(0,0,0,0.8);
 	color:#fff;
 	padding-top: 20px;
     padding-bottom: 20px;
 	padding-right: 20px;
 	padding-left: 20px;
+	text-align: left;
+	line-height: 1.5;
 	
 }
 .text-overlay h2{
@@ -361,6 +369,7 @@ Now Showing
 
 .col-2-2{
 	float:right;
+
 }
 
 .col{
@@ -377,7 +386,6 @@ Now Showing
 	border:3px solid #7B2628;	
 	border-radius: 20px;
 	overflow: hidden;
-
 }
 
 .show-time{
@@ -405,6 +413,14 @@ Now Showing
 	padding: 0;
 	margin: 0;
 	width: auto;
+}
+
+.day-of-week{
+	display: inline-block;
+	color: #fff;
+	float: left;
+	margin-right: 20px;
+	padding-top: 3px;
 }
 
 .col h1{
@@ -446,6 +462,8 @@ Now Showing
 	text-align:center;
 	position: relative;
 	-webkit-tap-highlight-color: rgba(128,128,128,1);
+
+
 }
 
 .poster-column .poster{
