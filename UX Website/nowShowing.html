@@ -2,11 +2,12 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
+		<link rel="stylesheet" href="Assets/bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" href="Assets/stylesheets/main.css">
-       	<link rel="stylesheet" href="Assets/stylesheets/media-queries.css">        
-       	<link href="https://fonts.googleapis.com/css?family=Muli:300,400,900" rel="stylesheet">
+       	<link rel="stylesheet" href="Assets/stylesheets/media-queries.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-		<title>Blockbuster Theatres</title>
+		<title>Blockbuster Theatres - Now Showing</title>
 	</head>
 	<body>
 		<header>
@@ -18,7 +19,7 @@
 				</div>
 			</a>
 			<nav class="nav primary-nav">
-				<ul>
+				<ul class="menu">
 					<li><a href ="index.html">Home</a></li>
 					<li><a class ="current" href ="nowShowing.html">Now Showing</a></li>
 					<li><a href ="comingSoon.html">Coming Soon</a></li>
@@ -33,6 +34,7 @@
 			</div>	
 		</header>
 		
+		<div class="ham-overlay" onclick="off()"></div>
 
 		<section class="genre">
       		<h1>Now Showing</h1>
@@ -121,7 +123,7 @@
 							<div class = "button"><a href="Movies/Action/Infinity_War.html">More Info</a></div>
 						</div>
 					</div>
-                </div>
+             
                 <div class="poster-column">
                     <img class="poster" src="Assets/Images/Posters/Action/007_Spectre_Poster.jpg" alt="Spectre">
 					<div class="overlay">
@@ -132,7 +134,7 @@
 							<div class = "button"><a href="Movies/Action/Spectre.html">More Info</a></div>
 						</div>
 					</div>
-                </div>
+               
                 <div class="poster-column">
                     <img class="poster" src="Assets/Images/Posters/Action/Spiderman_Homecoming_Poster.jpg" alt="Spiderman Homecoming">
 					<div class="overlay">
@@ -143,7 +145,7 @@
 							<div class = "button"><a href="Movies/Action/Spiderman_Homecoming.html">More Info</a></div>
 						</div>
 					</div>
-                </div>
+              
                 <div class="poster-column">
                     <img class="poster" src="Assets/Images/Posters/Action/Deadpool_2_Poster.jpg" alt="Deadpool 2">
 					<div class="overlay">
@@ -154,7 +156,7 @@
 							<div class = "button"><a href="Movies/Action/Deadpool_2.html">More Info</a></div>
 						</div>
 					</div>
-                </div>
+               
                 <div class="poster-column">
                     <img class="poster" src="Assets/Images/Posters/Action/The_Last_Jedi_Poster.jpg" alt="Star Wars: The Last Jedi">
 					<div class="overlay">
@@ -165,7 +167,7 @@
 							<div class = "button"><a href="Movies/Action/The_Last_Jedi.html">More Info</a></div>
 						</div>
 					</div>
-                </div>
+             
             </section>
 		</section>       
 			
@@ -230,3 +232,30 @@
 		</footer>
 	</body>
 </html>
+
+
+<!--Scripts-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+<script src="Assets/bootstrap/js/bootstrap.js"></script>
+
+<script> 
+$('.hamburger').on('click', function()
+{
+	"use strict";
+	
+	$('.menu').toggleClass('open');
+	$('.line').toggleClass('transition');
+	$('.ham-overlay').toggleClass('show');
+	$('body').toggleClass('noScroll');
+});
+
+$('.ham-overlay').on('click', function()
+{
+	"use strict";
+	$('.menu').removeClass('open');
+	$('.line').removeClass('transition');
+	$('.ham-overlay').removeClass('show');
+	$('body').removeClass('noScroll');
+	
+});
+</script>
