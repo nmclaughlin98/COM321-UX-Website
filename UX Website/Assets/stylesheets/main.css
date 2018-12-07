@@ -224,11 +224,11 @@ Body
 	padding: 0;
 	width: 80%;
 	z-index: -1;
-	-webkit-transition: opacity .5s , z-index 1s ease ;
-	-moz-transition: opacity .5s , z-index 1s ease;
-	-o-transition: opacity .5s , z-index 1s ease;
-	-ms-transition: opacity .5s , z-index 1s ease;
-	transition: opacity .5s , z-index 1s ease ;
+	-webkit-transition: opacity .5s , z-index .25s ease ;
+	-moz-transition: opacity .5s , z-index .25s ease;
+	-o-transition: opacity .5s , z-index .25s ease;
+	-ms-transition: opacity .5s , z-index .25s ease;
+	transition: opacity .5s , z-index .25s ease ;
 
 
 }
