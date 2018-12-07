@@ -48,17 +48,60 @@
 		  favourite film. </p> 
 
 		  <h1>FAQs</h1> 
-		  <button class="accordion">How do I book tickets at Blockbuster Theatre</button> 
+		  <button class="accordion">How do I book tickets at Blockbuster Theatre<div class="arrow"><div class="arrow-line"></div><div class="arrow-line"></div></div></button>  
 			<div class="panel"> 
-			  <p>You can book tickets online</p> 
+			  <p>You can book tickets online by selecting the film you would like to see. Or you can call our box office at <a href="tel:+02871472869">02871472869</a></p>
 			</div> 
 
-		  <button class="accordion">How do I book tickets at Blockbuster Theatre</button> 
+		   <button class="accordion">How do I book tickets at Blockbuster Theatre<div class="arrow"><div class="arrow-line"></div><div class="arrow-line"></div></div></button>
 			<div class="panel"> 
-			  <p>You can book tickets online</p> 
+		
 			</div> 
 
 		</section> 
+		
+		<section class="about movie-poster poster-section col-2-2">
+		<h1>Contact Us</h1>
+			<textarea name="comments" class="comments" placeholder="Please enter a comment"></textarea><br><br>
+
+			<label for="category">Category</label>
+			<select name="category" required ="true">
+			  <option value="" disabled selected>Select a catergory</option>
+			  <option>Website</option>
+			  <option>Company</option>
+			  <option>Services</option>
+			</select><br><br>
+
+			
+		<div class="contact_info">
+			<label for="textfield">Name</label>
+			<input type="text" name="name" id="name" required="true" placeholder="Required"><br>
+
+			<label for="textfield">Company</label>
+			<input type="text" name="company" id="company"><br>
+
+			<label for="textfield">Telephone</label>
+			<input type="tel" name="telephone" id="telephone" maxlength="11" required="true" placeholder="Required"><br>
+
+			<label for="textfield">FAX</label>
+			<input type="text" name="fax" id="fax"><br>
+
+			<label for="textfield">Email</label>
+			<input type="email" name="email" id="email" required="true" placeholder="Required"><br>
+			</div><br>
+
+			<div>
+			<input name="submit" type="submit" class="button" id="submit"  value="Submit">
+			<input name="reset" type="reset" class="button" id="reset" value="Reset">
+		</div>
+		</section>
+		
+		
+		<section class="about movie-poster poster-section">
+		<h1>Where we are</h1>
+			<iframe class="venue-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2288.509293470199!2d-7.322580783897192!3d54.99923705732265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x485fe18173c76eb5%3A0xc09c5cf12e96964d!2sCity+Hotel+Derry!5e0!3m2!1sen!2suk!4v1541765874085">
+			</iframe>
+		</section>
 		
 		<footer>
 			<small>&copy; Blockbuster Theatres</small>
@@ -73,6 +116,7 @@
 		</footer>
 	</body>
 </html>
+ 
 
 
 <!--Scripts-->
@@ -102,19 +146,19 @@ $('.ham-overlay').on('click', function()
 </script>
 
  
-<script> 
-var acc = document.getElementsByClassName("accordion"); 
-var i; 
- 
-for (i = 0; i < acc.length; i++) { 
-    acc[i].addEventListener("click", function() { 
-        this.classList.toggle("active"); 
-        var panel = this.nextElementSibling; 
-        if (panel.style.display === "block") { 
-            panel.style.display = "none"; 
-        } else { 
-            panel.style.display = "block"; 
-        } 
-    }); 
-} 
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
 </script>
