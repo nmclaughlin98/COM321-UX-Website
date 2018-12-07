@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="Assets/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="Assets/stylesheets/main.css">
+       	<link rel="stylesheet" href="Assets/stylesheets/media-queries.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+		<title>Blockbuster Theatres - Now Showing</title>
+	</head>
+	<body>
+		<header>
+
+			<a href="index.html">
+				<div>
+				<img class="logo" src="Assets/Images/logo.png" alt="Blockbuster Theatres">
+				<h1 class="header-text">BLOCKBUSTER<br>THEATRE</h1>
+				</div>
+			</a>
+			<nav class="nav primary-nav">
+				<ul class="menu">
+					<li><a href ="index.html">Home</a></li>
+					<li><a class ="current" href ="nowShowing.html">Now Showing</a></li>
+					<li><a href ="comingSoon.html">Coming Soon</a></li>
+					<li><a href ="about.html">About</a></li>
+				</ul>
+			</nav>
+			
+			<div href="#" class="hamburger">
+				<div class="line"></div>
+				<div class="line"></div>
+				<div class="line"></div>
+			</div>	
+		</header>
+		<div class="ham-overlay" onclick="off()"></div>
+		<section class="booking-col">
+		<form action="/login" method="post">
+			<input type="text" name="first-Name">
+			<input type="text" name="surname">
+			<input type="email" name="email-Address">
+			<select name ="Movie">
+				<option value="Avengers: Infinity War"selected>Avengers: Infinity War</option>
+				<option value="Spider-Man: Homecoming"selected>Spider-Man: Homecoming </option>
+				<option value="Spectre"selected>Spectre</option>
+				<option value="Deadpool 2"selected>Deadpool 2</option>
+				<option value="Star Wars: The Last Jedi"selected>Star Wars: The Last Jedi</option>
+			</select>
+		</form>
+		</section>
+		<footer>
+		<small>&copy; Blockbuster Theatres</small>
+		<nav class="nav secondary-nav">
+			<ul>
+				<li><a class ="current" href ="index.html">Home</a></li>
+				<li><a href ="nowShowing.html">Now Showing</a></li>
+				<li><a href ="comingSoon.html">Coming Soon</a></li>
+				<li><a href ="about.html">About</a></li>
+			</ul>
+		</nav>
+	</footer>
+	</body>
+</html>
