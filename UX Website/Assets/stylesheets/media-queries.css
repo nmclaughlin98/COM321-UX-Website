@@ -1,12 +1,11 @@
-/* CSS Document */
-
 @media (max-width: 1920px){
 	header{
-		height: 80px
+		height: 70px;
+		margin-top: 0;
 	}
 	
 	.primary-nav{
-		padding-top:32px;
+		padding-top:26px;
 
 	}
 	
@@ -29,6 +28,15 @@
 		padding-bottom: 20px;
 	}
 	
+	.text-overlay h2{
+		font-size: 32px;
+
+	}	
+	.text-overlay p{
+		font-size: 18px;
+		font-style: italic;
+	}
+
 
 }
 
@@ -70,7 +78,7 @@
 	}
 	
 	.header-text{
-		padding-top: 23px;
+		padding-top: 20px;
 		font-size: 17px;
 	}
 	
@@ -91,11 +99,11 @@
 @media screen and (max-width: 1230px){
 
 	.nav li {
-	margin: 0 20px;
+		margin: 0 20px;
 	}
 	
 	.primary-nav {
-	font-size: 15px;
+		font-size: 15px;
 	}
 	
 	.poster{
@@ -114,6 +122,19 @@
 	
 	.runtime{
 		font-size: 13px;
+	}
+	
+	.carousel-caption{
+		padding-top: 5px;
+	}
+	
+	.carousel-caption h2{
+		font-size: 27px;
+
+	}
+	.carousel-caption p{
+		font-size: 14px;
+		padding-bottom: 15px;
 	}
 
 }
@@ -151,8 +172,29 @@
 	.rating {
 		margin-bottom:8%;
 	}
+	
+	.carousel-caption h2{
+		font-size: 26px;
+		padding-bottom: 10px;
+
+	}
+	.carousel-caption p{
+		font-size: 14px;
+		padding-bottom: 12px;
+	}
 }
 
+@media (max-width: 946px){
+		
+	.carousel-caption h2{
+		font-size: 23px;
+
+	}
+	.carousel-caption p{
+		font-size: 13px;
+		padding-bottom: 12px;
+	}
+}
 
 
 @media screen and (max-width: 880px){
@@ -231,15 +273,19 @@
 		font-size: 12px;
 	}
 	
+	.carousel-caption h2{
+		font-size: 20px;
+		padding-bottom: 7px;
 
-}
-
-@media screen and (max-width: 880px) and (orientation: portrait) {
-	.carousel{
-		height: 250px;
 	}
-}
+	.carousel-caption p{
+		font-size: 11px;
+		padding-bottom: 12px;
+	}
+	
+	
 
+}
 
 @media screen and (max-width: 745px){
 	.poster{
@@ -288,20 +334,30 @@
 }
 
 @media screen and (max-width: 670px){
+	header{
+		z-index: 1;
+	}
+	
 	.logo {
-		padding-top: 2px;
+		
 		height: 50px;
 		width: 50px;
-		
+		padding: 0;		
 	}
+	
+
 		
 	.header-text{
-		padding-top: 18px; 
+		padding-top: 15px; 
 		font-size: 13px;
 	}
 	
 	header{
-		height: 60px;
+		height: 53px;
+		padding-left: 0;
+		padding-right: 0;
+		z-index: 2;
+		
 	}
 	
 	h1{
@@ -317,12 +373,15 @@
 	}
 	
 	.button{
-		padding-top: 7px;
+		padding-top: 9px;
+		padding-bottom:9px;
+		width: 80px;
 	}
 	
 	.overlay{
 		width: 80%;
 	}
+	
 
 	
 /*
@@ -332,26 +391,93 @@ Hamburger
 */
 	.line {
 		border-radius:10px;
-		border-bottom:4px solid #FFFFFF;
+		border-bottom:4px solid #fefefe;
 		width:29px;
 		margin-bottom:4px;
 		-webkit-transition: 0.35s all; 
 		
 	}
 	
-	.primary-nav{
-		display: none;
-	}
-	
 	.hamburger{
 		padding:20px;
 		padding-right:20px;
-		display:inline;
+		display:inline-block;
 		cursor:pointer;
 		box-sizing:border-box;
 		float:right;
+		padding-top: 18px;
+	}
+	
+	ul {
+	   	position: absolute;
+		right:0;
+		height:0;
+		padding:0;
+		z-index: 1;
+		opacity:1;
+		background-color: rgba(14,14,14,0.93);
+		margin-right:0;
+		width:100%;
+		overflow: hidden;
+		transition: height 0.15s linear;
+		margin-top:29px; 
+		box-sizing: border-box;
+	}
+	
+	 .nav li{
+		width: 100%;
+		 margin-left: 0;
+	}
+		
+	.nav a {
+
+		font-size:13px;
+		display:block;
+		box-sizing:border-box;
+		border-bottom:1px groove #D0D0D0;
+		text-align:center;
+		padding-bottom:20px;
+		padding-top:20px;
+		-webkit-tap-highlight-color: rgba(232,92,92,0.5);
+		width: 100%;
+		margin-left: 0;
+		padding-left: 0;
+		
+		
+	}
+	
+
+	
+	.carousel{
+		margin-top: 52px;
+	}
+	
+	.item{
+		height: 303px;
+	}
+	
+	.img-responsive{
+		width: 300%;
+	}
+	
+	.text-overlay{
+		display: none;
+	}
+	
+	.open {
+		height:216px;
+	}
+	
+	nav{
+		margin: 0;
+	}
+	
+	.carousel-control{
+		margin-bottom: 50px;
 	}
 }
+
+
 
 @media screen and (max-width: 550px){
 	

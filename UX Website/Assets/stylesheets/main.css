@@ -22,6 +22,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	-webkit-text-size-adjust: 100%;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -49,7 +50,11 @@ table {
 
 .hamburger{
 	display: none;
+	z-index: 1;
 }
+
+
+
 /*
 ========================================
 Formatting
@@ -64,6 +69,12 @@ h1{
 	color:#fff;
 	font-size:45px;
 }
+
+h2{
+	color:#fff;
+	font-size:30px;
+}
+
 small{
 	color:#fff;
 }
@@ -99,20 +110,20 @@ header{
 	padding-right: 10px;
 	box-sizing: border-box;
 	margin-bottom:80px;
-	z-index: 1; 
+	z-index: 5; 
 }
 .primary-nav{
 	font-size: 17px;
 	font-weight: 400;
 	letter-spacing:.5px;
 	text-transform: uppercase;
-	padding-top:28px;
+	padding-top:26px;
 	padding-right: 10px
 }
 a{
 	text-decoration: none;
 	color: #fff;
-	-webkit-tap-highlight-color: rgba(128,128,128,0.3);
+	-webkit-tap-highlight-color: rgba(0,0,0,0.3);
 
 }
 a:hover{
@@ -132,33 +143,39 @@ a:hover{
 	
 }
 .nav li{
-	display: inline;
+	display: inline-block;
 	margin: 0 30px;
 	vertical-align:top;
+	list-type:none;
+
 }
 .nav li:last-child{
-	margin-right:10;
+	margin-right:20px;
 }
+
+
 .current{
 	color: #e85c5c;
 }
 .logo{
-	padding-left:10px;
-	padding-top:1px;
-	padding-bottom:10px;
-	height:70px;
-	width: 70px;
+	margin-left:20px;
+	margin-bottom:10px;
+	height:66px;
+	width: 66px;
 	display:inline-block;
 	float:left;
+	box-sizing: border-box;
 }
 .header-text{
-	padding-top:20px;
+	padding-top:18px;
 	font-size: 20px;
 	padding-left:5px;
 	color:#fff;
 	float:left;
 	text-align:center;
 }
+
+
 /*
 ========================================
 Body
@@ -173,13 +190,10 @@ Body
 	color: #161515;
 }
 
-.carousel{
-	width:100%;
-	
-}
+
 .poster{
 	width:320px;
-	height:530px;
+	height:500px;
 	transition: .25s ease;
   	backface-visibility: hidden;
 }
@@ -202,8 +216,8 @@ Body
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
 	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 	text-align: center;
 	box-sizing: border-box;
 	margin: 0; 
@@ -211,13 +225,18 @@ Body
 	padding: 0;
 	width: 80%;
 	z-index: -1;
+	-webkit-transition: opacity .5s , z-index 1s ease ;
+	-moz-transition: opacity .5s , z-index 1s ease;
+	-o-transition: opacity .5s , z-index 1s ease;
+	-ms-transition: opacity .5s , z-index 1s ease;
+	transition: opacity .5s , z-index 1s ease ;
 
 
 }
 
 .poster-column:hover .overlay{
 	opacity: 1;
-	z-index: 0;
+	z-index: 1;
 
 }
 
@@ -263,6 +282,7 @@ Body
 	align-content: center;
 	margin-left: auto;
 	margin-right: auto;
+	height: 20%;
 }
 
 .rating{
@@ -282,36 +302,37 @@ Body
 	height:auto;
 	
 }
-.movie {
-	display: block;
-	float: right;
-}
+
 /*
 ========================================
 Carousel
 ========================================
 */
 
-.text-overlay{
+.carousel-caption{
 	position:absolute;
 	bottom:0;
-	right:0;
-	background-color:rgba(0,0,0,0.8);
+	background-color:rgba(0,0,0,0.6);
 	color:#fff;
-	padding-top: 20px;
+	padding-top: 10px;
     padding-bottom: 20px;
 	padding-right: 20px;
 	padding-left: 20px;
 	text-align: left;
 	line-height: 1.5;
+	width: 100%;
+	box-sizing: border-box;
+	height: auto;
+	left: 0;
+	z-index: 0;
 	
 }
-.text-overlay h2{
-	font-size: 34px;
-
+.carousel-caption h2{
+	font-size: 32px;
+	padding-bottom: 12px;
 }
-.text-overlay p{
-	font-size: 22px;
+.carousel-caption p{
+	font-size: 20px;
 	font-style: italic;
 }
 
@@ -378,10 +399,7 @@ Now Showing
 	width: 60.66%;
 }
 
-.col-1-3{
-	float:right;
-	width: 30.33%;
-}
+
 
 .col{
 	margin-top:30px;
@@ -396,8 +414,22 @@ Now Showing
 	border:3px solid #7B2628;	
 	border-radius: 20px;
 	overflow: hidden;
+}
+
+.col-1-3{
+	float: right;
+	width: 30.33%;
+	padding-left: 30px;
+	padding-right: 30px;
+
+}
+
+.col-1-3 hr{
+	margin-top: 15px;
+	border-bottom-color:#000;
 	
 }
+
 
 .show-time{
 	color:#fff;
@@ -408,11 +440,16 @@ Now Showing
 	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
 	padding: 2px 8px;
 	margin: 0;
-	float: left;
 	text-align: center;
+	float: left;
 	cursor: pointer;
+	margin-left:0;
 	margin-right: 20px;
 	font-size: 15px;
+	transition:0.25s ease;
+	-webkit-transition:0.25s ease;
+	-o-transition:0.25s ease;
+	-moz-transition:0.25s ease;
 
 }
 
@@ -425,7 +462,24 @@ Now Showing
 	padding: 0;
 	margin: 0;
 	width: auto;
+
 }
+
+.show-time:last-child{
+	margin-right: 0;
+}
+
+.show-time:first-child{
+	margin-left: 10px;
+	font: italic;
+}
+
+
+.show-time-list {
+	float: right;
+	
+}
+
 
 .day-of-week{
 	display: inline-block;
@@ -433,8 +487,8 @@ Now Showing
 	float: left;
 	margin-right: 20px;
 	padding-top: 3px;
-	
 	text-align: left;
+	width:25%;
 }
 
 .col h1{
@@ -509,7 +563,6 @@ Now Showing
 	margin-right:50px;
 	margin-bottom: 20px;
 	padding-top: 30px;
-	margin-bottom: 30px;
 	
 }
 .movie-page p{
@@ -523,12 +576,92 @@ Now Showing
 Coming Soon
 ========================================
 */
+
 .overlay p{
 	color:#fff;
 	text-transform:uppercase;
 	font-size:22px;
 }
 
+
 .trailer{
 	margin-bottom: 20px;
 }
+
+/*
+========================================
+Hamburger
+========================================
+*/
+
+.transition{
+	width:23px;
+}
+
+.transition:nth-child(1){
+	-webkit-transform: translate(0,8px)rotate(-45deg); 
+	transform: translate(0,8px)rotate(-45deg); 
+}
+
+.transition:nth-child(2){
+	opacity:0;
+}
+
+.transition:nth-child(3){
+	-webkit-transform: translate(0,-8px) rotate(45deg);
+	transform: translate(0,-8px) rotate(45deg);
+}
+
+.hide {
+	opacity:0;
+}
+
+.ham-overlay
+{
+	position:absolute;
+	opacity:0;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0,0,0,0.8);
+	-webkit-transition: opacity .5s , z-index 1.5s ease ;
+	-moz-transition: opacity .5s , z-index 1.5s ease;
+	-o-transition: opacity .5s , z-index 1.5s ease;
+	-ms-transition: opacity .5s , z-index 1.5s ease;
+	transition: opacity .5s , z-index 1.5s ease ;
+	z-index:-1;
+	text-align: center;
+
+}
+
+.noScroll
+{
+	overflow:hidden;
+	position:fixed;
+}
+
+.show
+{
+	opacity:1;
+	z-index: 1; 
+	-moz-transition: opacity .5s;
+	-ms-transition: opacity .5s ;
+	-o-transition: opacity .5s  ;
+	-webkit-transition: opacity .5 ;
+	transition: opacity .5s  ;
+}
+
+.carousel-indicators
+{
+	height:10px;
+	-webkit-transition: opacity .25s ease;
+	-moz-transition: opacity .25s ease;
+	-o-transition: opacity .25s ease;
+	-ms-transition: opacity .25s ease;
+	transition: opacity .25s ease;
+}
+
+
