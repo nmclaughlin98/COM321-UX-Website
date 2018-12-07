@@ -6,7 +6,7 @@
 		<link rel="stylesheet" href="Assets/stylesheets/main.css">
        	<link rel="stylesheet" href="Assets/stylesheets/media-queries.css">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<title>Blockbuster Theatres</title>
+		<title>Blockbuster Theatres - About</title>
 	</head>
 	<body>
 		<header>
@@ -14,8 +14,15 @@
 				<img class="logo" src="Assets/Images/logo.png" alt="Blockbuster Theatres">
 				<h1 class="header-text">BLOCKBUSTER<br>THEATRE</h1>
 			</a>
+			
+			<div href="#" class="hamburger" onClick="hamburger">
+				<div class="line"></div>
+				<div class="line"></div>
+				<div class="line"></div>
+			</div>	
+			
 			<nav class="nav primary-nav">
-				<ul>
+				<ul class="menu">
 					<li><a href ="index.html">Home</a></li>
 					<li><a href ="nowShowing.html">Now Showing</a></li>
 					<li><a href ="comingSoon.html">Coming Soon</a></li>
@@ -25,12 +32,14 @@
 		</header>
 		
 		<section>
+		
+		<div class="ham-overlay" onclick="off()"></div>
 			
 		</section>
 		
 		<footer>
 			<small>&copy; Blockbuster Theatres</small>
-			<nav class="nav primary-nav">
+			<nav class="nav secondary-nav">
 				<ul>
 					<li><a href ="index.html">Home</a></li>
 					<li><a href ="nowShowing.html">Now Showing</a></li>
@@ -41,3 +50,30 @@
 		</footer>
 	</body>
 </html>
+
+
+<!--Scripts-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+<script src="Assets/bootstrap/js/bootstrap.js"></script>
+
+<script> 
+$('.hamburger').on('click', function()
+{
+	"use strict";
+	
+	$('.menu').toggleClass('open');
+	$('.line').toggleClass('transition');
+	$('.ham-overlay').toggleClass('show');
+	$('body').toggleClass('noScroll');
+});
+
+$('.ham-overlay').on('click', function()
+{
+	"use strict";
+	$('.menu').removeClass('open');
+	$('.line').removeClass('transition');
+	$('.ham-overlay').removeClass('show');
+	$('body').removeClass('noScroll');
+	
+});
+</script>
