@@ -164,7 +164,7 @@
 	}
 
 	.overlay-text{
-		font-size: 20px;
+		font-size: 16px;
 		margin-bottom:7%;
 
 	}	
@@ -184,8 +184,8 @@
 	}
 	
 	.rating-movies{
-		padding-top: 1px;
-		padding-bottom: 8px;
+		padding-top: 7px;
+		padding-bottom: 12px;
 	}
 	
 	.runtime-movies{
@@ -202,6 +202,12 @@
 	.carousel-caption p{
 		font-size: 13px;
 		padding-bottom: 12px;
+	}
+	
+	.overlay-text{
+		font-size: 15.5px;
+		margin-bottom:7%;
+
 	}
 }
 
@@ -347,7 +353,7 @@
 	}
 
 	.overlay-text{
-		font-size: 15px;
+		font-size: 13px;
 		margin-bottom:3%;
 
 	}	
@@ -372,9 +378,6 @@
 }
 
 @media screen and (max-width: 670px){
-	header{
-		z-index: 1;
-	}
 	
 	.logo {
 		
@@ -395,7 +398,7 @@
 		padding-left: 0;
 		padding-right: 0;
 		z-index: 2;
-		
+		background-color: rgba(14,14,14,0.9);
 	}
 	
 	h1{
