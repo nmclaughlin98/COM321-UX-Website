@@ -37,6 +37,29 @@
 			
 		</section>
 		
+		<section class="about movie-poster poster-section col-1-2"> 
+
+		  <h1>About Us</h1> 
+
+		  <p>Blockbuster Theater is a modern cinema with everything you could possibly want. 
+		  For us the customer experience is our top priority. We strive to ensure that are 
+		  giving you what you want by brining the latest blockbuster films to the big screen. 
+		  Stay tuned to get the latest film updates and release dates so you'll never miss your 
+		  favourite film. </p> 
+
+		  <h1>FAQs</h1> 
+		  <button class="accordion">How do I book tickets at Blockbuster Theatre</button> 
+			<div class="panel"> 
+			  <p>You can book tickets online</p> 
+			</div> 
+
+		  <button class="accordion">How do I book tickets at Blockbuster Theatre</button> 
+			<div class="panel"> 
+			  <p>You can book tickets online</p> 
+			</div> 
+
+		</section> 
+		
 		<footer>
 			<small>&copy; Blockbuster Theatres</small>
 			<nav class="nav secondary-nav">
@@ -76,4 +99,22 @@ $('.ham-overlay').on('click', function()
 	$('body').removeClass('noScroll');
 	
 });
+</script>
+
+ 
+<script> 
+var acc = document.getElementsByClassName("accordion"); 
+var i; 
+ 
+for (i = 0; i < acc.length; i++) { 
+    acc[i].addEventListener("click", function() { 
+        this.classList.toggle("active"); 
+        var panel = this.nextElementSibling; 
+        if (panel.style.display === "block") { 
+            panel.style.display = "none"; 
+        } else { 
+            panel.style.display = "block"; 
+        } 
+    }); 
+} 
 </script>

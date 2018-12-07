@@ -217,6 +217,10 @@
 	header{
 		height: 60px;
 	}
+	
+	.about{ 
+    margin-top: 80px; 
+  }
 		
 	.nav li {
 		margin: 0 5px;
