@@ -47,7 +47,7 @@
 				<label>Movie Selection:</label>
 				<select name ="Movie" id="Movie">
 					<option value= "Please Select"selected >Please Select</option>
-					<option id="Film1" value="Avengers: Infinity War" >Avengers: Infinity War</option>
+					<option value="Avengers: Infinity War" >Avengers: Infinity War</option>
 					<option value="Spider-Man: Homecoming">Spider-Man: Homecoming </option>
 					<option value="Spectre">Spectre</option>
 					<option value="Deadpool 2">Deadpool 2</option>
@@ -56,11 +56,11 @@
 					<option value="Nobodys Fool">Nobodys Fool</option>
 					<option value="The Grinch">The Grinch</option>
 					<option value="Johnny English: Strikes Again">Johnny English: Strikes Again</option>
-					<option value="The Shining">The Shining</option>
-					<option value="The Exorcist">The Exorcist</option>
-					<option value="Poltergeist">Poltergeist</option>
-					<option value="The Conjuring">The Conjuring</option>
-					<option value="The Ring">The Ring</option>
+					<option class="Horror" value="The Shining">The Shining</option>
+					<option class="Horror" value="The Exorcist">The Exorcist</option>
+					<option class="Horror" value="Poltergeist">Poltergeist</option>
+					<option class="Horror" value="The Conjuring">The Conjuring</option>
+					<option class="Horror" value="The Ring">The Ring</option>
 					<option value="Aladdin">Aladdin</option>
 					<option value="E.T">E.T</option>
 					<option value="Toy Story">Toy Story</option>
@@ -72,9 +72,9 @@
 					<option value="Forrest Gump">Forrest Gump</option>
 				</select><br><br>
 				<label>Day:</label>
-				<select name = "Day" onclick="changeTimes()">
+				<select name = "Day" >
 					<option value= "Please Select"selected>Please Select</option>
-					<option id ="monday"value="Monday" >Monday</option>
+					<option value="Monday" >Monday</option>
 					<option value="Tuesday">Tuesday</option>
 					<option value="Wednesday">Wednesday</option>
 					<option value="Thursday">Thursday</option>
@@ -83,9 +83,17 @@
 					<option value="Sunday">Sunday</option>
 				</select><br><br>
 				<label>Time:</label>
-				<select name="Time" id="Time"></select><br><br>
-				<label>Number of Tickets:</label>
-				<select name="Tickets">
+				<select name="Time" id="Time">
+					<option value= "Please Select"selected>Please Select</option>
+					<option value="11:00" >11:00</option>
+					<option value="13:00">13:00</option>
+					<option value="15:00">15:00</option>
+					<option value="17:00">17:00</option>
+					<option value="19:00">19:00</option>
+					<option value="21:00">21:00</option>
+				</select><br><br>
+				<label>Adult Tickets:</label>
+				<select name="Adult Tickets">
 					<option value= "Please Select"selected>Please Select</option>
 					<option value= "1">1</option>
 					<option value= "2">2</option>
@@ -93,7 +101,34 @@
 					<option value= "4">4</option>
 					<option value= "5">5</option>
 				</select><br><br>
-				<input class="booking-button" type="reset" name="Book" value="Book" onclick="submitFormFunction()">
+				<label>Child Tickets:</label>
+				<select id="Child_Tickets" name="Child Tickets">
+					<option value= "Please Select"selected>Please Select</option>
+					<option value= "1">1</option>
+					<option value= "2">2</option>
+					<option value= "3">3</option>
+					<option value= "4">4</option>
+					<option value= "5">5</option>
+				</select><br><br>
+				<label>Student Tickets:</label>
+				<select name="Student Tickets">
+					<option value= "Please Select"selected>Please Select</option>
+					<option value= "1">1</option>
+					<option value= "2">2</option>
+					<option value= "3">3</option>
+					<option value= "4">4</option>
+					<option value= "5">5</option>
+				</select><br><br>
+				<label>OAP Tickets:</label>
+				<select name="OAP Tickets">
+					<option value= "Please Select"selected>Please Select</option>
+					<option value= "1">1</option>
+					<option value= "2">2</option>
+					<option value= "3">3</option>
+					<option value= "4">4</option>
+					<option value= "5">5</option>
+				</select><br><br>
+				<input class="booking-button" type="reset" name="Book" value="Book" onclick="isHorror()">
 				<input class="booking-button" type="reset" name="Cancel" value="Cancel">
 			</form>	
 			<script>
@@ -103,21 +138,15 @@
 
 				alert("You have successfully booked: "+ "'"+value+"'");
 			}
-			function changeTimes(){
-				var selectHTML = "";
-			
-				var selector = document.getElementById('Movie');
-				var film = selector[selector.selectedIndex].id;
-				selector = document.getElementById('Day');
-				var day = selector[selector.selectedIndex].id;
-				var selectionBox = document.getElementById("Time");
-				if(film=="Film1" && day=="monday"){
-					var newSelect = document.createElement('option');
-					selectHTML = "<option value='" + A[i] + "'>" + A[i] + "</option>";
-					newSelect.innerHTML = selectHTML;
-					document.getElementById('Time').appendChild(newSelect);
+			function isHorror(){
+			var x = document.getElementByClassName('Movie');
+				if(x.className=="Horror"&&document.getElementById('Child_Tickets').value!="Please Select"){
+					alert("You Can Not Book child Tickets for horror");
 				}
-				
+				else{
+					submitFormFunction();
+				}
+					
 			}
 			</script>
 
