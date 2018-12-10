@@ -10,7 +10,6 @@
 		<title>Blockbuster Theatres - Booking</title>
 	</head>
 	<body>
-	
 		<header>
 
 			<a href="index.html">
@@ -101,13 +100,13 @@
 		</div>
 		<section class="booking-col">
 			<h1>&darr; Book Your Tickets Today &darr;</h1>
-			<form action="/login" method="post"><br><br>
+			<form action="/login" method="post">
 				<label>First Name:</label>
-				<input type="text" name="first-Name" required><br><br>
+				<input type="text" name="first-Name" required><br>
 				<label>Surname:</label>
-				<input type="text" name="surname" required><br><br>
+				<input type="text" name="surname" required><br>
 				<label>Email Address:</label>
-				<input type="email" name="email-Address" required><br><br>
+				<input type="email" name="email-Address" required><br>
 				<label>Movie Selection:</label>
 				<select name ="Movie" id="Movie">
 					<option value= "Please Select"selected >Please Select</option>
@@ -134,7 +133,7 @@
 					<option value="Raging Bull">Raging Bull</option>
 					<option value="One Flew Over the Cuckoo's Nest">One Flew Over the Cuckoo's Nest</option>
 					<option value="Forrest Gump">Forrest Gump</option>
-				</select><br><br>
+				</select><br>
 				<label>Day:</label>
 				<select name = "Day" >
 					<option value= "Please Select"selected>Please Select</option>
@@ -145,7 +144,7 @@
 					<option value="Friday">Friday</option>
 					<option value="Saturday">Saturday</option>
 					<option value="Sunday">Sunday</option>
-				</select><br><br>
+				</select><br>
 				<label>Time:</label>
 				<select name="Time" id="Time">
 					<option value= "Please Select"selected>Please Select</option>
@@ -155,7 +154,7 @@
 					<option value="17:00">17:00</option>
 					<option value="19:00">19:00</option>
 					<option value="21:00">21:00</option>
-				</select><br><br>
+				</select><br>
 				<label>Adult Tickets:</label>
 				<select name="Adult Tickets">
 					<option value= "Please Select"selected>Please Select</option>
@@ -164,7 +163,7 @@
 					<option value= "3">3</option>
 					<option value= "4">4</option>
 					<option value= "5">5</option>
-				</select><br><br>
+				</select><br>
 				<label>Child Tickets:</label>
 				<select id="Child_Tickets" name="Child Tickets">
 					<option value= "Please Select"selected>Please Select</option>
@@ -173,7 +172,7 @@
 					<option value= "3">3</option>
 					<option value= "4">4</option>
 					<option value= "5">5</option>
-				</select><br><br>
+				</select><br>
 				<label>Student Tickets:</label>
 				<select name="Student Tickets">
 					<option value= "Please Select"selected>Please Select</option>
@@ -182,7 +181,7 @@
 					<option value= "3">3</option>
 					<option value= "4">4</option>
 					<option value= "5">5</option>
-				</select><br><br>
+				</select><br>
 				<label>OAP Tickets:</label>
 				<select name="OAP Tickets">
 					<option value= "Please Select"selected>Please Select</option>
@@ -191,9 +190,9 @@
 					<option value= "3">3</option>
 					<option value= "4">4</option>
 					<option value= "5">5</option>
-				</select><br><br>
-				<input class="booking-button" type="reset" name="Book" value="Book" onclick="isHorror()">
-				<input class="booking-button" type="reset" name="Cancel" value="Cancel">
+				</select><br>
+				<input class="form-button" type="reset" name="Book" value="Book" onclick="isHorror()">
+				<input class="form-button" type="reset" name="Cancel" value="Cancel">
 			</form>	
 			<script>
 			function submitFormFunction() {
@@ -203,12 +202,14 @@
 				alert("You have successfully booked: "+ "'"+value+"'");
 			}
 			function isHorror(){
-			var x = document.getElementByClassName('Movie');
-				if(x.className=="Horror"&&document.getElementById('Child_Tickets').value!="Please Select"){
-					alert("You Can Not Book child Tickets for horror");
+				var x = document.getElementById('Movie');
+				var y = document.getElementById('Child_Tickets');
+				if((x.value=="The Shining"||x.value=="The Exorcist" ||x.value=="Poltergeist"||x.value=="The Conjuring"||x.value=="The Ring")&&y.value!="Please Select"){
+					alert("You Can Not Book Child Tickets for Over 18 films!");
 				}
-				else{
+				else if(x.value!="Please Select"){
 					submitFormFunction();
+					document.getElementById('bookingform').reset;
 				}
 					
 			}

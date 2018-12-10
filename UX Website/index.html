@@ -11,12 +11,12 @@
 	<body>
 		<header>
 
-			
-				<a class="logo-container" href="index.html">
+			<a href="index.html">
+				<div>
 				<img class="logo" src="Assets/Images/logo.png" alt="Blockbuster Theatres">
 				<h1 class="header-text">BLOCKBUSTER<br>THEATRE</h1>
-				</a>
-			
+				</div>
+			</a>
 					
 			<div href="#" class="hamburger" onClick="hamburger">
 				<div class="line"></div>
@@ -185,7 +185,7 @@
 		<p>top</p>
 	</div>
 		
-	<footer id="footer">
+	<footer>
 	<small>&copy; Blockbuster Theatres</small>
 		<nav class="nav secondary-nav">
 			<ul>
@@ -225,7 +225,7 @@ $('.ham-overlay').on('click', function()
 	$('body').removeClass('noScroll');
 	
 });
-	
+
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
