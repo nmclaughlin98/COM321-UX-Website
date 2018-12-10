@@ -139,9 +139,10 @@
 				alert("You have successfully booked: "+ "'"+value+"'");
 			}
 			function isHorror(){
-			var x = document.getElementByClassName('Movie');
-				if(x.className=="Horror"&&document.getElementById('Child_Tickets').value!="Please Select"){
-					alert("You Can Not Book child Tickets for horror");
+				var x = document.getElementById('Movie');
+				var y = document.getElementById('Child_Tickets');
+				if((x.value=="The Shining"||x.value=="The Exorcist" ||x.value=="Poltergeist"||x.value=="The Conjuring"||x.value=="The Ring")&&y.value!="Please Select"){
+					alert("You Can Not Book Child Tickets for Over 18 films!");
 				}
 				else{
 					submitFormFunction();
