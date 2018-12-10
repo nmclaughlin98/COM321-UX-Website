@@ -37,7 +37,7 @@
 		
 		<section class="booking-col">
 			<h1>Book Your Tickets Today!</h1>
-			<form action="/login" method="post"><br><br>
+			<form action="/login" method="post" id="bookingform"><br><br>
 				<label>First Name:</label>
 				<input type="text" name="first-Name" required><br><br>
 				<label>Surname:</label>
@@ -128,8 +128,8 @@
 					<option value= "4">4</option>
 					<option value= "5">5</option>
 				</select><br><br>
-				<input class="booking-button" type="reset" name="Book" value="Book" onclick="isHorror()">
-				<input class="booking-button" type="reset" name="Cancel" value="Cancel">
+				<input class="booking-button" type="button" name="Book" value="Book Now" onclick="isHorror()">
+				<input class="booking-button" type="reset" name="Cancel" value="Reset">
 			</form>	
 			<script>
 			function submitFormFunction() {
@@ -144,8 +144,9 @@
 				if((x.value=="The Shining"||x.value=="The Exorcist" ||x.value=="Poltergeist"||x.value=="The Conjuring"||x.value=="The Ring")&&y.value!="Please Select"){
 					alert("You Can Not Book Child Tickets for Over 18 films!");
 				}
-				else{
+				else if(x.value!="Please Select"){
 					submitFormFunction();
+					document.getElementById('bookingform').reset;
 				}
 					
 			}
