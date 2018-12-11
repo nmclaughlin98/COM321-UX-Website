@@ -447,6 +447,12 @@
                 </div>
             </section>
 		</section>       
+				
+		<div class="back-to-top" id="back-to-top" onClick="topFunction()">
+			<div align="center" id="arrow" class="arrow top-arrow"><div class="arrow-line-invert"></div><div class="arrow-line-invert"></div></div>
+			<p>Back to</p>
+			<p>top</p>
+		</div>
 			
 		<footer>
 			<small>&copy; Blockbuster Theatres</small>
@@ -487,4 +493,28 @@ $('.ham-overlay').on('click', function()
 	$('body').removeClass('noScroll');
 	
 });
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+		document.getElementById("arrow").style.opacity = 1;
+        document.getElementById("back-to-top").style.opacity = 1;
+		document.getElementById("back-to-top").style.visibility = "visible";
+		
+    } else {
+		document.getElementById("arrow").style.opacity = 0;
+		document.getElementById("back-to-top").style.opacity = 0;
+		document.getElementById("back-to-top").style.visibility = "hidden";
+
+		
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
 </script>
