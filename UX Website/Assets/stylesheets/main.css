@@ -201,6 +201,15 @@ Body
 	color: #161515;
 }
 
+.footer-spacer{
+	padding: 20px;
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	color: #161515;
+	height: 65vh;
+}
+
 
 .poster{
 	width:320px;
@@ -365,7 +374,6 @@ footer{
 	padding-right:20px;
 	float:left;
 	box-sizing:border-box;
-	
 }
 
 .secondary-nav{
@@ -1050,36 +1058,134 @@ Booking
 ========================================
 */
 
+.booking-form{
+	width:70%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.booking-col form{
+	box-sizing: border-box;;
+	margin: auto; 
+	width: 560px;
+	position: relative;
+}
+
 .booking-col{
 	/*margin: 60px 33% 10px 33%;*/
-	padding-top:40px;
+	padding-top:20px;
 	margin-top: 15px;
 	margin-bottom: 10px;
 	border-bottom-color:#000;
 	text-align:left;
-	padding-left:20px;
-	margin:0 35% 0 35%;
-	width: 50%;
-	float:left;
+	width: 100%;
+	float:none;
+	box-sizing: border-box;
 }
 
 .booking-col h1{
 	margin-bottom:20px;
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 0;
+	padding-right: 0;
+	text-align: center;
 }
 .booking-col label{
 	color:#fff;
 	width:150px;
+	display: block;
 }
+
 .booking-col input{
 	width:400px;
+	margin-left: auto;
+	margin-right: 0;
+	
 }
 .booking-col select{
 	width: 400px;
+	margin-left: auto;
+	margin-right: 0;
 }
 
+
 .booking-col .form-button{
-	max-width:275px;
+	
+	width: 35%;
 }
+
+#next{
+	margin-right: 150px;
+	float: right;
+}
+
+#progressbar {
+	margin-bottom: 30px;
+	overflow: hidden;
+	counter-reset: step;
+	width: 100%;
+}
+#progressbar li {
+	list-style-type: none;
+	color: white;
+	font-size: 13px;
+	width: 20%;
+	float: left;
+	position: relative;
+	text-align: center;
+}
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+	width: 30px;
+	line-height: 30px;
+	display: block;
+	font-size: 16px;
+	background-color: #797979;
+	border-radius: 3px;
+	text-align: center;
+	margin: 0 auto 5px auto;
+	color: #fff;
+}
+
+#progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 2px;
+	background: white;
+	position: absolute;
+	left: -50%;
+	top: 14px;
+	z-index: -1; 
+}
+#progressbar li:first-child:after {
+
+	content: none; 
+}
+
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: #ec5c5c;
+	color: white;
+}
+
+fieldset{
+
+
+	
+	width: 100%;
+	box-sizing: border-box;
+
+	/*stacking fieldsets above each other*/
+	position: absolute;
+}
+
+fieldset:not(:first-of-type) {
+	display: none;
+}
+
+
+
 
 
 

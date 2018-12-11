@@ -1,5 +1,0 @@
-        for(var i = 0; i != 5; ++i) {
-            var option = document.createElement('option');
-            option.text = option.value = i;
-            select.add(option, 0);
-        }
