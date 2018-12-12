@@ -8,11 +8,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<title>Blockbuster Theatres - About</title>
 	</head>
-	<body>
-		<header>
-			<a href="index.html">
+	<body>		<header>			
+                        <a class="header-box" href="index.html">
+				<div>
 				<img class="logo" src="Assets/Images/logo.png" alt="Blockbuster Theatres">
 				<h1 class="header-text">BLOCKBUSTER<br>THEATRE</h1>
+				</div>
 			</a>
 			
 			<div href="#" class="hamburger" onClick="hamburger">
@@ -110,7 +111,7 @@
 		</div>
 			
 		<div>
-			<input name="submit" type="submit" class="form-button" id="submit"  value="Submit">
+			<input name="submit" type="submit" class="form-button" id="submit"  value="Submit" onClick="myfunction()">
 			<input name="reset" type="reset" class="form-button" id="reset" value="Reset">
 		
 
@@ -222,5 +223,12 @@ for (i = 0; i < acc.length; i++) {
       panel.style.maxHeight = panel.scrollHeight + "px";
     } 
   });
+}
+</script>
+
+
+<script>
+function myfunction() {
+  alert("Thank you.\n\nYour feedback has been submitted");
 }
 </script>
