@@ -105,6 +105,11 @@
 	.runtime{
 		font-size: 15px;
 	}
+	.overlay-text{
+		font-size: 23px;
+		
+
+	}	
 	
 }
 @media screen and (max-width: 1230px){
