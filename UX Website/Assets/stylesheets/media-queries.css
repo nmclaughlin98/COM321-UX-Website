@@ -79,6 +79,31 @@
 
 @media screen and (max-width:1366px){
 	
+	.day-of-week{
+		
+		display: block;
+		width: 100%;
+		padding-left: 10px;
+		padding-top: 20px;
+	}
+	
+	.show-time-list{
+		display: block;
+		width: 100%;
+		margin-top: 10px;
+		margin-left: 0;
+		padding-left: 0;
+	}
+	
+	.col hr{
+		display: block;
+		
+	}
+	
+	.show-time{
+		margin-left: 0;
+	}
+	
 	header{
 		height: 70px
 	}
@@ -107,9 +132,15 @@
 	}
 	.overlay-text{
 		font-size: 23px;
-		
-
 	}	
+	
+	.offers h2{
+		font-size: 22px;
+	}
+	
+	.offers p{
+		font-size: 14px;
+	}
 	
 }
 @media screen and (max-width: 1230px){
@@ -151,6 +182,14 @@
 	.carousel-caption p{
 		font-size: 14px;
 		padding-bottom: 15px;
+	}
+	
+	.offers h2{
+		font-size: 18px;
+	}
+	
+	.offers p{
+		font-size: 12px;
 	}
 
 }
@@ -215,6 +254,33 @@
 	.map p{
 		font-size:16px;
 	}
+	
+	.show-time{
+		display: inline;
+		width: auto;
+	}
+	
+	.show-time-list{
+		display: inline;
+		width: auto;
+		margin-top: 0;
+	}
+	
+	.day-of-week{
+		display: inline;
+		width: auto;
+		padding-top: 0;
+		padding-left: 0;
+	}
+	
+	.offers h2{
+		font-size: 25px;
+		margin-bottom: 30px;
+	}
+	
+	.offers p{
+		font-size: 18px;
+	}
 }
 
 @media (max-width: 946px){
@@ -240,9 +306,7 @@
 	
 	.col-1-3{
 		width: 100%;
-		padding-left:50px;
-		padding-right:50px;
-		
+
 	}
 	
 	textarea
@@ -366,6 +430,8 @@
 	.panel{
 		width:570px;
 	}
+	
+	
 }
 
 
@@ -492,7 +558,7 @@
 
 }
 
-@media screen and (max-width: 745px){
+@media screen and (max-width: 767px){
 	.poster{
 		width:130px;
 		height:200px;
@@ -545,6 +611,22 @@
 	.trailer{
 		width: 100%;
 		margin: 0;
+	}
+	
+	.genre-box{
+		padding-top: 10px;
+		display: block;
+	}
+
+	.genre2{
+		padding-left: 0;
+	}
+	
+	.genre .form-button{
+		right: 30px;
+		margin: 0;
+		width: 140px;
+
 	}
 }
 
@@ -1109,4 +1191,7 @@ Hamburger
 	}
 	
 	
+	
 }
+
+
