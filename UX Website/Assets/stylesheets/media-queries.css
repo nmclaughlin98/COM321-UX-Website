@@ -482,9 +482,7 @@
 		height: 87px
 	}
 	
-	.booking-col{
-		margin: 0 0 0 0;
-	}
+
 
 
 }
@@ -596,6 +594,8 @@
 
 	}
 	
+
+	
 /*
 ========================================
 Hamburger
@@ -620,7 +620,7 @@ Hamburger
 		padding-top: 18px;
 	}
 	
-	ul {
+	nav ul {
 	   	position: absolute;
 		right:0;
 		height:0;
@@ -664,6 +664,14 @@ Hamburger
 	
 	.item{
 		height: 306px;
+	}
+	
+	.booking{
+		height: 249px ; 
+	}
+	
+	.booking h2{
+		padding-bottom: 30px;
 	}
 	
 	.img-responsive{
@@ -841,6 +849,67 @@ Hamburger
 
 	}
 	
+	.booking-col label{
+		color:#fff;
+		width:75%;
+		display: block;
+	}
+
+	.booking-col input{
+		width:75%;
+		margin-left: auto;
+		margin-right: 0;
+
+	}
+	.booking-col select{
+		width: 75%;
+		margin-left: auto;
+		margin-right: 0;
+	}
+	
+	.booking-col form{
+		box-sizing: border-box;
+		margin: auto; 
+		width: 100%;
+		position: relative;
+		padding: 0;
+		
+	}
+	
+	.seating-plan{
+		width: 95%;
+		transform: translate(0, 0);
+	}
+	
+	.seat-row{
+		width: 100%;
+	}
+	
+	.seat{
+		width: 5%;
+		margin-left: 0;
+		margin-right: 0;
+	}
+	
+	fieldset{
+		margin: auto;
+
+	}
+	
+	.booking-col{
+		margin: auto;
+	}
+	
+	.booking-form{
+		align-items: center;
+		align-content: center;
+		width: 100%;
+
+	}
+	
+	#progressbar li{
+		font-size: 12px;
+	}
 
 
 }
@@ -900,6 +969,15 @@ Hamburger
 	
 	.spacer{
 		padding: 15px;
+	}
+	
+	.footer-spacer{
+		padding: 20px;
+		display: block;
+		width: 100%;
+		box-sizing: border-box;
+		color: #161515;
+		height: 30pc;
 	}
 	
 	
@@ -1024,5 +1102,6 @@ Hamburger
 	.runtime{
 		padding-bottom: 5px;
 	}
+	
 	
 }

@@ -23,6 +23,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 	-webkit-text-size-adjust: 100%;
+	
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -186,6 +187,21 @@ a:hover{
 
 }
 
+.header-box {
+	-webkit-tap-highlight-color: rgba(0,0,0,0.3);
+}
+
+.header-box h1{
+	transition:0.25s ease;
+	-webkit-transition:0.25s ease;
+	-o-transition:0.25s ease;
+	-moz-transition:0.25s ease;
+}
+
+.header-box:hover h1{
+	color: #e85c5c;
+}
+
 
 /*
 ========================================
@@ -207,7 +223,7 @@ Body
 	width: 100%;
 	box-sizing: border-box;
 	color: #161515;
-	height: 65vh;
+	height: 30pc;
 }
 
 
@@ -326,6 +342,10 @@ Body
 	
 }
 
+.header-box:hover{
+	
+}
+
 /*
 ========================================
 Carousel
@@ -374,6 +394,8 @@ footer{
 	padding-right:20px;
 	float:left;
 	box-sizing:border-box;
+	position: static;
+	display: block;
 }
 
 .secondary-nav{
@@ -522,7 +544,7 @@ Now Showing
 
 .icon{
 	width: auto;
-	max-height: 400px;;
+	max-height: 300px;;
 	height:auto;
 	float: left;
 	margin-top: auto;
@@ -1061,9 +1083,12 @@ Booking
 */
 
 .booking-form{
-	width:70%;
+	width:100%;
 	margin-left: auto;
 	margin-right: auto;
+	display: block;
+	position: static;
+	height: 200px;
 }
 
 .booking-col form{
@@ -1095,8 +1120,11 @@ Booking
 }
 .booking-col label{
 	color:#fff;
-	width:150px;
+	width:400px;
 	display: block;
+	text-align: left;
+	margin-left: 0;
+	padding-left: 0;
 }
 
 .booking-col input{
@@ -1104,11 +1132,13 @@ Booking
 	margin-left: auto;
 	margin-right: 0;
 	
+	
 }
 .booking-col select{
 	width: 400px;
 	margin-left: auto;
 	margin-right: 0;
+	
 }
 
 
@@ -1194,7 +1224,7 @@ fieldset:not(:first-of-type) {
 	box-sizing:border-box;
 	margin:0;
 	margin-bottom:10px;
-	transform: translate(-83px, 0);
+	
 	
 }
 
@@ -1222,6 +1252,8 @@ fieldset:not(:first-of-type) {
 	margin-bottom: 15px;
 }
 
+
+
 .screen{
 	
 	width: 95%;
@@ -1245,6 +1277,7 @@ fieldset:not(:first-of-type) {
 }
 
 .seat-accessible{
+	background-color: #4245FD;
 	background-color: none;
 	background-image: url("Assets/Images/Icons/accessible.png");
 }
@@ -1268,6 +1301,112 @@ fieldset:not(:first-of-type) {
 .selected-seat{
 	background-color: #f1f441;
 }
+
+.bookedSeat{
+	background-color: #656262;
+	cursor: default;
+	
+}
+.bookedSeat:hover{
+	background-color: #656262;
+	cursor: default;
+	
+}
+
+.test-seat{
+	max-width:15%;
+	width: 6%;
+	height:30px;
+	border: 2px solid #000;
+	display: inline-block;
+	border-radius: 3px;
+	background-color: #fff;
+	margin-bottom: 0;
+	box-sizing:border-box;
+	
+}
+
+.test-seat:last-child{
+	margin-right: 0;
+}
+
+.test-seat:hover{
+	cursor: default;
+}
+
+.legend{
+	
+}
+
+.legend p{
+
+	display: inline-block;
+	font-size: 9px;
+	text-align: center;
+	max-width:15%;
+	width: 6%;
+	
+	box-sizing:border-box;
+	padding-top: 0;
+	margin-top: 0;
+		
+	
+	
+}
+.container{
+	display: inline;
+	width:auto;
+	height: 10%;
+	padding: auto;
+	margin: auto;
+	margin-right: 20px;
+	
+}
+
+
+
+.seat-accessibleTest{
+	background-color: #4245FD;
+
+}
+
+.selected-seatTest{
+	background-color: #f1f441;
+}
+
+.bookedSeatTest{
+	background-color: #656262;
+	cursor: default;
+	
+}
+
+.confirm h2{
+	text-align: left;
+	margin-bottom: 10px;
+}
+
+.confirm p{
+	color: #fff;
+	font-size: 18px;
+	text-align: left;
+	line-height: 3.5;
+}
+
+.message{
+	line-height: 1;
+	margin-bottom: 20px;
+	font-style: italic;
+}
+
+.offers .col-1-3{
+	margin-right: 15px;
+}
+
+.offers p{
+	line-height: 1.5;
+}
+
+
 
 
 
