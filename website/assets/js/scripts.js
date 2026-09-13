@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initHeroCarousel();
   initTrailerModal();
-  initLocalTrailerFallbacks();
   initAccordion();
   initContactForm();
   initComingSoonCountdowns();
@@ -227,36 +226,11 @@ function openTrailer(videoUrl) {
   const iframe = document.getElementById('trailer-iframe');
   if (!modal || !iframe) return;
 
-  if (window.location.protocol === 'file:') {
-    const videoId = videoUrl.match(/embed\/([^?]+)/)?.[1];
-    if (videoId) {
-      window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank', 'noopener');
-      return;
-    }
-  }
-
   // Ensure autoplay query is present
   const embedUrl = videoUrl.includes('autoplay=1') ? videoUrl : (videoUrl.includes('?') ? `${videoUrl}&autoplay=1` : `${videoUrl}?autoplay=1`);
   iframe.src = embedUrl;
   modal.classList.add('open');
   document.body.classList.add('noScroll');
-}
-
-function initLocalTrailerFallbacks() {
-  if (window.location.protocol !== 'file:') return;
-
-  document.querySelectorAll('iframe.trailer').forEach(iframe => {
-    const videoId = iframe.src.match(/embed\/([^?]+)/)?.[1];
-    if (!videoId) return;
-
-    const link = document.createElement('a');
-    link.className = 'trailer trailer-fallback';
-    link.href = `https://www.youtube.com/watch?v=${videoId}`;
-    link.target = '_blank';
-    link.rel = 'noopener';
-    link.textContent = 'Open trailer on YouTube';
-    iframe.replaceWith(link);
-  });
 }
 
 /* ==========================================================================
