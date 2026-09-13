@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Timetable | Blockbuster Theatre</title>
+    <link href="assets/Images/favicon.png" rel="icon" type="image/png">
+    <link rel="stylesheet" href="assets/CSS/style.css"> <!-- Replace with your main CSS filename -->
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">
+            <img src="assets/Images/logo.png" alt="Blockbuster Theatres Logo">
+            <span>BLOCKBUSTER<br>THEATRE</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="nowShowing.html" class="active">Now Showing</a></li>
+                <li><a href="comingSoon.html">Coming Soon</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="bookNow.html">Book Tickets</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-banner">
+        <h1>Weekly Movie Timetable</h1>
+        <p>Schedule for Week Commencing 10th December 2018</p>
+    </section>
+
+    <div class="timetable-controls">
+        <div class="day-tabs" role="tablist">
+            <button class="day-tab active" onclick="filterDay('Monday')">Monday</button>
+            <button class="day-tab" onclick="filterDay('Tuesday')">Tuesday</button>
+            <button class="day-tab" onclick="filterDay('Wednesday')">Wednesday</button>
+            <button class="day-tab" onclick="filterDay('Thursday')">Thursday</button>
+            <button class="day-tab" onclick="filterDay('Friday')">Friday</button>
+            <button class="day-tab" onclick="filterDay('Saturday')">Saturday</button>
+            <button class="day-tab" onclick="filterDay('Sunday')">Sunday</button>
+        </div>
+
+        <div class="filter-bar">
+            <input type="text" id="movieSearch" class="search-input" placeholder="Search film title..." onkeyup="filterMovies()">
+        </div>
+    </div>
+
+    <main class="timetable-container" id="timetableList">
+        <!-- Rendered via JS -->
+    </main>
+
+    <footer>
+        <div class="footer-info">
+            <strong>Blockbuster Theatre Derry</strong>
+            <p>Unit 16, Crescent Link Retail Park, BT47 6SA</p>
+            <p>Email: info@blockbuster-theatre.com | Tel: 028 7147 2869</p>
+        </div>
+        <small>© Blockbuster Theatres. Modern cinema • IMAX • Dolby Atmos.</small>
+    </footer>
+
+    <script>
+        const moviesData = [
+            { title: "Avengers: Infinity War", genre: "Action", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+            { title: "Spider-Man: Homecoming", genre: "Action", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+            { title: "Spectre", genre: "Action", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+            { title: "Deadpool 2", genre: "Action", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+            { title: "Elf", genre: "Comedy / Kids", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+            { title: "Ralph Breaks the Internet", genre: "Animation / Kids", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+            { title: "Nobody's Fool", genre: "Comedy", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+            { title: "The Grinch", genre: "Animation / Kids", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+            { title: "Johnny English: Strikes Again", genre: "Comedy", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+            { 
+                title: "The Shining", genre: "Horror", 
+                schedule: {
+                    Monday: ["17:00", "21:00", "23:00"],
+                    Tuesday: ["17:00", "21:00", "23:00"],
+                    Wednesday: ["17:30", "21:00", "23:00"],
+                    Thursday: ["17:00", "21:00", "23:00"],
+                    Friday: ["17:00", "21:00", "23:00"],
+                    Saturday: ["17:00", "21:45", "23:00"],
+                    Sunday: ["11:00", "21:00"]
+                }
+            },
+            { 
+                title: "The Exorcist", genre: "Horror", 
+                schedule: {
+                    Monday: ["17:00", "21:00", "23:00"],
+                    Tuesday: ["17:00", "21:00", "23:00"],
+                    Wednesday: ["17:30", "21:00", "23:00"],
+                    Thursday: ["17:00", "21:00", "23:00"],
+                    Friday: ["17:00", "21:00", "23:00"],
+                    Saturday: ["17:00", "21:45", "23:00"],
+                    Sunday: ["11:00", "21:00"]
+                }
+            },
+            { 
+                title: "Poltergeist", genre: "Horror", 
+                schedule: {
+                    Monday: ["17:00", "21:00", "23:00"],
+                    Tuesday: ["17:00", "21:00", "23:00"],
+                    Wednesday: ["17:30", "21:00", "23:00"],
+                    Thursday: ["17:00", "21:00", "23:00"],
+                    Friday: ["17:00", "21:00", "23:00"],
+                    Saturday: ["17:00", "21:45", "23:00"],
+                    Sunday: ["11:00", "21:00"]
+                }
+            },
+            { 
+                title: "The Conjuring", genre: "Horror", 
+                schedule: {
+                    Monday: ["17:00", "21:00", "23:00"],
+                    Tuesday: ["17:00", "21:00", "23:00"],
+                    Wednesday: ["17:30", "21:00", "23:00"],
+                    Thursday: ["17:00", "21:00", "23:00"],
+                    Friday: ["17:00", "21:00", "23:00"],
+                    Saturday: ["17:00", "21:45", "23:00"],
+                    Sunday: ["11:00", "21:00"]
+                }
+            },
+            { 
+                title: "The Ring", genre: "Horror", 
+                schedule: {
+                    Monday: ["17:00", "21:00", "23:00"],
+                    Tuesday: ["17:00", "21:00", "23:00"],
+                    Wednesday: ["17:30", "21:00", "23:00"],
+                    Thursday: ["17:00", "21:00", "23:00"],
+                    Friday: ["17:00", "21:00", "23:00"],
+                    Saturday: ["17:00", "21:45", "23:00"],
+                    Sunday: ["11:00", "21:00"]
+                }
+            },
+            { title: "Aladdin", genre: "Classic / Family", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+            { title: "E.T. - The Extra-Terrestrial", genre: "Sci-Fi / Family", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+            { title: "Toy Story", genre: "Animation", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+            { title: "Star Wars: The Last Jedi", genre: "Sci-Fi", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+            { title: "The Godfather", genre: "Classic / Drama", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+            { title: "Pulp Fiction", genre: "Classic / Crime", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+            { title: "Raging Bull", genre: "Classic / Drama", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+            { title: "One Flew Over The Cuckoo's Nest", genre: "Classic / Drama", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+            { title: "Forrest Gump", genre: "Classic / Drama", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] }
+        ];
+
+        let selectedDay = 'Monday';
+
+        function renderTimetable() {
+            const container = document.getElementById('timetableList');
+            const searchVal = document.getElementById('movieSearch').value.toLowerCase();
+            container.innerHTML = '';
+
+            moviesData.forEach(movie => {
+                if (searchVal && !movie.title.toLowerCase().includes(searchVal)) return;
+
+                let times = movie.schedule ? (movie.schedule[selectedDay] || []) : ((selectedDay === 'Monday') ? movie.standard : movie.tuesdayToSunday);
+
+                if (times.length === 0) return;
+                const uniqueTimes = [...new Set(times)];
+
+                const card = document.createElement('div');
+                card.className = 'movie-card';
+                
+                const showtimesHTML = uniqueTimes.map((time, idx) => `
+                    <a href="bookNow.html?movie=${encodeURIComponent(movie.title)}&time=${time}&day=${selectedDay}" class="showtime-btn">
+                        ${time}
+                        <span>Screen ${idx + 1}</span>
+                    </a>
+                `).join('');
+
+                card.innerHTML = `
+                    <div class="movie-info">
+                        <div class="movie-title">${movie.title}</div>
+                        <div class="movie-meta">
+                            <span class="badge-genre">${movie.genre}</span>
+                            <span>2D / 4K Laser</span>
+                        </div>
+                    </div>
+                    <div class="showtimes-grid">
+                        ${showtimesHTML}
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        function filterDay(day) {
+            selectedDay = day;
+            document.querySelectorAll('.day-tab').forEach(btn => {
+                btn.classList.toggle('active', btn.innerText === day);
+            });
+            renderTimetable();
+        }
+
+        function filterMovies() {
+            renderTimetable();
+        }
+
+        renderTimetable();
+    </script>
+</body>
+</html>
