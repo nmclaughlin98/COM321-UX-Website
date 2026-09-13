@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initHeroCarousel();
   initTrailerModal();
+  initDateSelect();
   initAccordion();
   initContactForm();
   initComingSoonCountdowns();
@@ -234,7 +235,35 @@ function openTrailer(videoUrl) {
 }
 
 /* ==========================================================================
-   5. Accordion (about.html FAQs)
+   5. Date Selection Populate
+   ========================================================================== */
+function initDateSelect() {
+  const select = document.getElementById('dateSelect');
+  if (!select) return;
+
+  const today = new Date();
+  const formatter = new Intl.DateTimeFormat('en-GB', {
+    weekday: 'short',
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric'
+  });
+
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(today);
+    d.setDate(today.getDate() + i);
+
+    const formattedDate = formatter.format(d).replace(/,/g, '');
+
+    const option = document.createElement('option');
+    option.value = formattedDate;
+    option.textContent = formattedDate;
+    select.appendChild(option);
+  }
+}
+
+/* ==========================================================================
+   6. Accordion (about.html FAQs)
    ========================================================================== */
 function initAccordion() {
   const accordions = document.querySelectorAll('.accordion');
@@ -269,7 +298,7 @@ function initAccordion() {
 }
 
 /* ==========================================================================
-   6. Contact Form Toast Feedback
+   7. Contact Form Toast Feedback
    ========================================================================== */
 function initContactForm() {
   const contactForm = document.getElementById('contact-form') || document.querySelector('.contact-card form');
@@ -298,7 +327,7 @@ function showToast(message) {
 }
 
 /* ==========================================================================
-   7. Coming Soon Dynamic Countdowns
+   8. Coming Soon Dynamic Countdowns
    ========================================================================== */
 function initComingSoonCountdowns() {
   const countdownElements = document.querySelectorAll('[data-countdown], .poster-column .overlay p[id]');
@@ -340,7 +369,7 @@ function initComingSoonCountdowns() {
 }
 
 /* ==========================================================================
-   8. Now Showing Genre Filter & Search Bar
+   9. Now Showing Genre Filter & Search Bar
    ========================================================================== */
 function initGenreFilterAndSearch() {
   const searchInput = document.getElementById('movie-search-input');
@@ -384,7 +413,7 @@ function initGenreFilterAndSearch() {
 }
 
 /* ==========================================================================
-   9. Interactive Ticket Booking Flow (bookNow.html)
+   10. Interactive Ticket Booking Flow (bookNow.html)
    ========================================================================== */
 function initBookingWizard() {
   const form = document.getElementById('myForm');
@@ -405,8 +434,8 @@ function initBookingWizard() {
   // Booking State
   const bookingState = {
     movie: '',
-    day: 'Today',
-    time: '19:00',
+    date: '',
+    time: '',
     tickets: {
       adult: 1,
       child: 0,
@@ -424,6 +453,15 @@ function initBookingWizard() {
     },
     bookingRef: 'BBT-' + Math.floor(100000 + Math.random() * 900000)
   };
+
+  // Synchronize initial & selected date value into booking state
+  const dateSelect = document.getElementById('dateSelect');
+  if (dateSelect) {
+    if (dateSelect.value) bookingState.date = dateSelect.value;
+    dateSelect.addEventListener('change', () => {
+      bookingState.date = dateSelect.value;
+    });
+  }
 
   // URL Parameter auto-prefill (e.g. bookNow.html?movie=Infinity_War&time=19:00)
   const urlParams = new URLSearchParams(window.location.search);
@@ -463,9 +501,9 @@ function initBookingWizard() {
     currentStep = newStep;
     window.scrollTo({ top: form.offsetTop - 100, behavior: 'smooth' });
 
-    // When reaching Step 5 (Confirmation), generate digital ticket
+    // When reaching Step 5 (Confirmation), show the wallet pass action
     if (currentStep === 4) {
-      renderDigitalTicket();
+      renderWalletPassAction();
     }
   }
 
@@ -677,8 +715,8 @@ function initBookingWizard() {
     });
   });
 
-  // Step 5: Render Digital Cinema Boarding Pass / Ticket
-  function renderDigitalTicket() {
+  // Step 5: Render wallet pass action
+  function renderWalletPassAction() {
     const ticketContainer = document.getElementById('digital-ticket-container');
     if (!ticketContainer) return;
 
@@ -686,7 +724,7 @@ function initBookingWizard() {
       <div class="ticket-pass">
         <div class="ticket-pass-header">
           <div class="ticket-pass-brand">BLOCKBUSTER THEATRE</div>
-          <div class="ticket-pass-status">CONFIRMED PASS</div>
+          <div class="ticket-pass-status">CONFIRMED BOOKING</div>
         </div>
         <div class="ticket-pass-body">
           <div class="ticket-movie-title">${bookingState.movie}</div>
@@ -694,7 +732,7 @@ function initBookingWizard() {
           <div class="ticket-details-grid">
             <div class="ticket-detail-item">
               <span>Date & Showtime</span>
-              <strong>${bookingState.day} at ${bookingState.time}</strong>
+              <strong>${bookingState.date} at ${bookingState.time}</strong>
             </div>
             <div class="ticket-detail-item">
               <span>Screen / Hall</span>
@@ -723,17 +761,85 @@ function initBookingWizard() {
           </div>
 
           <div class="ticket-barcode-area">
-            <div class="barcode-graphic"></div>
             <div class="ticket-booking-ref">REF: ${bookingState.bookingRef}</div>
           </div>
         </div>
       </div>
 
       <div style="display: flex; gap: 14px; justify-content: center; margin-top: 20px; flex-wrap: wrap;">
-        <button type="button" class="form-button" onclick="window.print()">🖨 Print / Save Ticket</button>
-        <button type="button" class="form-button previous" onclick="window.location.href='index.html'">🍿 Back to Home</button>
+        <button type="button" class="form-button wallet-pass-button">Add to Wallet</button>
+        <button type="button" class="form-button previous" onclick="window.location.href='index.html'">Back to Home</button>
       </div>
     `;
+
+    ticketContainer.querySelector('.wallet-pass-button')?.addEventListener('click', generateWalletPass);
+  }
+
+  async function generateWalletPass() {
+    const walletWorkerUrl = 'https://blockbuster-wallet-proxy.niallmclaughlin1998.workers.dev/';
+    if (walletWorkerUrl.includes('<your-subdomain>')) {
+      showToast('Add your Cloudflare Worker URL before using the wallet pass.');
+      return;
+    }
+
+    const walletButton = document.querySelector('.wallet-pass-button');
+    if (walletButton) {
+      walletButton.disabled = true;
+      walletButton.textContent = 'Preparing Wallet Pass...';
+    }
+
+    const ticketPayload = {
+      barcodeValue: bookingState.bookingRef,
+      barcodeFormat: 'QR',
+      logoText: 'Blockbuster Theatre',
+      colorPreset: 'dark',
+      expirationDays: 2,
+      color: '#9d243b',
+      logoURL: new URL('assets/Images/logo.png', document.baseURI).href,
+      iconURL: new URL('assets/Images/logo.png', document.baseURI).href,
+      primaryFields: [{ label: 'Movie', value: bookingState.movie }],
+      secondaryFields: [
+        { label: 'Date', value: bookingState.date },
+        { label: 'Time', value: bookingState.time }
+      ],
+      headerFields: [
+        { label: 'Seat(s)', value: bookingState.selectedSeats.join(', ') },
+        { label: 'Screen', value: '1' }
+      ],
+      backFields: [
+        { label: 'Total Paid', value: `£${bookingState.totalPrice.toFixed(2)}` },
+        { label: 'Guest Name', value: `${bookingState.customer.fname} ${bookingState.customer.sname}` },
+        { label: 'Booking Ref', value: bookingState.bookingRef }
+      ],
+      locations: [{
+        latitude: 55.044358,
+        longitude: -7.276147,
+        relevantText: 'Blockbuster Theatre'
+      }]
+    };
+
+    try {
+      const response = await fetch(walletWorkerUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(ticketPayload)
+      });
+
+      const passData = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        throw new Error(passData.error || `Wallet pass request failed: ${response.status}`);
+      }
+
+      if (!passData.downloadUrl) throw new Error('Wallet pass URL was not returned.');
+      window.location.href = passData.downloadUrl;
+    } catch (error) {
+      console.error(error);
+      showToast('The wallet pass could not be created. Please try again.');
+      if (walletButton) {
+        walletButton.disabled = false;
+        walletButton.textContent = 'Add to Wallet';
+      }
+    }
   }
 
   // Initialize first step calculation
@@ -741,7 +847,7 @@ function initBookingWizard() {
 }
 
 /* ==========================================================================
-   10. Movie Detail Page Showtime Direct Booking
+   11. Movie Detail Page Showtime Direct Booking
    ========================================================================== */
 function initMoviePageShowtimes() {
   document.querySelectorAll('.show-time').forEach(item => {
