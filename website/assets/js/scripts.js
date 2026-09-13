@@ -767,26 +767,34 @@ function initBookingWizard() {
       </div>
 
       <div style="display: flex; gap: 14px; justify-content: center; margin-top: 20px; flex-wrap: wrap;">
-        <button type="button" class="form-button wallet-pass-button">Add to Wallet</button>
+        <button type="button" class="form-button wallet-pass-button" data-wallet="apple">
+          <span aria-hidden="true"></span> Apple Wallet
+        </button>
+        <button type="button" class="form-button wallet-pass-button" data-wallet="google">
+          <span aria-hidden="true">G</span> Google Wallet
+        </button>
         <button type="button" class="form-button previous" onclick="window.location.href='index.html'">Back to Home</button>
       </div>
     `;
 
-    ticketContainer.querySelector('.wallet-pass-button')?.addEventListener('click', generateWalletPass);
+    ticketContainer.querySelectorAll('.wallet-pass-button').forEach(button => {
+      button.addEventListener('click', () => generateWalletPass(button.dataset.wallet));
+    });
   }
 
-  async function generateWalletPass() {
+  async function generateWalletPass(walletType) {
     const walletWorkerUrl = 'https://blockbuster-wallet-proxy.niallmclaughlin1998.workers.dev/';
     if (walletWorkerUrl.includes('<your-subdomain>')) {
       showToast('Add your Cloudflare Worker URL before using the wallet pass.');
       return;
     }
 
-    const walletButton = document.querySelector('.wallet-pass-button');
-    if (walletButton) {
-      walletButton.disabled = true;
-      walletButton.textContent = 'Preparing Wallet Pass...';
-    }
+    const walletButton = document.querySelector(`[data-wallet="${walletType}"]`);
+    const originalButtonContent = walletButton?.innerHTML;
+    document.querySelectorAll('.wallet-pass-button').forEach(button => {
+      button.disabled = true;
+    });
+    if (walletButton) walletButton.textContent = 'Preparing Wallet Pass...';
 
     const ticketPayload = {
       barcodeValue: bookingState.bookingRef,
@@ -830,16 +838,29 @@ function initBookingWizard() {
         throw new Error(passData.error || `Wallet pass request failed: ${response.status}`);
       }
 
-      const passUrl = passData.downloadUrl || passData.passUrl || passData.url || passData.googleSaveUrl;
-      if (!passUrl) throw new Error(`Wallet pass URL was not returned. Response: ${JSON.stringify(passData)}`);
-      window.location.href = passUrl;
+      if (walletType === 'apple' && passData.applePass) {
+        const passBytes = Uint8Array.from(atob(passData.applePass), character => character.charCodeAt(0));
+        const passBlob = new Blob([passBytes], { type: 'application/vnd.apple.pkpass' });
+        const passUrl = URL.createObjectURL(passBlob);
+        const downloadLink = document.createElement('a');
+        downloadLink.href = passUrl;
+        downloadLink.download = `${bookingState.bookingRef}.pkpass`;
+        downloadLink.click();
+        setTimeout(() => URL.revokeObjectURL(passUrl), 1000);
+      } else if (walletType === 'google' && passData.googleSaveUrl) {
+        window.location.href = passData.googleSaveUrl;
+      } else if (passData.shareUrl) {
+        window.location.href = passData.shareUrl;
+      } else {
+        throw new Error(`${walletType} wallet data was not returned. Response: ${JSON.stringify(passData)}`);
+      }
     } catch (error) {
       console.error(error);
       showToast('The wallet pass could not be created. Please try again.');
-      if (walletButton) {
-        walletButton.disabled = false;
-        walletButton.textContent = 'Add to Wallet';
-      }
+      document.querySelectorAll('.wallet-pass-button').forEach(button => {
+        button.disabled = false;
+      });
+      if (walletButton && originalButtonContent) walletButton.innerHTML = originalButtonContent;
     }
   }
 
