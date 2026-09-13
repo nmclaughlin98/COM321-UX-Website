@@ -1,1235 +1,144 @@
-@media (max-width: 1920px){
-	header{
-		height: 70px;
-		margin-top: 0;
-	}
-	
-	.primary-nav{
-		padding-top:26px;
+/* ==========================================================================
+   BLOCKBUSTER THEATRE - RESPONSIVE TWEAKS & UTILITIES
+   ========================================================================== */
 
-	} 
-	
-	.poster{
-		width:280px;
-		height:450px;
-	
-	}
-	
-	.button{
-		font-size: 17px;
-		-webkit-tap-highlight-color: rgba(128,128,128,0.3);
-	}
-	
-	.form-button{
-		font-size: 17px;
-		-webkit-tap-highlight-color: rgba(128,128,128,0.3);
-	}
-
-	.overlay-text{
-		font-size: 22px;
-
-	}	
-	
-	#cuckoo{
-		font-size: 21px;
-		line-height: 1.3;
-	}	
-	
-	.runtime{
-		padding-bottom: 20px;
-	}
-	
-	.text-overlay h2{
-		font-size: 32px;
-
-	}	
-	.text-overlay p{
-		font-size: 18px;
-		font-style: italic;
-	}
-
-
-}
-
-@media (max-width: 1680px){
-	.poster{
-		width:230px;
-		height:340px;
-	
-	}
-	
-	.button{
-		font-size: 14px;
-		margin-bottom: 10px;
-	}
-	
-	.form-button{
-		font-size: 14px;
-		margin-bottom: 10px;
-	}
-
-	.overlay-text{
-		font-size: 25px;
-
-	}	
-	
-	#cuckoo{
-		font-size: 20px;
-		line-height: 1.0;
-	}
-	
-	.rating{
-		margin-bottom: 10%;
-	}
-	
-	.runtime{
-		padding-bottom: 20px;
-		font-size: 16px;
-	}
-}
-
-@media screen and (max-width:1366px){
-	
-	.day-of-week{
-		
-		display: block;
-		width: 100%;
-		padding-left: 10px;
-		padding-top: 20px;
-	}
-	
-	.show-time-list{
-		display: block;
-		width: 100%;
-		margin-top: 10px;
-		margin-left: 0;
-		padding-left: 0;
-	}
-	
-	.col hr{
-		display: block;
-		
-	}
-	
-	.show-time{
-		margin-left: 0;
-	}
-	
-	header{
-		height: 70px
-	}
-	
-	.primary-nav{
-		padding-top:28px;
-
-	}
-	
-	.header-text{
-		padding-top: 20px;
-		font-size: 17px;
-	}
-	
-	.poster{
-		width:210px;
-		height:310px;
-	
-	}
-	.button{
-		padding: 10px 10px;
-	}
-
-	.runtime{
-		font-size: 15px;
-	}
-	.overlay-text{
-		font-size: 23px;
-	}	
-	
-	#cuckoo{
-		font-size: 18px;
-		line-height: 1.1;
-	}
-	
-	.offers h2{
-		font-size: 22px;
-	}
-	
-	.offers p{
-		font-size: 14px;
-	}
-	
-	.overlay p {
-		font-size: 16px;
-	}
-	
-
-}
-@media screen and (max-width: 1230px){
-
-	.nav li {
-		margin: 0 20px;
-	}
-	
-	.primary-nav {
-		font-size: 15px;
-	}
-	
-	.poster{
-		width:180px;
-		height:280px;
-	
-	}
-	
-	.button{
-		padding: 9px 10px;
-	}
-	
-	.overlay-text{
-		font-size: 20px;
-	}
-	
-	.runtime{
-		font-size: 13px;
-	}
-	
-	.carousel-caption{
-		padding-top: 5px;
-	}
-	
-	.carousel-caption h2{
-		font-size: 27px;
-
-	}
-	.carousel-caption p{
-		font-size: 14px;
-		padding-bottom: 15px;
-	}
-	
-	.offers h2{
-		font-size: 18px;
-	}
-	
-	.offers p{
-		font-size: 12px;
-	}
-	
-	#cuckoo{
-		font-size: 16px;
-		line-height: 1.1;
-	}
-
-}
-
-
-@media screen and (max-width: 1100px){
-	.poster-column{
-		width: 25%
-	}
-	
-	.col{
-		width: 100%
-	}
-	
-	h1{
-		font-size: 35px;
-	}
-	
-	.poster-column{
-		padding-top: 10px;
-		padding-bottom: 10px;
-
-	}
-	
-	.button{
-		font-size: 12px;
-	}
-	
-	.form-button{
-		font-size: 12px;
-	}
-
-	.overlay-text{
-		font-size: 16px;
-		margin-bottom:7%;
-
-	}	
-	
-	.rating {
-		margin-bottom:8%;
-	}
-	
-	.carousel-caption h2{
-		font-size: 26px;
-		padding-bottom: 10px;
-
-	}
-	.carousel-caption p{
-		font-size: 14px;
-		padding-bottom: 12px;
-	}
-	
-	.rating-movies{
-		padding-top: 7px;
-		padding-bottom: 12px;
-	}
-	
-	.runtime-movies{
-		padding-top: 10px;
-	}
-	
-	.map p{
-		font-size:16px;
-	}
-	
-	.show-time{
-		display: inline;
-		width: auto;
-	}
-	
-	.show-time-list{
-		display: inline;
-		width: auto;
-		margin-top: 0;
-	}
-	
-	.day-of-week{
-		display: inline;
-		width: auto;
-		padding-top: 0;
-		padding-left: 0;
-	}
-	
-	.offers h2{
-		font-size: 25px;
-		margin-bottom: 30px;
-	}
-	
-	.offers p{
-		font-size: 18px;
-	}
-	
-
-}
-
-@media (max-width: 946px){
-		
-	.carousel-caption h2{
-		font-size: 23px;
-
-	}
-	.carousel-caption p{
-		font-size: 13px;
-		padding-bottom: 12px;
-	}
-	
-	.overlay-text{
-		font-size: 15.5px;
-		margin-bottom:7%;
-
-	}
-	
-	.col-2-3{
-		width: 100%;
-	}
-	
-	.col-1-3{
-		width: 100%;
-
-	}
-	
-	textarea
-	{
-		padding: 8px;
-		height:150px;
-		max-width:100%;
-		width:570px;
-		min-width:570px;
-		max-height:350px;
-		
-	}
-	 
-	select
-	{
-		width:570px;
-		padding: 8px;
-	}
-
-	input
-	{
-		width:570px;
-		padding: 8px;
-	}
-
-	.contact
-	{
-		margin-top: 10px;
-		padding-top:20px;
-		float:none;
-		margin: 0;
-		font-size:14px;
-		box-sizing:border-box;
-		width:100%;
-		
-
-	}
-	
-	.FAQ{
-		padding-bottom:30px;
-	}
-	
-	.arrow{
-		padding-top: 3px;
-	}
-	
-	#reset{
-		float:none;
-		margin-left:10px;
-	}
-	
-	
-	label
-	{
-		font-size:14px;
-	}
-	
-	.genre li{
-		
-		margin: 10px;
-		border: none;
-	}
-	
-	.genre-box{
-		width: 100%;
-	}
-	
-	.line-2{
-		padding: 0;
-	}
-	
-		
-	.about p{ 
-	  margin-bottom: 60px; 
-	  line-height: 1.5;
-
-	} 
-	
-	.about{
-		margin-top: 20px;;
-	}
-	
-	.map{
-		margin-top: 40px;
-	}
-	
-
-
-	.map p{
-		line-height: 2.5;
-		margin-bottom: 0;
-	}
-
-	.map a{ 
-	  color: #e85c5c; 
-	  text-decoration: underline
-
-	} 
-
-	.address{
-		float: none;
-	}
-	
-	.address p{
-		line-height: 2.5;
-		font-size: 16px;
-
-	}
-	
-	.form-button{
-		width: 30%;
-		padding: 15px;
-		font-size: 13px;
-		display:inline-block;
-	}
-	
-	.accordion{
-		width:570px;
-	}
-	
-	.panel{
-		width:570px;
-	}
-	
-	.overlay p {
-		font-size: 13px;
-	}
-	
-	
-}
-
-
-@media screen and (max-width: 880px){
-	
-	header{
-		height: 60px;
-	}
-	
-	.about{ 
-    margin-top: 80px; 
+/* Ultra-wide Displays (1920px+) */
+@media (min-width: 1920px) {
+  .poster-section,
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 36px;
   }
-		
-	.nav li {
-		margin: 0 5px;
-	}
-	
-	.top{
-		margin-top:60px;
 
-	}
-	
-	.primary-nav {
-		font-size: 15px;
-		letter-spacing:0;
-		padding-top: 23px; 
-	}
-	
-	.secondary-nav {
-		font-size: 11px;
-		letter-spacing:0;
-	}
-	
-	.header-text{
-		padding-top: 20px; 
-		font-size: 15px;
-	}
-	
-	.logo {
-		padding-top: 3px;
-		height: 60px;
-		width: 60px;
-		
-	}
-	
-	.poster{
-		width:150px;
-		height:250px;
-	
-	}
-	
-	.genre li{
-		padding-left: 10px;
-	}
-	
-	.genre {
-		font-size: 15px;
-	}
-	
-	h1{
-		font-size: 27px;
-		padding-bottom: 10px;
-	}
-	
-	.button{
-		font-size: 10px;
-		margin-bottom: 7px
-	}
-
-	.overlay-text{
-		font-size: 15px;
-		margin-bottom:5%;
-
-	}	
-	
-	#cuckoo{
-		font-size: 11px;
-		line-height: 1.1;
-	}
-
-	
-	.rating{
-		margin-bottom:10%;
-	}
-	
-	.runtime{
-		font-size: 12px;
-	}
-	
-	.carousel-caption h2{
-		font-size: 20px;
-		padding-bottom: 7px;
-
-	}
-	.carousel-caption p{
-		font-size: 11px;
-		padding-bottom: 12px;
-		
-		
-	}
-	
-	.rating-movies{
-		margin-top: 3px;
-		padding-top:0;
-		padding-bottom: 23px;
-		padding-left: 20px;
-		display: inline;
-		position: absolute;
-	}
-	
-
-	
-	.runtime-movies{
-		padding-top: 5px;
-		font-size: 12px;
-	}
-	
-	
-	.back-to-top{
-		font-size: 12px;
-		height: 82px
-	}
-	
-	.back-to-top:hover{
-		height: 87px
-	}
-	
-
-
-
+  .carousel-inner,
+  .carousel-inner .item {
+    height: 700px;
+  }
 }
 
-@media screen and (max-width: 767px){
-	.poster{
-		width:130px;
-		height:200px;
-	}
-	
-	.poster-column{
-		width: 33.33%
-	}
-	
-	.movie-poster{
-		padding-left: 20px;
-		padding-right: 20px;
-	}
-	
-	.movie-page{
-		margin-left: 20px;
-		margin-right: 20px;
-		font-size: 13px;
-	}
-	
-	.genre{
-		padding-left: 30px;
-	}
-	
-	.button{
-		font-size: 10px;
-		width: 50%;
-		margin-bottom: 10px
-	}
+/* Tablets & Small Laptops (1024px and down) */
+@media (max-width: 1024px) {
+  #progressbar li {
+    font-size: 0.75rem;
+  }
 
-	.overlay-text{
-		font-size: 13px;
-		margin-bottom:3%;
-
-	}	
-	
-	.rating{
-		margin-bottom: 5%;
-	}
-	
-	.runtime{
-		padding-bottom: 10px;
-	}
-	
-	.overlay{
-		height: 83%;
-		width: 60%
-	}
-	
-	.trailer{
-		width: 100%;
-		margin: 0;
-	}
-	
-	.genre-box{
-		padding-top: 10px;
-		display: block;
-	}
-
-	.genre2{
-		padding-left: 0;
-	}
-	
-	.genre .form-button{
-		right: 30px;
-		margin: 0;
-		width: 140px;
-
-	}
+  #progressbar li::before {
+    width: 34px;
+    height: 34px;
+    line-height: 32px;
+  }
 }
 
-@media screen and (max-width: 670px){
-	
-	.logo {
-		
-		height: 50px;
-		width: 50px;
-		padding: 0;		
-	}
-	
+/* Mobile Devices (768px and down) */
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px;
+  }
 
-		
-	.header-text{
-		padding-top: 15px; 
-		font-size: 13px;
-	}
-	
-	header{
-		height: 53px;
-		padding-left: 0;
-		padding-right: 0;
-		z-index: 2;
-		background-color: rgba(14,14,14,0.9);
-	}
-	
-	h1{
-		font-size: 25px
-	}
-	
-	h2{
-		font-size: 23px
-	}
-	
-	.poster-column{
-		width: 33.33%
-	}
-	
-	.runtime{
-		font-size: 10px;
-	}
-	
-	.button{
-		padding-top: 9px;
-		padding-bottom:9px;
-		width: 80px;
-	}
-	
-	.overlay{
-		width: 80%;
+  header {
+    height: 70px;
+  }
 
-	}
-	
+  .primary-nav {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: rgba(12, 13, 18, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 24px 20px;
+    z-index: 999;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+  }
 
-	
-/*
-========================================
-Hamburger
-========================================
-*/
-	.line {
-		border-radius:10px;
-		border-bottom:4px solid #fefefe;
-		width:29px;
-		margin-bottom:4px;
-		-webkit-transition: 0.35s all; 
-		
-	}
-	
-	.hamburger{
-		padding:20px;
-		padding-right:20px;
-		display:inline-block;
-		cursor:pointer;
-		box-sizing:border-box;
-		float:right;
-		padding-top: 18px;
-	}
-	
-	nav ul {
-	   	position: absolute;
-		right:0;
-		height:0;
-		padding:0;
-		z-index: 1;
-		opacity:1;
-		background-color: rgba(14,14,14,0.93);
-		margin-right:0;
-		width:100%;
-		overflow: hidden;
-		transition: height 0.15s linear;
-		margin-top:29px; 
-		box-sizing: border-box;
-	}
-	
-	 .nav li{
-		width: 100%;
-		 margin-left: 0;
-	}
-		
-	.nav a {
+  .primary-nav.open {
+    display: block;
+  }
 
-		font-size:13px;
-		display:block;
-		box-sizing:border-box;
-		border-bottom:1px groove #D0D0D0;
-		text-align:center;
-		padding-bottom:20px;
-		padding-top:20px;
-		-webkit-tap-highlight-color: rgba(232,92,92,0.5);
-		width: 100%;
-		margin-left: 0;
-		padding-left: 0;
-		
-		
-	}
-	
-	.carousel{
-		margin-top: 52px;
-	}
-	
-	.item{
-		height: 306px;
-	}
-	
-	.booking{
-		height: 249px ; 
-	}
-	
-	.booking h2{
-		padding-bottom: 30px;
-	}
-	
-	.img-responsive{
-		width: 300%;
-	}
+  .primary-nav .menu {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
 
-	.open {
-		height:216px;
-	}
-	
-	nav{
-		margin: 0;
-	}
-	
-	.carousel-control{
-		margin-bottom: 50px;
-	}
-	
-	.movie h1{
-		padding-bottom: 5px;
-		font-size: 16px;
-	}
-	
-	.carousel-caption p{
-		padding-bottom: 30px;
-	}
-	
-	.movie p{
-		padding-bottom: 5px;
-		font-size: 10px;
+  .primary-nav .menu li a {
+    width: 100%;
+    text-align: center;
+    padding: 14px;
+    font-size: 1.05rem;
+  }
 
-	}
-	
-	.still{
-		height: 210px
-	}
-	
-	.rating-movies{
-		padding-bottom: 33px;
-		padding-left: 13px;
-		margin-top: 0; 
+  .hamburger {
+    display: flex;
+  }
 
-	}
-	
-	.runtime-movies{
-		padding-top: 3px;
-		font-size: 11px;
-	}
-	
-	.carousel-caption{
-		padding: 0;
-		padding-top: 5px;
-		padding-bottom: 5px;
-		padding-left: 10px;
-		padding-right: 10px;
-		margin-top: 0;
-	}
-	
-	.panel{
-		width: 100%;
-		
-	}
-	
-	.accordion{
-		width: 100%;
-	}
-	
-	.form-button{
-		width: 40%;
-		padding: 15px;
-		font-size: 13px;
-		
-	}
-	
-	#reset{
-		float: right;
-	}
-	
-	textarea {
+  .carousel-inner,
+  .carousel-inner .item {
+    height: 480px;
+  }
 
-		width: 100%;
-		resize: none;
-		font-size:13px;
-		padding: 8px;
-		
-		height:150px;
-		max-width:100%;
-		min-width:100%;
-	}
-	 
-	select {
+  .carousel-caption {
+    bottom: 40px;
+  }
 
-		font-size:13px;
-		padding: 8px;
-		width: 100%;
-	}
+  .carousel-caption p {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 
-	input {
-		font-size:13px;
-		padding: 8px;
-		width: 100%;
-	}
+  .seat-row {
+    gap: 5px;
+  }
 
-	.contact
-	{
-		
-		float:none;
-		margin: 0;
-		font-size:14px;
-		box-sizing:border-box;
-		width:100%;
-		
-		
-	}
-	
-	.arrow{
-		padding-top: 3px;
-	}
-	
-	
-	label
-	{
-		font-size:14px;
-	}
-	
-	.genre li{
-		
-		margin: 10px;
-		border: none;
-	}
-	
-	.genre-box{
-		width: 100%;
-	}
-	
-	.line-2{
-		padding: 0;
-	}
-	
-		
-	.about p{ 
-	  margin-bottom: 60px; 
-	  line-height: 1.5;
+  .seat {
+    width: 22px;
+    height: 22px;
+  }
 
-	} 
-	
-	.about{
-		margin-top: 20px;;
-	}
-	
-	.map{
-		margin-top: 40px;
-	}
-	
-
-
-	.map p{
-		line-height: 2.5;
-		margin-bottom: 0;
-	}
-
-	.map a{ 
-	  color: #e85c5c; 
-	  text-decoration: underline
-
-	} 
-
-	.address{
-		float: none;
-	}
-	
-	.address p{
-		line-height: 2.5;
-		font-size: 16px;
-
-	}
-	
-	.booking-col label{
-		color:#fff;
-		width:75%;
-		display: block;
-	}
-
-	.booking-col input{
-		width:75%;
-		margin-left: auto;
-		margin-right: 0;
-
-	}
-	.booking-col select{
-		width: 75%;
-		margin-left: auto;
-		margin-right: 0;
-	}
-	
-	.booking-col form{
-		box-sizing: border-box;
-		margin: auto; 
-		width: 100%;
-		position: relative;
-		padding: 0;
-		
-	}
-	
-	.seating-plan{
-		width: 95%;
-		transform: translate(0, 0);
-	}
-	
-	.seat-row{
-		width: 100%;
-	}
-	
-	.seat{
-		width: 5%;
-		margin-left: 0;
-		margin-right: 0;
-	}
-	
-	fieldset{
-		margin: auto;
-
-	}
-	
-	.booking-col{
-		margin: auto;
-	}
-	
-	.booking-form{
-		align-items: center;
-		align-content: center;
-		width: 100%;
-
-	}
-	
-	#progressbar li{
-		font-size: 12px;
-	}
-
-
+  .booking-form {
+    padding: 20px 14px;
+  }
 }
 
+/* Small Phones (480px and down) */
+@media (max-width: 480px) {
+  .carousel-inner,
+  .carousel-inner .item {
+    height: 400px;
+  }
 
+  .carousel-control {
+    display: none;
+  }
 
-@media screen and (max-width: 550px){
-	
-	.genre{
-		font-size: 12px;
-	}
-	
-	.genre li {
-		padding-right: 10px;
-		padding-left: 10px;
-		
-	}
-	
-	.poster-column{
-		width: 50%;
-	}
-	
-	
-	footer{
-		padding-top: 15px;
-		padding-right: 5px;
-		padding-left: 5px;
-		padding-bottom: 5px;
-		font-size: 8px;
-		text-align: left;
-	}
-	
-	.secondary-nav {
-		float: right;
-		display: inline-block;
-	}	
-	
-	.button{
-		margin-bottom: 7px;
-	}
+  .seat-row {
+    gap: 3px;
+  }
 
-	.overlay-text{
-		font-size: 15px;
-		margin-bottom:5%;
-	}
-	.rating{
-		margin-bottom: 5%;
-	}
-	
-	.overlay{
-		width: 75%;
-		height: 80%;
-		padding-left: 5px;
-		padding-right: 5px;
+  .seat {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px 4px 2px 2px;
+  }
 
-	}
-	
-	.spacer{
-		padding: 15px;
-	}
-	
-	.footer-spacer{
-		padding: 20px;
-		display: block;
-		width: 100%;
-		box-sizing: border-box;
-		color: #161515;
-		height: 30pc;
-	}
-	
-	
+  .row-label {
+    display: none;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .form-actions .form-button {
+    width: 100%;
+  }
+
+  .ticket-details-grid {
+    grid-template-columns: 1fr;
+  }
 }
-
-@media screen and (max-width: 400px){
-	
-	
-	.secondary-nav {
-		font-size: 10px;
-	}	
-	
-	.genre{
-		font-size: 9px;
-	}
-	
-	.genre li {
-		padding-right: 7px;
-		padding-left: 5px;
-	}
-	
-	.poster-column{
-		width: 50%;
-	}
-	
-	h1{
-		font-size: 20px;
-	}
-	
-	
-	footer{
-		font-size: 8px;
-	}
-	
-	.poster{
-		width:110px;
-		height:160px;
-	
-	}
-	
-	.secondary-nav {
-		font-size: 8px;
-	}
-	
-	.button{
-		font-size: 8px;
-		width: 40%;
-		padding: 7px;
-	}
-
-	.overlay-text{
-		font-size: 12px;
-		color: #fff;
-		margin-bottom:2%;
-
-	}	
-	.overlay{
-		width: 100%;
-		height: 80%
-	}
-	
-	.spacer{
-		padding: 9px;
-	}
-	
-	.runtime{
-		font-size: 8px
-	}
-	
-	.rating{
-		margin-bottom: 3%;
-	}
-	
-	.overlay-text{
-		margin-bottom: 1%;
-	}
-	
-}
-
-@media (max-width: 331px){
-	
-	footer{
-		font-size: 6px;
-	}
-	
-	.secondary-nav{
-		padding-left: 5px;
-		padding-right: 5px;
-		font-size: 7px;
-
-	}
-	
-	.poster{
-		width:100px;
-		height:150px;
-	
-	}
-	
-	.genre{
-		font-size: 9px;
-		margin: 0;
-	}
-	
-	.genre li{
-		padding-left: 1px;
-		padding-right: 5px;
-	}
-	
-	.button{
-		margin-bottom: 5px;
-		width: 60%;
-	}
-	
-	.overlay-text{
-		margin-bottom: 2%;
-	}
-	
-	.overlay{
-		width: 90%;
-	}
-	
-	.runtime{
-		padding-bottom: 5px;
-	}
-	
-	
-	
-}
-
-

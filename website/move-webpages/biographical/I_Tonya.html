@@ -65,14 +65,9 @@
 				</div>
 </section>
 <section class="movie-page">
-				<a class="form-button" href="../../bookNow.html">Book Now</a>
+				<a class="form-button" href="../../bookNow.html?movie=I%2C%20Tonya">Book Now</a>
 			</section>
-		<div class="back-to-top" id="back-to-top" onClick="topFunction()">
-			<div align="center" id="arrow" class="arrow top-arrow"><div class="arrow-line-invert"></div><div class="arrow-line-invert"></div></div>
-			<p>Back to</p>
-			<p>top</p>
-		</div>
-	<footer>
+		<footer>
 	<small>&copy; Blockbuster Theatres</small>
 		<nav class="nav secondary-nav">
 			<ul>
@@ -84,57 +79,11 @@
 
 		</nav>
 	</footer>
-	</body>
+    <div class="back-to-top" id="back-to-top" aria-label="Back to top">
+      <svg viewBox="0 0 24 24">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </div>
+    <script src="../../assets/js/scripts.js"></script>
+  </body>
 </html>
-
-
-<!--Scripts-->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
-<script src="Assets/bootstrap/js/bootstrap.js"></script>
-
-<script> 
-$('.hamburger').on('click', function()
-{
-	"use strict";
-	
-	$('.menu').toggleClass('open');
-	$('.line').toggleClass('transition');
-	$('.ham-overlay').toggleClass('show');
-	$('body').toggleClass('noScroll');
-});
-
-$('.ham-overlay').on('click', function()
-{
-	"use strict";
-	$('.menu').removeClass('open');
-	$('.line').removeClass('transition');
-	$('.ham-overlay').removeClass('show');
-	$('body').removeClass('noScroll');
-	
-});
-
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-		document.getElementById("arrow").style.opacity = 1;
-        document.getElementById("back-to-top").style.opacity = 1;
-		document.getElementById("back-to-top").style.visibility = "visible";
-		
-    } else {
-		document.getElementById("arrow").style.opacity = 0;
-		document.getElementById("back-to-top").style.opacity = 0;
-		document.getElementById("back-to-top").style.visibility = "hidden";
-
-		
-    }
-}
-
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-}
-
-</script>
