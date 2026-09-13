@@ -1,49 +1,50 @@
-@media (max-width: 1920px){
-	header{
+@media (max-width: 1920px) {
+	header {
 		height: 70px;
 		margin-top: 0;
 	}
-	
-	.primary-nav{
-		padding-top:26px;
 
-	} 
-	
-	.poster{
-		width:280px;
-		height:450px;
-	
-	}
-	
-	.button{
-		font-size: 17px;
-		-webkit-tap-highlight-color: rgba(128,128,128,0.3);
-	}
-	
-	.form-button{
-		font-size: 17px;
-		-webkit-tap-highlight-color: rgba(128,128,128,0.3);
+	.primary-nav {
+		padding-top: 26px;
+
 	}
 
-	.overlay-text{
+	.poster {
+		width: 280px;
+		height: 450px;
+
+	}
+
+	.button {
+		font-size: 17px;
+		-webkit-tap-highlight-color: rgba(128, 128, 128, 0.3);
+	}
+
+	.form-button {
+		font-size: 17px;
+		-webkit-tap-highlight-color: rgba(128, 128, 128, 0.3);
+	}
+
+	.overlay-text {
 		font-size: 22px;
 
-	}	
-	
-	#cuckoo{
+	}
+
+	#cuckoo {
 		font-size: 21px;
 		line-height: 1.3;
-	}	
-	
-	.runtime{
+	}
+
+	.runtime {
 		padding-bottom: 20px;
 	}
-	
-	.text-overlay h2{
+
+	.text-overlay h2 {
 		font-size: 32px;
 
-	}	
-	.text-overlay p{
+	}
+
+	.text-overlay p {
 		font-size: 18px;
 		font-style: italic;
 	}
@@ -51,169 +52,173 @@
 
 }
 
-@media (max-width: 1680px){
-	.poster{
-		width:230px;
-		height:340px;
-	
+@media (max-width: 1680px) {
+	.poster {
+		width: 230px;
+		height: 340px;
+
 	}
-	
-	.button{
-		font-size: 14px;
-		margin-bottom: 10px;
-	}
-	
-	.form-button{
+
+	.button {
 		font-size: 14px;
 		margin-bottom: 10px;
 	}
 
-	.overlay-text{
+	.form-button {
+		font-size: 14px;
+		margin-bottom: 10px;
+	}
+
+	.overlay-text {
 		font-size: 25px;
 
-	}	
-	
-	#cuckoo{
+	}
+
+	#cuckoo {
 		font-size: 20px;
 		line-height: 1.0;
 	}
-	
-	.rating{
+
+	.rating {
 		margin-bottom: 10%;
 	}
-	
-	.runtime{
+
+	.runtime {
 		padding-bottom: 20px;
 		font-size: 16px;
 	}
 }
 
-@media screen and (max-width:1366px){
-	
-	.day-of-week{
-		
+@media screen and (max-width:1366px) {
+
+	.day-of-week {
+
 		display: block;
 		width: 100%;
 		padding-left: 10px;
 		padding-top: 20px;
 	}
-	
-	.show-time-list{
+
+	.show-time-list {
 		display: block;
 		width: 100%;
 		margin-top: 10px;
 		margin-left: 0;
 		padding-left: 0;
 	}
-	
-	.col hr{
+
+	.col hr {
 		display: block;
-		
-	}
-	
-	.show-time{
-		margin-left: 0;
-	}
-	
-	header{
-		height: 70px
-	}
-	
-	.primary-nav{
-		padding-top:28px;
 
 	}
-	
-	.header-text{
+
+	.show-time {
+		margin-left: 0;
+	}
+
+	header {
+		height: 70px
+	}
+
+	.primary-nav {
+		padding-top: 28px;
+
+	}
+
+	.header-text {
 		padding-top: 20px;
 		font-size: 17px;
 	}
-	
-	.poster{
-		width:210px;
-		height:310px;
-	
+
+	.poster {
+		width: 210px;
+		height: 310px;
+
 	}
-	.button{
+
+	.button {
 		padding: 10px 10px;
 	}
 
-	.runtime{
+	.runtime {
 		font-size: 15px;
 	}
-	.overlay-text{
+
+	.overlay-text {
 		font-size: 23px;
-	}	
-	
-	#cuckoo{
+	}
+
+	#cuckoo {
 		font-size: 18px;
 		line-height: 1.1;
 	}
-	
-	.offers h2{
+
+	.offers h2 {
 		font-size: 22px;
 	}
-	
-	.offers p{
+
+	.offers p {
 		font-size: 14px;
 	}
-	
+
 	.overlay p {
 		font-size: 16px;
 	}
-	
+
 
 }
-@media screen and (max-width: 1230px){
+
+@media screen and (max-width: 1230px) {
 
 	.nav li {
 		margin: 0 20px;
 	}
-	
+
 	.primary-nav {
 		font-size: 15px;
 	}
-	
-	.poster{
-		width:180px;
-		height:280px;
-	
+
+	.poster {
+		width: 180px;
+		height: 280px;
+
 	}
-	
-	.button{
+
+	.button {
 		padding: 9px 10px;
 	}
-	
-	.overlay-text{
+
+	.overlay-text {
 		font-size: 20px;
 	}
-	
-	.runtime{
+
+	.runtime {
 		font-size: 13px;
 	}
-	
-	.carousel-caption{
+
+	.carousel-caption {
 		padding-top: 5px;
 	}
-	
-	.carousel-caption h2{
+
+	.carousel-caption h2 {
 		font-size: 27px;
 
 	}
-	.carousel-caption p{
+
+	.carousel-caption p {
 		font-size: 14px;
 		padding-bottom: 15px;
 	}
-	
-	.offers h2{
+
+	.offers h2 {
 		font-size: 18px;
 	}
-	
-	.offers p{
+
+	.offers p {
 		font-size: 12px;
 	}
-	
-	#cuckoo{
+
+	#cuckoo {
 		font-size: 16px;
 		line-height: 1.1;
 	}
@@ -221,446 +226,444 @@
 }
 
 
-@media screen and (max-width: 1100px){
-	.poster-column{
+@media screen and (max-width: 1100px) {
+	.poster-column {
 		width: 25%
 	}
-	
-	.col{
+
+	.col {
 		width: 100%
 	}
-	
-	h1{
+
+	h1 {
 		font-size: 35px;
 	}
-	
-	.poster-column{
+
+	.poster-column {
 		padding-top: 10px;
 		padding-bottom: 10px;
 
 	}
-	
-	.button{
-		font-size: 12px;
-	}
-	
-	.form-button{
+
+	.button {
 		font-size: 12px;
 	}
 
-	.overlay-text{
+	.form-button {
+		font-size: 12px;
+	}
+
+	.overlay-text {
 		font-size: 16px;
-		margin-bottom:7%;
+		margin-bottom: 7%;
 
-	}	
-	
-	.rating {
-		margin-bottom:8%;
 	}
-	
-	.carousel-caption h2{
+
+	.rating {
+		margin-bottom: 8%;
+	}
+
+	.carousel-caption h2 {
 		font-size: 26px;
 		padding-bottom: 10px;
 
 	}
-	.carousel-caption p{
+
+	.carousel-caption p {
 		font-size: 14px;
 		padding-bottom: 12px;
 	}
-	
-	.rating-movies{
+
+	.rating-movies {
 		padding-top: 7px;
 		padding-bottom: 12px;
 	}
-	
-	.runtime-movies{
+
+	.runtime-movies {
 		padding-top: 10px;
 	}
-	
-	.map p{
-		font-size:16px;
+
+	.map p {
+		font-size: 16px;
 	}
-	
-	.show-time{
+
+	.show-time {
 		display: inline;
 		width: auto;
 	}
-	
-	.show-time-list{
+
+	.show-time-list {
 		display: inline;
 		width: auto;
 		margin-top: 0;
 	}
-	
-	.day-of-week{
+
+	.day-of-week {
 		display: inline;
 		width: auto;
 		padding-top: 0;
 		padding-left: 0;
 	}
-	
-	.offers h2{
+
+	.offers h2 {
 		font-size: 25px;
 		margin-bottom: 30px;
 	}
-	
-	.offers p{
+
+	.offers p {
 		font-size: 18px;
 	}
-	
+
 
 }
 
-@media (max-width: 946px){
-		
-	.carousel-caption h2{
+@media (max-width: 946px) {
+
+	.carousel-caption h2 {
 		font-size: 23px;
 
 	}
-	.carousel-caption p{
+
+	.carousel-caption p {
 		font-size: 13px;
 		padding-bottom: 12px;
 	}
-	
-	.overlay-text{
+
+	.overlay-text {
 		font-size: 15.5px;
-		margin-bottom:7%;
+		margin-bottom: 7%;
 
 	}
-	
-	.col-2-3{
+
+	.col-2-3 {
 		width: 100%;
 	}
-	
-	.col-1-3{
+
+	.col-1-3 {
 		width: 100%;
 
 	}
-	
-	textarea
-	{
+
+	textarea {
 		padding: 8px;
-		height:150px;
-		max-width:100%;
-		width:570px;
-		min-width:570px;
-		max-height:350px;
-		
+		height: 150px;
+		max-width: 100%;
+		width: 570px;
+		min-width: 570px;
+		max-height: 350px;
+
 	}
-	 
-	select
-	{
-		width:570px;
+
+	select {
+		width: 570px;
 		padding: 8px;
 	}
 
-	input
-	{
-		width:570px;
+	input {
+		width: 570px;
 		padding: 8px;
 	}
 
-	.contact
-	{
+	.contact {
 		margin-top: 10px;
-		padding-top:20px;
-		float:none;
+		padding-top: 20px;
+		float: none;
 		margin: 0;
-		font-size:14px;
-		box-sizing:border-box;
-		width:100%;
-		
+		font-size: 14px;
+		box-sizing: border-box;
+		width: 100%;
+
 
 	}
-	
-	.FAQ{
-		padding-bottom:30px;
+
+	.FAQ {
+		padding-bottom: 30px;
 	}
-	
-	.arrow{
+
+	.arrow {
 		padding-top: 3px;
 	}
-	
-	#reset{
-		float:none;
-		margin-left:10px;
+
+	#reset {
+		float: none;
+		margin-left: 10px;
 	}
-	
-	
-	label
-	{
-		font-size:14px;
+
+
+	label {
+		font-size: 14px;
 	}
-	
-	.genre li{
-		
+
+	.genre li {
+
 		margin: 10px;
 		border: none;
 	}
-	
-	.genre-box{
+
+	.genre-box {
 		width: 100%;
 	}
-	
-	.line-2{
+
+	.line-2 {
 		padding: 0;
 	}
-	
-		
-	.about p{ 
-	  margin-bottom: 60px; 
-	  line-height: 1.5;
 
-	} 
-	
-	.about{
-		margin-top: 20px;;
+
+	.about p {
+		margin-bottom: 60px;
+		line-height: 1.5;
+
 	}
-	
-	.map{
+
+	.about {
+		margin-top: 20px;
+		;
+	}
+
+	.map {
 		margin-top: 40px;
 	}
-	
 
 
-	.map p{
+
+	.map p {
 		line-height: 2.5;
 		margin-bottom: 0;
 	}
 
-	.map a{ 
-	  color: #e85c5c; 
-	  text-decoration: underline
+	.map a {
+		color: #e85c5c;
+		text-decoration: underline
+	}
 
-	} 
-
-	.address{
+	.address {
 		float: none;
 	}
-	
-	.address p{
+
+	.address p {
 		line-height: 2.5;
 		font-size: 16px;
 
 	}
-	
-	.form-button{
+
+	.form-button {
 		width: 30%;
 		padding: 15px;
 		font-size: 13px;
-		display:inline-block;
+		display: inline-block;
 	}
-	
-	.accordion{
-		width:570px;
+
+	.accordion {
+		width: 570px;
 	}
-	
-	.panel{
-		width:570px;
+
+	.panel {
+		width: 570px;
 	}
-	
+
 	.overlay p {
 		font-size: 13px;
 	}
-	
-	
+
+
 }
 
 
-@media screen and (max-width: 880px){
-	
-	header{
+@media screen and (max-width: 880px) {
+
+	header {
 		height: 60px;
 	}
-	
-	.about{ 
-    margin-top: 80px; 
-  }
-		
+
+	.about {
+		margin-top: 80px;
+	}
+
 	.nav li {
 		margin: 0 5px;
 	}
-	
-	.top{
-		margin-top:60px;
+
+	.top {
+		margin-top: 60px;
 
 	}
-	
+
 	.primary-nav {
 		font-size: 15px;
-		letter-spacing:0;
-		padding-top: 23px; 
+		letter-spacing: 0;
+		padding-top: 23px;
 	}
-	
+
 	.secondary-nav {
 		font-size: 11px;
-		letter-spacing:0;
+		letter-spacing: 0;
 	}
-	
-	.header-text{
-		padding-top: 20px; 
+
+	.header-text {
+		padding-top: 20px;
 		font-size: 15px;
 	}
-	
+
 	.logo {
 		padding-top: 3px;
 		height: 60px;
 		width: 60px;
-		
+
 	}
-	
-	.poster{
-		width:150px;
-		height:250px;
-	
+
+	.poster {
+		width: 150px;
+		height: 250px;
+
 	}
-	
-	.genre li{
+
+	.genre li {
 		padding-left: 10px;
 	}
-	
+
 	.genre {
 		font-size: 15px;
 	}
-	
-	h1{
+
+	h1 {
 		font-size: 27px;
 		padding-bottom: 10px;
 	}
-	
-	.button{
+
+	.button {
 		font-size: 10px;
 		margin-bottom: 7px
 	}
 
-	.overlay-text{
+	.overlay-text {
 		font-size: 15px;
-		margin-bottom:5%;
+		margin-bottom: 5%;
 
-	}	
-	
-	#cuckoo{
+	}
+
+	#cuckoo {
 		font-size: 11px;
 		line-height: 1.1;
 	}
 
-	
-	.rating{
-		margin-bottom:10%;
+
+	.rating {
+		margin-bottom: 10%;
 	}
-	
-	.runtime{
+
+	.runtime {
 		font-size: 12px;
 	}
-	
-	.carousel-caption h2{
+
+	.carousel-caption h2 {
 		font-size: 20px;
 		padding-bottom: 7px;
 
 	}
-	.carousel-caption p{
+
+	.carousel-caption p {
 		font-size: 11px;
 		padding-bottom: 12px;
-		
-		
+
+
 	}
-	
-	.rating-movies{
+
+	.rating-movies {
 		margin-top: 3px;
-		padding-top:0;
+		padding-top: 0;
 		padding-bottom: 23px;
 		padding-left: 20px;
 		display: inline;
 		position: absolute;
 	}
-	
 
-	
-	.runtime-movies{
+
+
+	.runtime-movies {
 		padding-top: 5px;
 		font-size: 12px;
 	}
-	
-	
-	.back-to-top{
+
+
+	.back-to-top {
 		font-size: 12px;
 		height: 82px
 	}
-	
-	.back-to-top:hover{
+
+	.back-to-top:hover {
 		height: 87px
 	}
-	
+
 
 
 
 }
 
-@media screen and (max-width: 767px){
-	.poster{
-		width:130px;
-		height:200px;
+@media screen and (max-width: 767px) {
+	.poster {
+		width: 130px;
+		height: 200px;
 	}
-	
-	.poster-column{
+
+	.poster-column {
 		width: 33.33%
 	}
-	
-	.movie-poster{
+
+	.movie-poster {
 		padding-left: 20px;
 		padding-right: 20px;
 	}
-	
-	.movie-page{
+
+	.movie-page {
 		margin-left: 20px;
 		margin-right: 20px;
 		font-size: 13px;
 	}
-	
-	.genre{
+
+	.genre {
 		padding-left: 30px;
 	}
-	
-	.button{
+
+	.button {
 		font-size: 10px;
 		width: 50%;
 		margin-bottom: 10px
 	}
 
-	.overlay-text{
+	.overlay-text {
 		font-size: 13px;
-		margin-bottom:3%;
+		margin-bottom: 3%;
 
-	}	
-	
-	.rating{
+	}
+
+	.rating {
 		margin-bottom: 5%;
 	}
-	
-	.runtime{
+
+	.runtime {
 		padding-bottom: 10px;
 	}
-	
-	.overlay{
+
+	.overlay {
 		height: 83%;
 		width: 60%
 	}
-	
-	.trailer{
+
+	.trailer {
 		width: 100%;
 		margin: 0;
 	}
-	
-	.genre-box{
+
+	.genre-box {
 		padding-top: 10px;
 		display: block;
 	}
 
-	.genre2{
+	.genre2 {
 		padding-left: 0;
 	}
-	
-	.genre .form-button{
+
+	.genre .form-button {
 		right: 30px;
 		margin: 0;
 		width: 140px;
@@ -668,185 +671,185 @@
 	}
 }
 
-@media screen and (max-width: 670px){
-	
+@media screen and (max-width: 670px) {
+
 	.logo {
-		
+
 		height: 50px;
 		width: 50px;
-		padding: 0;		
+		padding: 0;
 	}
-	
 
-		
-	.header-text{
-		padding-top: 15px; 
+
+
+	.header-text {
+		padding-top: 15px;
 		font-size: 13px;
 	}
-	
-	header{
+
+	header {
 		height: 53px;
 		padding-left: 0;
 		padding-right: 0;
 		z-index: 2;
-		background-color: rgba(14,14,14,0.9);
+		background-color: rgba(14, 14, 14, 0.9);
 	}
-	
-	h1{
+
+	h1 {
 		font-size: 25px
 	}
-	
-	h2{
+
+	h2 {
 		font-size: 23px
 	}
-	
-	.poster-column{
+
+	.poster-column {
 		width: 33.33%
 	}
-	
-	.runtime{
+
+	.runtime {
 		font-size: 10px;
 	}
-	
-	.button{
+
+	.button {
 		padding-top: 9px;
-		padding-bottom:9px;
+		padding-bottom: 9px;
 		width: 80px;
 	}
-	
-	.overlay{
+
+	.overlay {
 		width: 80%;
 
 	}
-	
 
-	
-/*
+
+
+	/*
 ========================================
 Hamburger
 ========================================
 */
 	.line {
-		border-radius:10px;
-		border-bottom:4px solid #fefefe;
-		width:29px;
-		margin-bottom:4px;
-		-webkit-transition: 0.35s all; 
-		
+		border-radius: 10px;
+		border-bottom: 4px solid #fefefe;
+		width: 29px;
+		margin-bottom: 4px;
+		-webkit-transition: 0.35s all;
+
 	}
-	
-	.hamburger{
-		padding:20px;
-		padding-right:20px;
-		display:inline-block;
-		cursor:pointer;
-		box-sizing:border-box;
-		float:right;
+
+	.hamburger {
+		padding: 20px;
+		padding-right: 20px;
+		display: inline-block;
+		cursor: pointer;
+		box-sizing: border-box;
+		float: right;
 		padding-top: 18px;
 	}
-	
+
 	nav ul {
-	   	position: absolute;
-		right:0;
-		height:0;
-		padding:0;
+		position: absolute;
+		right: 0;
+		height: 0;
+		padding: 0;
 		z-index: 1;
-		opacity:1;
-		background-color: rgba(14,14,14,0.93);
-		margin-right:0;
-		width:100%;
+		opacity: 1;
+		background-color: rgba(14, 14, 14, 0.93);
+		margin-right: 0;
+		width: 100%;
 		overflow: hidden;
 		transition: height 0.15s linear;
-		margin-top:29px; 
+		margin-top: 29px;
 		box-sizing: border-box;
 	}
-	
-	 .nav li{
+
+	.nav li {
 		width: 100%;
-		 margin-left: 0;
+		margin-left: 0;
 	}
-		
+
 	.nav a {
 
-		font-size:13px;
-		display:block;
-		box-sizing:border-box;
-		border-bottom:1px groove #D0D0D0;
-		text-align:center;
-		padding-bottom:20px;
-		padding-top:20px;
-		-webkit-tap-highlight-color: rgba(232,92,92,0.5);
+		font-size: 13px;
+		display: block;
+		box-sizing: border-box;
+		border-bottom: 1px groove #D0D0D0;
+		text-align: center;
+		padding-bottom: 20px;
+		padding-top: 20px;
+		-webkit-tap-highlight-color: rgba(232, 92, 92, 0.5);
 		width: 100%;
 		margin-left: 0;
 		padding-left: 0;
-		
-		
+
+
 	}
-	
-	.carousel{
+
+	.carousel {
 		margin-top: 52px;
 	}
-	
-	.item{
+
+	.item {
 		height: 306px;
 	}
-	
-	.booking{
-		height: 249px ; 
+
+	.booking {
+		height: 249px;
 	}
-	
-	.booking h2{
+
+	.booking h2 {
 		padding-bottom: 30px;
 	}
-	
-	.img-responsive{
+
+	.img-responsive {
 		width: 300%;
 	}
 
 	.open {
-		height:216px;
+		height: 216px;
 	}
-	
-	nav{
+
+	nav {
 		margin: 0;
 	}
-	
-	.carousel-control{
+
+	.carousel-control {
 		margin-bottom: 50px;
 	}
-	
-	.movie h1{
+
+	.movie h1 {
 		padding-bottom: 5px;
 		font-size: 16px;
 	}
-	
-	.carousel-caption p{
+
+	.carousel-caption p {
 		padding-bottom: 30px;
 	}
-	
-	.movie p{
+
+	.movie p {
 		padding-bottom: 5px;
 		font-size: 10px;
 
 	}
-	
-	.still{
+
+	.still {
 		height: 210px
 	}
-	
-	.rating-movies{
+
+	.rating-movies {
 		padding-bottom: 33px;
 		padding-left: 13px;
-		margin-top: 0; 
+		margin-top: 0;
 
 	}
-	
-	.runtime-movies{
+
+	.runtime-movies {
 		padding-top: 3px;
 		font-size: 11px;
 	}
-	
-	.carousel-caption{
+
+	.carousel-caption {
 		padding: 0;
 		padding-top: 5px;
 		padding-bottom: 5px;
@@ -854,185 +857,184 @@ Hamburger
 		padding-right: 10px;
 		margin-top: 0;
 	}
-	
-	.panel{
+
+	.panel {
 		width: 100%;
-		
+
 	}
-	
-	.accordion{
+
+	.accordion {
 		width: 100%;
 	}
-	
-	.form-button{
+
+	.form-button {
 		width: 40%;
 		padding: 15px;
 		font-size: 13px;
-		
+
 	}
-	
-	#reset{
+
+	#reset {
 		float: right;
 	}
-	
+
 	textarea {
 
 		width: 100%;
 		resize: none;
-		font-size:13px;
+		font-size: 13px;
 		padding: 8px;
-		
-		height:150px;
-		max-width:100%;
-		min-width:100%;
+
+		height: 150px;
+		max-width: 100%;
+		min-width: 100%;
 	}
-	 
+
 	select {
 
-		font-size:13px;
+		font-size: 13px;
 		padding: 8px;
 		width: 100%;
 	}
 
 	input {
-		font-size:13px;
+		font-size: 13px;
 		padding: 8px;
 		width: 100%;
 	}
 
-	.contact
-	{
-		
-		float:none;
+	.contact {
+
+		float: none;
 		margin: 0;
-		font-size:14px;
-		box-sizing:border-box;
-		width:100%;
-		
-		
+		font-size: 14px;
+		box-sizing: border-box;
+		width: 100%;
+
+
 	}
-	
-	.arrow{
+
+	.arrow {
 		padding-top: 3px;
 	}
-	
-	
-	label
-	{
-		font-size:14px;
+
+
+	label {
+		font-size: 14px;
 	}
-	
-	.genre li{
-		
+
+	.genre li {
+
 		margin: 10px;
 		border: none;
 	}
-	
-	.genre-box{
+
+	.genre-box {
 		width: 100%;
 	}
-	
-	.line-2{
+
+	.line-2 {
 		padding: 0;
 	}
-	
-		
-	.about p{ 
-	  margin-bottom: 60px; 
-	  line-height: 1.5;
 
-	} 
-	
-	.about{
-		margin-top: 20px;;
+
+	.about p {
+		margin-bottom: 60px;
+		line-height: 1.5;
+
 	}
-	
-	.map{
+
+	.about {
+		margin-top: 20px;
+		;
+	}
+
+	.map {
 		margin-top: 40px;
 	}
-	
 
 
-	.map p{
+
+	.map p {
 		line-height: 2.5;
 		margin-bottom: 0;
 	}
 
-	.map a{ 
-	  color: #e85c5c; 
-	  text-decoration: underline
+	.map a {
+		color: #e85c5c;
+		text-decoration: underline
+	}
 
-	} 
-
-	.address{
+	.address {
 		float: none;
 	}
-	
-	.address p{
+
+	.address p {
 		line-height: 2.5;
 		font-size: 16px;
 
 	}
-	
-	.booking-col label{
-		color:#fff;
-		width:75%;
+
+	.booking-col label {
+		color: #fff;
+		width: 75%;
 		display: block;
 	}
 
-	.booking-col input{
-		width:75%;
+	.booking-col input {
+		width: 75%;
 		margin-left: auto;
 		margin-right: 0;
 
 	}
-	.booking-col select{
+
+	.booking-col select {
 		width: 75%;
 		margin-left: auto;
 		margin-right: 0;
 	}
-	
-	.booking-col form{
+
+	.booking-col form {
 		box-sizing: border-box;
-		margin: auto; 
+		margin: auto;
 		width: 100%;
 		position: relative;
 		padding: 0;
-		
+
 	}
-	
-	.seating-plan{
+
+	.seating-plan {
 		width: 95%;
 		transform: translate(0, 0);
 	}
-	
-	.seat-row{
+
+	.seat-row {
 		width: 100%;
 	}
-	
-	.seat{
+
+	.seat {
 		width: 5%;
 		margin-left: 0;
 		margin-right: 0;
 	}
-	
-	fieldset{
+
+	fieldset {
 		margin: auto;
 
 	}
-	
-	.booking-col{
+
+	.booking-col {
 		margin: auto;
 	}
-	
-	.booking-form{
+
+	.booking-form {
 		align-items: center;
 		align-content: center;
 		width: 100%;
 
 	}
-	
-	#progressbar li{
+
+	#progressbar li {
 		font-size: 12px;
 	}
 
@@ -1041,24 +1043,24 @@ Hamburger
 
 
 
-@media screen and (max-width: 550px){
-	
-	.genre{
+@media screen and (max-width: 550px) {
+
+	.genre {
 		font-size: 12px;
 	}
-	
+
 	.genre li {
 		padding-right: 10px;
 		padding-left: 10px;
-		
+
 	}
-	
-	.poster-column{
+
+	.poster-column {
 		width: 50%;
 	}
-	
-	
-	footer{
+
+
+	footer {
 		padding-top: 15px;
 		padding-right: 5px;
 		padding-left: 5px;
@@ -1066,37 +1068,38 @@ Hamburger
 		font-size: 8px;
 		text-align: left;
 	}
-	
+
 	.secondary-nav {
 		float: right;
 		display: inline-block;
-	}	
-	
-	.button{
+	}
+
+	.button {
 		margin-bottom: 7px;
 	}
 
-	.overlay-text{
+	.overlay-text {
 		font-size: 15px;
-		margin-bottom:5%;
-	}
-	.rating{
 		margin-bottom: 5%;
 	}
-	
-	.overlay{
+
+	.rating {
+		margin-bottom: 5%;
+	}
+
+	.overlay {
 		width: 75%;
 		height: 80%;
 		padding-left: 5px;
 		padding-right: 5px;
 
 	}
-	
-	.spacer{
+
+	.spacer {
 		padding: 15px;
 	}
-	
-	.footer-spacer{
+
+	.footer-spacer {
 		padding: 20px;
 		display: block;
 		width: 100%;
@@ -1104,132 +1107,198 @@ Hamburger
 		color: #161515;
 		height: 30pc;
 	}
-	
-	
+
+
 }
 
-@media screen and (max-width: 400px){
-	
-	
+@media screen and (max-width: 400px) {
+
+
 	.secondary-nav {
 		font-size: 10px;
-	}	
-	
-	.genre{
+	}
+
+	.genre {
 		font-size: 9px;
 	}
-	
+
 	.genre li {
 		padding-right: 7px;
 		padding-left: 5px;
 	}
-	
-	.poster-column{
+
+	.poster-column {
 		width: 50%;
 	}
-	
-	h1{
+
+	h1 {
 		font-size: 20px;
 	}
-	
-	
-	footer{
+
+
+	footer {
 		font-size: 8px;
 	}
-	
-	.poster{
-		width:110px;
-		height:160px;
-	
+
+	.poster {
+		width: 110px;
+		height: 160px;
+
 	}
-	
+
 	.secondary-nav {
 		font-size: 8px;
 	}
-	
-	.button{
+
+	.button {
 		font-size: 8px;
 		width: 40%;
 		padding: 7px;
 	}
 
-	.overlay-text{
+	.overlay-text {
 		font-size: 12px;
 		color: #fff;
-		margin-bottom:2%;
+		margin-bottom: 2%;
 
-	}	
-	.overlay{
+	}
+
+	.overlay {
 		width: 100%;
 		height: 80%
 	}
-	
-	.spacer{
+
+	.spacer {
 		padding: 9px;
 	}
-	
-	.runtime{
+
+	.runtime {
 		font-size: 8px
 	}
-	
-	.rating{
+
+	.rating {
 		margin-bottom: 3%;
 	}
-	
-	.overlay-text{
+
+	.overlay-text {
 		margin-bottom: 1%;
 	}
-	
+
 }
 
-@media (max-width: 331px){
-	
-	footer{
+@media (max-width: 331px) {
+
+	footer {
 		font-size: 6px;
 	}
-	
-	.secondary-nav{
+
+	.secondary-nav {
 		padding-left: 5px;
 		padding-right: 5px;
 		font-size: 7px;
 
 	}
-	
-	.poster{
-		width:100px;
-		height:150px;
-	
+
+	.poster {
+		width: 100px;
+		height: 150px;
+
 	}
-	
-	.genre{
+
+	.genre {
 		font-size: 9px;
 		margin: 0;
 	}
-	
-	.genre li{
+
+	.genre li {
 		padding-left: 1px;
 		padding-right: 5px;
 	}
-	
-	.button{
+
+	.button {
 		margin-bottom: 5px;
 		width: 60%;
 	}
-	
-	.overlay-text{
+
+	.overlay-text {
 		margin-bottom: 2%;
 	}
-	
-	.overlay{
+
+	.overlay {
 		width: 90%;
 	}
-	
-	.runtime{
+
+	.runtime {
 		padding-bottom: 5px;
 	}
-	
-	
-	
+
+
+
 }
 
+@media screen and (max-width: 767px) {
 
+	html,
+	body {
+		overflow-x: hidden;
+	}
+
+	header {
+		padding-left: env(safe-area-inset-left);
+		padding-right: env(safe-area-inset-right);
+	}
+
+	textarea,
+	select,
+	input {
+		box-sizing: border-box;
+		max-width: 100%;
+	}
+
+	textarea,
+	select,
+	input:not([type="submit"]):not([type="reset"]):not([type="button"]) {
+		width: 100%;
+		min-width: 0;
+	}
+
+	.accordion,
+	.panel,
+	.booking-col form {
+		width: 100%;
+		max-width: 570px;
+	}
+
+	.booking-col input,
+	.booking-col select {
+		width: 75%;
+		max-width: 100%;
+	}
+
+	.poster-column {
+		box-sizing: border-box;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.movie-poster {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	.poster-column {
+		width: 50%;
+	}
+
+	.poster {
+		max-width: 100%;
+		height: auto;
+		aspect-ratio: 11 / 16;
+		object-fit: cover;
+	}
+
+	.form-button {
+		min-width: 110px;
+		max-width: 48%;
+	}
+}
