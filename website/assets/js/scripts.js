@@ -830,8 +830,9 @@ function initBookingWizard() {
         throw new Error(passData.error || `Wallet pass request failed: ${response.status}`);
       }
 
-      if (!passData.downloadUrl) throw new Error('Wallet pass URL was not returned.');
-      window.location.href = passData.downloadUrl;
+      const passUrl = passData.downloadUrl || passData.passUrl || passData.url || passData.googleSaveUrl;
+      if (!passUrl) throw new Error(`Wallet pass URL was not returned. Response: ${JSON.stringify(passData)}`);
+      window.location.href = passUrl;
     } catch (error) {
       console.error(error);
       showToast('The wallet pass could not be created. Please try again.');
