@@ -4,141 +4,168 @@
 
 /* Ultra-wide Displays (1920px+) */
 @media (min-width: 1920px) {
-  .poster-section,
-  .grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 36px;
-  }
 
-  .carousel-inner,
-  .carousel-inner .item {
-    height: 700px;
-  }
+	.poster-section,
+	.grid {
+		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+		gap: 36px;
+	}
+
+	.carousel-inner,
+	.carousel-inner .item {
+		height: 700px;
+	}
 }
 
 /* Tablets & Small Laptops (1024px and down) */
 @media (max-width: 1024px) {
-  #progressbar li {
-    font-size: 0.75rem;
-  }
+	#progressbar li {
+		font-size: 0.75rem;
+	}
 
-  #progressbar li::before {
-    width: 34px;
-    height: 34px;
-    line-height: 32px;
-  }
+	#progressbar li::before {
+		width: 34px;
+		height: 34px;
+		line-height: 32px;
+	}
 }
 
 /* Mobile Devices (768px and down) */
 @media (max-width: 768px) {
-  body {
-    padding-top: 70px;
-  }
+	body {
+		padding-top: 70px;
+	}
 
-  header {
-    height: 70px;
-  }
+	header {
+		height: 70px;
+	}
 
-  .primary-nav {
-    display: none;
-    position: fixed;
-    top: 70px;
-    left: 0;
-    right: 0;
-    background: rgba(12, 13, 18, 0.98);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 24px 20px;
-    z-index: 999;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
-  }
+	.primary-nav {
+		display: none;
+		position: fixed;
+		top: 70px;
+		left: 0;
+		right: 0;
+		background: rgba(12, 13, 18, 0.98);
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+		border-bottom: 1px solid var(--border-subtle);
+		padding: 24px 20px;
+		z-index: 999;
+		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+	}
 
-  .primary-nav.open {
-    display: block;
-  }
+	.primary-nav.open {
+		display: block;
+	}
 
-  .primary-nav .menu {
-    flex-direction: column;
-    width: 100%;
-    gap: 12px;
-  }
+	.primary-nav .menu {
+		flex-direction: column;
+		width: 100%;
+		gap: 12px;
+	}
 
-  .primary-nav .menu li a {
-    width: 100%;
-    text-align: center;
-    padding: 14px;
-    font-size: 1.05rem;
-  }
+	.primary-nav .menu li a {
+		width: 100%;
+		text-align: center;
+		padding: 14px;
+		font-size: 1.05rem;
+	}
 
-  .hamburger {
-    display: flex;
-  }
+	.hamburger {
+		display: flex;
+	}
 
-  .carousel-inner,
-  .carousel-inner .item {
-    height: 480px;
-  }
+	.carousel-inner,
+	.carousel-inner .item {
+		height: 480px;
+	}
 
-  .carousel-caption {
-    bottom: 40px;
-  }
+	.carousel-caption {
+		bottom: 40px;
+	}
 
-  .carousel-caption p {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
+	.carousel-caption p {
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
 
-  .seat-row {
-    gap: 5px;
-  }
+	.seat-row {
+		gap: 5px;
+	}
 
-  .seat {
-    width: 22px;
-    height: 22px;
-  }
+	.seat {
+		width: 22px;
+		height: 22px;
+	}
 
-  .booking-form {
-    padding: 20px 14px;
-  }
+	.booking-form {
+		padding: 20px 14px;
+	}
+
+	.carousel-caption.movie h1 {
+		font-size: clamp(2.8rem, 8vw, 4rem);
+	}
+
+	.carousel-caption.movie p,
+	.col-no-border.col-2-3 p {
+		font-size: 16px;
+		line-height: 1.65;
+	}
+
+	.runtime-movies,
+	.day-of-week {
+		font-size: 14px;
+	}
+
+	.col-no-border.col-2-3 h2,
+	.col.col-1-3 h1 {
+		font-size: 22px;
+	}
+
+	.show-time {
+		font-size: 14px;
+		padding: 8px 14px;
+	}
 }
 
 /* Small Phones (480px and down) */
 @media (max-width: 480px) {
-  .carousel-inner,
-  .carousel-inner .item {
-    height: 400px;
-  }
 
-  .carousel-control {
-    display: none;
-  }
+	.carousel-inner,
+	.carousel-inner .item {
+		height: 400px;
+	}
 
-  .seat-row {
-    gap: 3px;
-  }
+	.carousel-control {
+		display: none;
+	}
 
-  .seat {
-    width: 18px;
-    height: 18px;
-    border-radius: 4px 4px 2px 2px;
-  }
+	.seat-row {
+		gap: 3px;
+	}
 
-  .row-label {
-    display: none;
-  }
+	.seat {
+		width: 18px;
+		height: 18px;
+		border-radius: 4px 4px 2px 2px;
+	}
 
-  .form-actions {
-    flex-direction: column-reverse;
-  }
+	.row-label {
+		display: none;
+	}
 
-  .form-actions .form-button {
-    width: 100%;
-  }
+	.form-actions {
+		flex-direction: column-reverse;
+	}
 
-  .ticket-details-grid {
-    grid-template-columns: 1fr;
-  }
+	.form-actions .form-button {
+		width: 100%;
+	}
+
+	.ticket-details-grid {
+		grid-template-columns: 1fr;
+	}
 }
