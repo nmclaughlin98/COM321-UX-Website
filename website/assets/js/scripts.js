@@ -435,7 +435,7 @@ function initBookingWizard() {
   const bookingState = {
     movie: '',
     date: '',
-    time: '',
+    time: '19:00',
     tickets: {
       adult: 1,
       child: 0,
