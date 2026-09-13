@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initHeroCarousel();
   initTrailerModal();
+  initLocalTrailerFallbacks();
   initAccordion();
   initContactForm();
   initComingSoonCountdowns();
@@ -61,7 +62,7 @@ function initNavbar() {
 }
 
 // Global fallback for inline legacy onclick="off()"
-window.off = function() {
+window.off = function () {
   const primaryNav = document.querySelector('.primary-nav');
   const overlay = document.querySelector('.ham-overlay');
   const lines = document.querySelectorAll('.hamburger .line');
@@ -95,7 +96,7 @@ function initBackToTop() {
 }
 
 // Global fallback for legacy onClick="topFunction()"
-window.topFunction = function() {
+window.topFunction = function () {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
@@ -188,7 +189,7 @@ function initTrailerModal() {
     modal.innerHTML = `
       <div class="modal-dialog">
         <button class="modal-close-btn" aria-label="Close trailer">&times;</button>
-        <iframe id="trailer-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe id="trailer-iframe" src="" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     `;
     document.body.appendChild(modal);
@@ -226,11 +227,36 @@ function openTrailer(videoUrl) {
   const iframe = document.getElementById('trailer-iframe');
   if (!modal || !iframe) return;
 
+  if (window.location.protocol === 'file:') {
+    const videoId = videoUrl.match(/embed\/([^?]+)/)?.[1];
+    if (videoId) {
+      window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank', 'noopener');
+      return;
+    }
+  }
+
   // Ensure autoplay query is present
   const embedUrl = videoUrl.includes('autoplay=1') ? videoUrl : (videoUrl.includes('?') ? `${videoUrl}&autoplay=1` : `${videoUrl}?autoplay=1`);
   iframe.src = embedUrl;
   modal.classList.add('open');
   document.body.classList.add('noScroll');
+}
+
+function initLocalTrailerFallbacks() {
+  if (window.location.protocol !== 'file:') return;
+
+  document.querySelectorAll('iframe.trailer').forEach(iframe => {
+    const videoId = iframe.src.match(/embed\/([^?]+)/)?.[1];
+    if (!videoId) return;
+
+    const link = document.createElement('a');
+    link.className = 'trailer trailer-fallback';
+    link.href = `https://www.youtube.com/watch?v=${videoId}`;
+    link.target = '_blank';
+    link.rel = 'noopener';
+    link.textContent = 'Open trailer on YouTube';
+    iframe.replaceWith(link);
+  });
 }
 
 /* ==========================================================================
@@ -253,7 +279,7 @@ function initAccordion() {
       acc.appendChild(chevron);
     }
 
-    acc.addEventListener('click', function() {
+    acc.addEventListener('click', function () {
       this.classList.toggle('active');
       const panel = this.nextElementSibling;
       if (panel && panel.classList.contains('panel')) {
@@ -356,7 +382,7 @@ function initGenreFilterAndSearch() {
     movieCards.forEach(card => {
       const title = (card.querySelector('.overlay-text')?.textContent || '').toLowerCase();
       const genre = (card.getAttribute('data-genre') || '').toLowerCase();
-      
+
       const matchesSearch = title.includes(searchTerm);
       const matchesGenre = (activeGenre === 'all') || (genre === activeGenre);
 
@@ -433,8 +459,8 @@ function initBookingWizard() {
   const movieSelect = document.getElementById('Movie');
   if (movieSelect && movieParam) {
     for (let i = 0; i < movieSelect.options.length; i++) {
-      if (movieSelect.options[i].text.toLowerCase().includes(movieParam.toLowerCase()) || 
-          movieSelect.options[i].value.toLowerCase().includes(movieParam.toLowerCase())) {
+      if (movieSelect.options[i].text.toLowerCase().includes(movieParam.toLowerCase()) ||
+        movieSelect.options[i].value.toLowerCase().includes(movieParam.toLowerCase())) {
         movieSelect.selectedIndex = i;
         bookingState.movie = movieSelect.options[i].value;
         break;
@@ -588,7 +614,7 @@ function initBookingWizard() {
 
       // Update selected seats text
       if (seatBadge) {
-        seatBadge.textContent = bookingState.selectedSeats.length 
+        seatBadge.textContent = bookingState.selectedSeats.length
           ? bookingState.selectedSeats.join(', ')
           : 'None selected yet';
       }
