@@ -41,7 +41,7 @@
 	}
 
 	.primary-nav {
-		display: none;
+		display: flex;
 		position: fixed;
 		top: 70px;
 		left: 0;
@@ -53,10 +53,19 @@
 		padding: 24px 20px;
 		z-index: 999;
 		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-12px);
+		pointer-events: none;
+		transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
 	}
 
 	.primary-nav.open {
-		display: block;
+		display: flex;
+		opacity: 1 !important;
+		visibility: visible !important;
+		transform: translateY(0) !important;
+		pointer-events: auto !important;
 	}
 
 	.primary-nav .menu {
@@ -68,8 +77,12 @@
 	.primary-nav .menu li a {
 		width: 100%;
 		text-align: center;
-		padding: 14px;
+		padding: 14px 30px;
 		font-size: 1.05rem;
+	}
+
+	.primary-nav .menu li a.current {
+		box-shadow: 0 10px 22px var(--accent-glow);
 	}
 
 	.hamburger {
@@ -83,6 +96,16 @@
 
 	.carousel-caption {
 		bottom: 40px;
+	}
+
+	.carousel-caption .hero-actions {
+		gap: 8px;
+	}
+
+	.carousel-caption .hero-actions .button {
+		padding: 9px 14px;
+		font-size: 0.78rem;
+		border-radius: var(--radius-sm);
 	}
 
 	.carousel-caption p {
@@ -167,5 +190,10 @@
 
 	.ticket-details-grid {
 		grid-template-columns: 1fr;
+	}
+
+	.carousel-caption .hero-actions .button {
+		padding: 8px 11px;
+		font-size: 0.72rem;
 	}
 }
