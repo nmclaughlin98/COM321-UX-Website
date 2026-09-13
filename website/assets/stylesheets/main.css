@@ -1013,8 +1013,7 @@ section {
 }
 
 #progressbar li::before {
-  content: counter(step);
-  counter-increment: step;
+  content: '';
   width: 40px;
   height: 40px;
   line-height: 38px;
@@ -1030,7 +1029,27 @@ section {
 }
 
 #progressbar {
-  counter-reset: step;
+  counter-reset: none;
+}
+
+#progressbar li:nth-child(1)::before {
+  content: '1';
+}
+
+#progressbar li:nth-child(2)::before {
+  content: '2';
+}
+
+#progressbar li:nth-child(3)::before {
+  content: '3';
+}
+
+#progressbar li:nth-child(4)::before {
+  content: '4';
+}
+
+#progressbar li:nth-child(5)::before {
+  content: '5';
 }
 
 #progressbar li.active {
@@ -2117,7 +2136,7 @@ footer small {
     visibility: hidden;
     transform: translateY(-12px);
     pointer-events: none;
-    transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .primary-nav.open {

@@ -870,7 +870,7 @@ function initBookingWizard() {
 
 /* ==========================================================================
    11. Movie Detail Page Showtime Direct Booking
-   ========================================================================== */
+  ========================================================================== */
 function initMoviePageShowtimes() {
   document.querySelectorAll('.show-time').forEach(item => {
     item.addEventListener('click', () => {
