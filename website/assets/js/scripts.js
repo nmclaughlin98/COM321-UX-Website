@@ -638,10 +638,10 @@ function initBookingWizard() {
     
     currentStep = newStep;
     
-    const bookingSection = document.querySelector('.booking-form');
-    const headerOffset = 150;
+    const progressSection = document.getElementById('progressbar');
+    const headerOffset = 20;
     
-    const sectionTop = bookingSection.getBoundingClientRect().top + window.scrollY;
+    const sectionTop = progressSection.getBoundingClientRect().top + window.scrollY;
     
     window.scrollTo({
       top: sectionTop - headerOffset,
