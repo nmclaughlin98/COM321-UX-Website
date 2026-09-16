@@ -638,7 +638,7 @@ function initBookingWizard() {
     
     currentStep = newStep;
     
-    const bookingSection = document.querySelector('.booking-section');
+    const bookingSection = document.querySelector('.booking-form');
     const headerOffset = 50;
     
     const sectionTop = bookingSection.getBoundingClientRect().top + window.scrollY;
