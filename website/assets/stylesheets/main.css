@@ -189,7 +189,11 @@ header.scrolled {
 }
 
 .header-box:hover .logo {
-  transform: scale(1.06) rotate(-2deg);
+  transform: scale(1.1) rotate(-2deg);
+}
+
+.header-box:hover {
+  color: var(--accent-red);
 }
 
 .header-text {
