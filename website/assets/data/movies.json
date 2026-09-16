@@ -5,6 +5,8 @@
     "genre": "Action",
     "rating": "12A",
     "runtime": 160,
+    "visible": true,
+    "topPick": true,
     "starring": [
       "Robert Downey Jr.",
       "Chris Hemsworth",
@@ -67,6 +69,8 @@
     "genre": "Action",
     "rating": "12",
     "runtime": 133,
+    "visible": true,
+    "topPick": true,
     "starring": [
       "Tom Holland",
       "Michael Keaton",
@@ -129,6 +133,7 @@
     "genre": "Action",
     "rating": "15",
     "runtime": 119,
+    "visible": true,
     "starring": [
       "Ryan Reynolds",
       "Josh Brolin",
@@ -191,6 +196,7 @@
     "genre": "Action",
     "rating": "12",
     "runtime": 152,
+    "visible": true,
     "starring": [
       "Daisy Ridley",
       "John Boyega",
@@ -253,6 +259,7 @@
     "genre": "Action",
     "rating": "12A",
     "runtime": 148,
+    "visible": true,
     "starring": [
       "Daniel Craig",
       "Christoph Waltz",
@@ -315,6 +322,7 @@
     "genre": "Comedy",
     "rating": "PG",
     "runtime": 97,
+    "visible": true,
     "starring": [
       "Will Ferrell",
       "James Caan",
@@ -377,6 +385,7 @@
     "genre": "Comedy",
     "rating": "PG",
     "runtime": 88,
+    "visible": true,
     "starring": [
       "Rowan Atkinson",
       "Ben Miller",
@@ -439,6 +448,7 @@
     "genre": "Comedy",
     "rating": "PG",
     "runtime": 90,
+    "visible": true,
     "starring": [
       "Benedict Cumberbatch",
       "Cameron Seely",
@@ -501,6 +511,7 @@
     "genre": "Comedy",
     "rating": "15",
     "runtime": 110,
+    "visible": true,
     "starring": [
       "Tiffany Haddish",
       "Whoopi Goldberg",
@@ -563,6 +574,7 @@
     "genre": "Comedy",
     "rating": "PG",
     "runtime": 112,
+    "visible": true,
     "starring": [
       "John C. Reilly",
       "Sarah Silverman",
@@ -625,6 +637,7 @@
     "genre": "Biographical",
     "rating": "12A",
     "runtime": 134,
+    "visible": true,
     "starring": [
       "Rami Malek",
       "Lucy Boynton",
@@ -687,6 +700,7 @@
     "genre": "Biographical",
     "rating": "15",
     "runtime": 94,
+    "visible": true,
     "starring": [
       "James Franco",
       "Kate Mara",
@@ -749,6 +763,7 @@
     "genre": "Biographical",
     "rating": "18",
     "runtime": 180,
+    "visible": true,
     "starring": [
       "Leonardo DiCaprio",
       "Jonah Hill",
@@ -811,6 +826,7 @@
     "genre": "Biographical",
     "rating": "15",
     "runtime": 122,
+    "visible": true,
     "starring": [
       "Michael Fassbender",
       "Kate Winslet",
@@ -873,6 +889,7 @@
     "genre": "Biographical",
     "rating": "15",
     "runtime": 120,
+    "visible": true,
     "starring": [
       "Margot Robbie",
       "Sebastian Stan",
@@ -935,6 +952,7 @@
     "genre": "Horror",
     "rating": "15",
     "runtime": 146,
+    "visible": true,
     "starring": [
       "Jack Nicholson",
       "Shelley Duvall",
@@ -989,6 +1007,7 @@
     "genre": "Horror",
     "rating": "18",
     "runtime": 122,
+    "visible": true,
     "starring": [
       "Ellen Burstyn",
       "Max von Sydow",
@@ -1043,6 +1062,7 @@
     "genre": "Horror",
     "rating": "15",
     "runtime": 112,
+    "visible": true,
     "starring": [
       "Vera Farmiga",
       "Patrick Wilson",
@@ -1097,6 +1117,7 @@
     "genre": "Horror",
     "rating": "15",
     "runtime": 114,
+    "visible": true,
     "starring": [
       "JoBeth Williams",
       "Craig T. Nelson",
@@ -1151,6 +1172,7 @@
     "genre": "Horror",
     "rating": "15",
     "runtime": 115,
+    "visible": true,
     "starring": [
       "Naomi Watts",
       "David Dorfman",
@@ -1205,6 +1227,7 @@
     "genre": "Kids & Family",
     "rating": "PG",
     "runtime": 81,
+    "visible": true,
     "starring": [
       "Tom Hanks",
       "Tim Allen",
@@ -1267,6 +1290,7 @@
     "genre": "Kids & Family",
     "rating": "PG",
     "runtime": 88,
+    "visible": true,
     "starring": [
       "Matthew Broderick",
       "Jeremy Irons",
@@ -1329,6 +1353,7 @@
     "genre": "Kids & Family",
     "rating": "PG",
     "runtime": 90,
+    "visible": true,
     "starring": [
       "Will Smith",
       "Mena Massoud",
@@ -1391,6 +1416,7 @@
     "genre": "Kids & Family",
     "rating": "PG",
     "runtime": 115,
+    "visible": true,
     "starring": [
       "Henry Thomas",
       "Drew Barrymore",
@@ -1453,6 +1479,7 @@
     "genre": "Classics",
     "rating": "15",
     "runtime": 175,
+    "visible": true,
     "starring": [
       "Marlon Brando",
       "Al Pacino",
@@ -1515,6 +1542,7 @@
     "genre": "Classics",
     "rating": "18",
     "runtime": 154,
+    "visible": true,
     "starring": [
       "John Travolta",
       "Samuel L. Jackson",
@@ -1577,6 +1605,7 @@
     "genre": "Classics",
     "rating": "12",
     "runtime": 142,
+    "visible": true,
     "starring": [
       "Tom Hanks",
       "Robin Wright",
@@ -1639,6 +1668,7 @@
     "genre": "Classics",
     "rating": "15",
     "runtime": 133,
+    "visible": true,
     "starring": [
       "Jack Nicholson",
       "Louise Fletcher",
@@ -1701,6 +1731,7 @@
     "genre": "Classics",
     "rating": "18",
     "runtime": 129,
+    "visible": true,
     "starring": [
       "Robert De Niro",
       "Joe Pesci",

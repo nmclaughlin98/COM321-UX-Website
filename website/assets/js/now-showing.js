@@ -28,7 +28,10 @@ function inferGenreKey(movie) {
 }
 
 function renderNowShowingMovies(container, movies) {
-  container.innerHTML = movies.map(movie => {
+  // Filter out any movie where visible is explicitly set to false
+  const visibleMovies = movies.filter(movie => movie.visible !== false);
+
+  container.innerHTML = visibleMovies.map(movie => {
     const genreKey = inferGenreKey(movie);
     const safeTitle = encodeURIComponent(movie.title);
     const detailSlug = encodeURIComponent(movie.slug || movie.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''));
