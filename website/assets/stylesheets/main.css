@@ -149,8 +149,8 @@ header {
   right: 0;
   height: 80px;
   background: var(--glass-bg);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
   border-bottom: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
@@ -2231,6 +2231,8 @@ footer small {
   left: 0;
   right: 0;
   bottom: 0;
+  opacity: 1;
+  transform: none;
 }
 
 .carousel-caption.movie h1 {
@@ -2272,7 +2274,6 @@ footer small {
   grid-template-columns: 2fr 1fr;
   gap: 40px;
   padding: 30px clamp(16px, 5vw, 60px);
-  max-width: 1300px;
   margin: 0 auto;
 }
 

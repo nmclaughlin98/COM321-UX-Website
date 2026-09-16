@@ -46,9 +46,9 @@
 		top: 70px;
 		left: 0;
 		right: 0;
-		background: rgba(12, 13, 18, 0.98);
-		backdrop-filter: blur(20px);
-		-webkit-backdrop-filter: blur(20px);
+		background: var(--glass-bg);
+		backdrop-filter: blur(1px);
+		-webkit-backdrop-filter: blur(1px);
 		border-bottom: 1px solid var(--border-subtle);
 		padding: 24px 20px;
 		z-index: 999;
