@@ -195,7 +195,6 @@ header.scrolled {
 .header-box:hover .header-text {
   color: var(--accent-red);
   text-decoration: none;
-  transition: color var(--transition);
 }
 
 .header-text {
@@ -208,7 +207,7 @@ header.scrolled {
   background: linear-gradient(135deg, #fff 40%, #ff8a99);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  transition: opacity var(--transition);
+  transition: color var(--transition);
 }
 
 /* Nav Menu */
