@@ -639,7 +639,7 @@ function initBookingWizard() {
     currentStep = newStep;
     
     const progressSection = document.getElementById('progressbar');
-    const headerOffset = 20;
+    const headerOffset = 100;
     
     const sectionTop = progressSection.getBoundingClientRect().top + window.scrollY;
     
