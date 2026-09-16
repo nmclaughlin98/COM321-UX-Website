@@ -639,7 +639,7 @@ function initBookingWizard() {
     currentStep = newStep;
     
     const bookingSection = document.querySelector('.booking-section');
-    const headerOffset = 100;
+    const headerOffset = 50;
     
     const sectionTop = bookingSection.getBoundingClientRect().top + window.scrollY;
     
