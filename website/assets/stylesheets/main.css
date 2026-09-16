@@ -149,8 +149,8 @@ header {
   right: 0;
   height: 80px;
   background: var(--glass-bg);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
   border-bottom: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
@@ -2074,118 +2074,6 @@ select option {
 }
 
 /* ==========================================================================
-   Modern Cinema Footer
-   ========================================================================== */
-
-footer {
-  background: #08090d;
-  border-top: 1px solid var(--border-subtle);
-  padding: 40px clamp(16px, 5vw, 60px);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-footer small {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-
-.secondary-nav ul {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.secondary-nav ul li a {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: color var(--transition);
-}
-
-.secondary-nav ul li a:hover {
-  color: var(--accent-red);
-}
-
-/* ==========================================================================
-   Responsive Breakpoints & Fluid Mobile Layouts
-   ========================================================================== */
-
-@media (max-width: 900px) {
-
-  .movie-body-layout,
-  .about-grid-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .primary-nav {
-    display: flex;
-    position: fixed;
-    top: 80px;
-    left: 0;
-    right: 0;
-    background: var(--bg-surface);
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 24px;
-    box-shadow: var(--shadow-lg);
-    z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-12px);
-    pointer-events: none;
-    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .primary-nav.open {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 12px;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: translateY(0) !important;
-    pointer-events: auto !important;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  .carousel-inner .item {
-    height: 480px;
-  }
-}
-
-@media (max-width: 600px) {
-
-  .poster-section,
-  .grid {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 16px;
-  }
-
-  .poster-column .overlay {
-    padding: 12px;
-  }
-
-  .overlay-text {
-    font-size: 1rem;
-  }
-
-  .payment-methods-grid {
-    grid-template-columns: 1fr;
-  }
-
-  footer {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-/* ==========================================================================
    Movie Detail Pages Class Support & Modern Styling
    ========================================================================== */
 
@@ -2216,9 +2104,9 @@ footer small {
   inset: 0;
   z-index: 1;
   background: linear-gradient(to bottom,
-      rgba(12, 13, 18, 0.2) 0%,
-      rgba(12, 13, 18, 0.7) 60%,
-      var(--bg-main) 100%);
+     rgba(12, 13, 18, 0.2) 0%,
+     rgba(12, 13, 18, 0.7) 60%,
+     var(--bg-main) 100%);
   pointer-events: none;
 }
 
@@ -2231,6 +2119,8 @@ footer small {
   left: 0;
   right: 0;
   bottom: 0;
+  opacity: 1;
+  transform: none;
 }
 
 .carousel-caption.movie h1 {
@@ -2272,7 +2162,6 @@ footer small {
   grid-template-columns: 2fr 1fr;
   gap: 40px;
   padding: 30px clamp(16px, 5vw, 60px);
-  max-width: 1300px;
   margin: 0 auto;
 }
 
@@ -2386,8 +2275,39 @@ hr {
   margin: 10px 0;
 }
 
-@media (max-width: 900px) {
-  .movie-page {
-    grid-template-columns: 1fr;
-  }
+/* ==========================================================================
+   Modern Cinema Footer
+   ========================================================================== */
+
+footer {
+  background: #08090d;
+  border-top: 1px solid var(--border-subtle);
+  padding: 40px clamp(16px, 5vw, 60px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+footer small {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.secondary-nav ul {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.secondary-nav ul li a {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+.secondary-nav ul li a:hover {
+  color: var(--accent-red);
 }
