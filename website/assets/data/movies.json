@@ -1,5 +1,55 @@
 [
   {
+    "slug": "spider-man-brand-new-day",
+    "title": "Spider-Man: Brand New Day",
+    "genre": "Action",
+    "rating": "12A",
+    "runtime": 145,
+    "visible": true,
+    "topPick": true,
+    "starring": ["Tom Holland", "Zendaya", "Mark Ruffalo"],
+    "director": "Destin Daniel Cretton",
+    "synopsis": "Peter Parker is on his own in New York City trying to rebuild his life. As he faces a dangerous new threat, his powers begin to evolve, forcing him to balance his duty as Spider-Man with his own humanity.",
+    "still": "assets/Images/Stills/spiderman_brand_new_day_still.jpg",
+    "trailer": "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0",
+    "showtimes": {
+      "Monday": ["11:00", "13:00", "15:00", "19:00"],
+      "Tuesday": ["11:00", "13:00", "15:00", "19:00"],
+      "Wednesday": ["11:00", "13:00", "15:00", "19:00"],
+      "Thursday": ["11:00", "13:00", "15:00", "19:00"],
+      "Friday": ["11:00", "13:00", "15:00", "19:00"],
+      "Saturday": ["11:00", "13:00", "15:00", "19:00"],
+      "Sunday": ["11:00", "13:00", "15:00", "19:00"]
+    },
+    "poster": "assets/Images/Posters/Action/spiderman-brand-new-day.jpg",
+    "ratingImage": "assets/Images/Ratings/12A.png"
+  },
+  {
+    "slug": "the-odyssey",
+    "title": "The Odyssey",
+    "genre": "Action",
+    "rating": "15",
+    "runtime": 173,
+    "visible": true,
+    "topPick": true,
+    "starring": ["Matt Damon", "Tom Holland", "Anne Hathaway"],
+    "director": "Christopher Nolan",
+    "synopsis": "Homer's foundational saga comes to life as King Odysseus faces a perilous ten-year journey home from the Trojan War against divine monsters and deadly temptations.",
+    "still": "assets/Images/Stills/the_odyssey_still.jpg",
+    "trailer": "https://www.youtube-nocookie.com/embed/f_bKjZeJBBI?rel=0",
+    "showtimes": {
+      "Monday": ["12:00", "16:00", "20:00"],
+      "Tuesday": ["12:00", "16:00", "20:00"],
+      "Wednesday": ["12:00", "16:00", "20:00"],
+      "Thursday": ["12:00", "16:00", "20:00"],
+      "Friday": ["12:00", "16:00", "20:00"],
+      "Saturday": ["12:00", "16:00", "20:00"],
+      "Sunday": ["12:00", "16:00", "20:00"]
+    },
+    "poster": "assets/Images/Posters/Action/the-odyssey.jpg",
+    "ratingImage": "assets/Images/Ratings/15.png"
+  },
+  {
     "slug": "avengers-infinity-war",
     "title": "Avengers: Infinity War",
     "genre": "Action",
