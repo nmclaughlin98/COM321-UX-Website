@@ -457,7 +457,7 @@ function showToast(message) {
     toast.className = 'toast-notification';
     document.body.appendChild(toast);
   }
-  toast.innerHTML = `<span>🎬</span> <span>${message}</span>`;
+  toast.innerHTML = `<span>ℹ️</span> <span>${message}</span>`;
   toast.classList.add('show');
   setTimeout(() => {
     toast.classList.remove('show');
@@ -635,9 +635,18 @@ function initBookingWizard() {
       item.classList.toggle('active', idx <= newStep);
       item.classList.toggle('completed', idx < newStep);
     });
-
+    
     currentStep = newStep;
-    window.scrollTo({ top: form.offsetTop - 100, behavior: 'smooth' });
+    
+    const bookingSection = document.querySelector('.booking-section');
+    const headerOffset = 100;
+    
+    const sectionTop = bookingSection.getBoundingClientRect().top + window.scrollY;
+    
+    window.scrollTo({
+      top: sectionTop - headerOffset,
+      behavior: 'smooth'
+    });
 
     // When reaching Step 5 (Confirmation), show the wallet pass action
     if (currentStep === 4) {
