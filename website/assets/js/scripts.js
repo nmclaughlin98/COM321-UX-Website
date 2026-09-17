@@ -413,7 +413,12 @@ window.generateTimetablePdf = async function () {
   cards.forEach((card) => {
     const title = card.querySelector('.movie-title')?.textContent?.trim() || 'Untitled movie';
     const genre = card.querySelector('.badge-genre')?.textContent?.trim() || '';
-    const times = [...card.querySelectorAll('.showtime-btn')].map((btn) => btn.textContent.replace(/\s+/g, ' ').trim()).join(', ');
+    const showtimes = [...card.querySelectorAll('.showtime-btn')].map((btn) => {
+      const fullText = btn.textContent.replace(/\s+/g, ' ').trim();
+      const time = fullText.split('Screen')[0].trim();
+      const screen = btn.querySelector('span')?.textContent?.trim() || 'Screen';
+      return { time, screen };
+    });
 
     if (y > 760) {
       pdf.addPage();
@@ -432,9 +437,26 @@ window.generateTimetablePdf = async function () {
     pdf.text(meta, margin, y);
     y += 18;
 
-    const timeLines = pdf.splitTextToSize(times, 420);
-    pdf.text(timeLines, margin, y);
-    y += timeLines.length * 14 + 16;
+    pdf.setFont('helvetica', 'bold');
+    pdf.setFontSize(9.5);
+    pdf.text('Showtimes', margin, y);
+    y += 14;
+
+    showtimes.forEach(({ time, screen }) => {
+      const line = `• ${time}  ${screen}`;
+      const timeLines = pdf.splitTextToSize(line, 360);
+      pdf.setFont('helvetica', 'normal');
+      pdf.setFontSize(10);
+      pdf.text(timeLines, margin + 12, y);
+      y += timeLines.length * 13 + 4;
+
+      if (y > 760) {
+        pdf.addPage();
+        y = 50;
+      }
+    });
+
+    y += 10;
   });
 
   pdf.save(`blockbuster-timetable-${selectedDay.toLowerCase()}.pdf`);
