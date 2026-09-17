@@ -654,16 +654,53 @@ function initBookingWizard() {
   const timeParam = urlParams.get('time');
 
   const movieSelect = document.getElementById('Movie');
-  if (movieSelect && movieParam) {
-    for (let i = 0; i < movieSelect.options.length; i++) {
-      if (movieSelect.options[i].text.toLowerCase().includes(movieParam.toLowerCase()) ||
-        movieSelect.options[i].value.toLowerCase().includes(movieParam.toLowerCase())) {
-        movieSelect.selectedIndex = i;
-        bookingState.movie = movieSelect.options[i].value;
-        break;
+
+  async function populateMovieOptions() {
+    if (!movieSelect) return;
+
+    try {
+      const response = await fetch('assets/data/movies.json');
+      if (!response.ok) throw new Error('Unable to load movie list');
+
+      const movies = await response.json();
+      const visibleMovies = movies.filter(movie => movie.visible !== false).sort((a, b) => a.title.localeCompare(b.title));
+
+      movieSelect.innerHTML = '<option value="Please Select" disabled selected>-- Choose a Feature Film --</option>';
+
+      visibleMovies.forEach(movie => {
+        const option = document.createElement('option');
+        option.value = movie.title;
+        option.textContent = `${movie.title} (${movie.rating || 'NR'})`;
+        movieSelect.appendChild(option);
+      });
+
+      const preferredDefault = 'Avengers: Infinity War';
+      const defaultIndex = [...movieSelect.options].findIndex(option => option.value === preferredDefault);
+      if (defaultIndex >= 0) {
+        movieSelect.selectedIndex = defaultIndex;
+        bookingState.movie = movieSelect.value;
       }
+
+      if (movieParam) {
+        for (let i = 0; i < movieSelect.options.length; i++) {
+          const optionText = movieSelect.options[i].text.toLowerCase();
+          const optionValue = movieSelect.options[i].value.toLowerCase();
+          const paramMatch = movieParam.toLowerCase();
+
+          if (optionText.includes(paramMatch) || optionValue.includes(paramMatch)) {
+            movieSelect.selectedIndex = i;
+            bookingState.movie = movieSelect.options[i].value;
+            break;
+          }
+        }
+      }
+    } catch (error) {
+      console.error('Movie dropdown load error:', error);
+      movieSelect.innerHTML = '<option value="Please Select" disabled selected>-- Choose a Feature Film --</option>';
     }
   }
+
+  populateMovieOptions();
 
   // Update initial active fieldset
   function updateStep(newStep) {
