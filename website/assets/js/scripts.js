@@ -281,6 +281,25 @@ function updateWeekLabel() {
   weekLabel.textContent = `Schedule for Week Commencing ${formatter.format(weekStart)}`;
 }
 
+let timetableMovies = [];
+
+async function loadTimetableMovies() {
+  try {
+    const response = await fetch('assets/data/movies.json');
+    if (!response.ok) throw new Error('Unable to load timetable data');
+
+    const movies = await response.json();
+    timetableMovies = movies.filter(movie => movie.visible !== false);
+    renderTimetable();
+  } catch (error) {
+    console.error('Timetable load error:', error);
+    const container = document.getElementById('timetableList');
+    if (container) {
+      container.innerHTML = '<p class="empty-state">Timetable is temporarily unavailable.</p>';
+    }
+  }
+}
+
 function renderTimetable() {
   const container = document.getElementById('timetableList');
   const searchInput = document.getElementById('movieSearch');
@@ -289,12 +308,14 @@ function renderTimetable() {
   if (!container) return;
   container.innerHTML = '';
 
-  const sortedMovies = [...moviesData].sort((a, b) => a.title.localeCompare(b.title));
+  const sourceMovies = timetableMovies.length ? timetableMovies : moviesData;
+  const sortedMovies = [...sourceMovies].sort((a, b) => a.title.localeCompare(b.title));
 
   sortedMovies.forEach(movie => {
     if (searchVal && !movie.title.toLowerCase().includes(searchVal)) return;
 
-    let times = movie.schedule ? (movie.schedule[selectedDay] || []) : ((selectedDay === 'Monday') ? movie.standard : movie.tuesdayToSunday);
+    const showtimes = movie.showtimes ? (movie.showtimes[selectedDay] || []) : (movie.schedule ? (movie.schedule[selectedDay] || []) : ((selectedDay === 'Monday') ? (movie.standard || []) : (movie.tuesdayToSunday || [])));
+    const times = showtimes;
 
     if (times.length === 0) return;
     const uniqueTimes = [...new Set(times)];
@@ -398,7 +419,7 @@ window.generateTimetablePdf = function () {
 };
 
 updateWeekLabel();
-renderTimetable();
+loadTimetableMovies();
 
 /* ==========================================================================
    4. Universal Trailer Lightbox Modal
