@@ -654,6 +654,58 @@ function initBookingWizard() {
   const dayParam = urlParams.get('day');
 
   const movieSelect = document.getElementById('Movie');
+  const showtimeContainer = document.querySelector('.showtime-chips');
+
+  function renderTimeChips(availableTimes, selectedTime) {
+    const timeInput = document.getElementById('Time');
+    if (!showtimeContainer) return;
+
+    showtimeContainer.innerHTML = '';
+
+    if (!Array.isArray(availableTimes) || !availableTimes.length) {
+      if (timeInput) timeInput.value = '';
+      bookingState.time = '';
+      return;
+    }
+
+    const preferredTime = availableTimes.includes(selectedTime)
+      ? selectedTime
+      : availableTimes.includes(bookingState.time)
+        ? bookingState.time
+        : availableTimes[0];
+
+    availableTimes.forEach(time => {
+      const chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = 'time-chip';
+      chip.setAttribute('data-time', time);
+      chip.textContent = time;
+
+      if (time === preferredTime) {
+        chip.classList.add('active');
+      }
+
+      chip.addEventListener('click', () => {
+        const value = chip.getAttribute('data-time') || chip.textContent.trim();
+        const selectedMovie = getSelectedMovieData();
+        const selectedDay = getWeekdayNameFromDate(dateSelect?.value || '');
+        const availableTimes = selectedMovie?.showtimes?.[selectedDay] || [];
+
+        if (!availableTimes.includes(value)) return;
+
+        document.querySelectorAll('.time-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        bookingState.time = value;
+
+        if (timeInput) timeInput.value = bookingState.time;
+      });
+
+      showtimeContainer.appendChild(chip);
+    });
+
+    if (timeInput) timeInput.value = preferredTime;
+    bookingState.time = preferredTime;
+  }
 
   function getWeekdayNameFromDate(dateValue) {
     if (!dateValue) return 'Monday';
@@ -692,49 +744,28 @@ function initBookingWizard() {
   }
 
   function updateAvailableShowtimes() {
-    const chips = document.querySelectorAll('.time-chip');
     const timeInput = document.getElementById('Time');
     const selectedDate = dateSelect?.value || '';
     const selectedDay = getWeekdayNameFromDate(selectedDate);
     const selectedMovie = getSelectedMovieData();
 
     if (!selectedMovie || !selectedMovie.showtimes || !selectedMovie.showtimes[selectedDay]) {
-      chips.forEach(chip => {
-        const value = chip.getAttribute('data-time');
-        chip.style.display = 'none';
-        chip.classList.remove('active');
-        if (timeInput && timeInput.value === value) timeInput.value = '';
-      });
+      renderTimeChips([], '');
+      if (timeInput) timeInput.value = '';
+      bookingState.time = '';
       return;
     }
 
     const availableTimes = selectedMovie.showtimes[selectedDay];
-    let chosenTime = timeParam || bookingState.time || availableTimes[0];
-    let validChoice = availableTimes.includes(chosenTime);
+    const preferredTime = timeParam && availableTimes.includes(timeParam)
+      ? timeParam
+      : availableTimes.includes(bookingState.time)
+        ? bookingState.time
+        : availableTimes[0];
 
-    chips.forEach(chip => {
-      const value = chip.getAttribute('data-time');
-      const isAvailable = availableTimes.includes(value);
-      chip.style.display = isAvailable ? 'inline-flex' : 'none';
-      chip.classList.toggle('active', isAvailable && value === chosenTime && validChoice);
-      if (!isAvailable && timeInput && timeInput.value === value) timeInput.value = '';
-    });
-
-    if (!validChoice) {
-      chosenTime = availableTimes[0] || '';
-    }
-
-    if (chosenTime) {
-      const matchingChip = [...chips].find(chip => chip.getAttribute('data-time') === chosenTime);
-      chips.forEach(chip => chip.classList.toggle('active', chip === matchingChip));
-      if (timeInput) timeInput.value = chosenTime;
-      bookingState.time = chosenTime;
-    }
-
-    if (!chosenTime && timeInput) {
-      timeInput.value = '';
-      bookingState.time = '';
-    }
+    renderTimeChips(availableTimes, preferredTime);
+    if (timeInput) timeInput.value = preferredTime || '';
+    bookingState.time = preferredTime || '';
   }
 
   async function populateMovieOptions() {
@@ -831,21 +862,23 @@ function initBookingWizard() {
     }
   }
 
-  document.querySelectorAll('.time-chip').forEach(chip => {
-    chip.addEventListener('click', () => {
-      const value = chip.getAttribute('data-time') || chip.textContent.trim();
-      const selectedMovie = getSelectedMovieData();
-      const selectedDay = getWeekdayNameFromDate(dateSelect?.value || '');
-      const availableTimes = selectedMovie?.showtimes?.[selectedDay] || [];
+  showtimeContainer?.addEventListener('click', (event) => {
+    const chip = event.target.closest('.time-chip');
+    if (!chip) return;
 
-      if (!availableTimes.includes(value)) return;
+    const value = chip.getAttribute('data-time') || chip.textContent.trim();
+    const selectedMovie = getSelectedMovieData();
+    const selectedDay = getWeekdayNameFromDate(dateSelect?.value || '');
+    const availableTimes = selectedMovie?.showtimes?.[selectedDay] || [];
 
-      document.querySelectorAll('.time-chip').forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      bookingState.time = value;
-      const timeSelect = document.getElementById('Time');
-      if (timeSelect) timeSelect.value = bookingState.time;
-    });
+    if (!availableTimes.includes(value)) return;
+
+    document.querySelectorAll('.time-chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    bookingState.time = value;
+
+    const timeSelect = document.getElementById('Time');
+    if (timeSelect) timeSelect.value = bookingState.time;
   });
 
   if (timeParam) {
