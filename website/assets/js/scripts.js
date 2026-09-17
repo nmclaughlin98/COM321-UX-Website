@@ -639,21 +639,103 @@ function initBookingWizard() {
     bookingRef: 'BBT-' + Math.floor(100000 + Math.random() * 900000)
   };
 
-  // Synchronize initial & selected date value into booking state
   const dateSelect = document.getElementById('dateSelect');
   if (dateSelect) {
     if (dateSelect.value) bookingState.date = dateSelect.value;
     dateSelect.addEventListener('change', () => {
       bookingState.date = dateSelect.value;
+      updateAvailableShowtimes();
     });
   }
 
-  // URL Parameter auto-prefill (e.g. bookNow.html?movie=Infinity_War&time=19:00)
   const urlParams = new URLSearchParams(window.location.search);
   const movieParam = urlParams.get('movie');
   const timeParam = urlParams.get('time');
+  const dayParam = urlParams.get('day');
 
   const movieSelect = document.getElementById('Movie');
+
+  function getWeekdayNameFromDate(dateValue) {
+    if (!dateValue) return 'Monday';
+    const parsed = new Date(dateValue);
+    if (Number.isNaN(parsed.getTime())) return 'Monday';
+    return ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][parsed.getDay()];
+  }
+
+  function getDateValueForWeekdayName(dayName) {
+    const target = dayName || 'Monday';
+    const names = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const targetIndex = names.indexOf(target);
+    if (targetIndex === -1) return '';
+
+    const today = new Date();
+    const currentDayIndex = today.getDay();
+    const daysSinceMonday = (currentDayIndex === 0 ? -6 : 1 - currentDayIndex);
+    const mondayOfCurrentWeek = new Date(today);
+    mondayOfCurrentWeek.setHours(0, 0, 0, 0);
+    mondayOfCurrentWeek.setDate(today.getDate() + daysSinceMonday);
+
+    const targetDate = new Date(mondayOfCurrentWeek);
+    targetDate.setDate(mondayOfCurrentWeek.getDate() + ((targetIndex + 6) % 7));
+
+    return targetDate.toISOString().split('T')[0];
+  }
+
+  function getSelectedMovieData() {
+    if (!movieSelect || !movieSelect.value || movieSelect.value === 'Please Select') return null;
+
+    const movieTitle = movieSelect.value;
+    const movie = window.movieData?.find(item => item.title === movieTitle);
+    if (!movie) return null;
+
+    return movie;
+  }
+
+  function updateAvailableShowtimes() {
+    const chips = document.querySelectorAll('.time-chip');
+    const timeInput = document.getElementById('Time');
+    const selectedDate = dateSelect?.value || '';
+    const selectedDay = getWeekdayNameFromDate(selectedDate);
+    const selectedMovie = getSelectedMovieData();
+
+    if (!selectedMovie || !selectedMovie.showtimes || !selectedMovie.showtimes[selectedDay]) {
+      chips.forEach(chip => {
+        const value = chip.getAttribute('data-time');
+        chip.style.display = 'none';
+        chip.classList.remove('active');
+        if (timeInput && timeInput.value === value) timeInput.value = '';
+      });
+      return;
+    }
+
+    const availableTimes = selectedMovie.showtimes[selectedDay];
+    let chosenTime = timeParam || bookingState.time || availableTimes[0];
+    let validChoice = availableTimes.includes(chosenTime);
+
+    chips.forEach(chip => {
+      const value = chip.getAttribute('data-time');
+      const isAvailable = availableTimes.includes(value);
+      chip.style.display = isAvailable ? 'inline-flex' : 'none';
+      chip.classList.toggle('active', isAvailable && value === chosenTime && validChoice);
+      if (!isAvailable && timeInput && timeInput.value === value) timeInput.value = '';
+    });
+
+    if (!validChoice) {
+      chosenTime = availableTimes[0] || '';
+    }
+
+    if (chosenTime) {
+      const matchingChip = [...chips].find(chip => chip.getAttribute('data-time') === chosenTime);
+      chips.forEach(chip => chip.classList.toggle('active', chip === matchingChip));
+      if (timeInput) timeInput.value = chosenTime;
+      bookingState.time = chosenTime;
+    }
+
+    if (!chosenTime && timeInput) {
+      timeInput.value = '';
+      bookingState.time = '';
+    }
+  }
 
   async function populateMovieOptions() {
     if (!movieSelect) return;
@@ -663,6 +745,7 @@ function initBookingWizard() {
       if (!response.ok) throw new Error('Unable to load movie list');
 
       const movies = await response.json();
+      window.movieData = movies;
       const visibleMovies = movies.filter(movie => movie.visible !== false).sort((a, b) => a.title.localeCompare(b.title));
 
       movieSelect.innerHTML = '<option value="Please Select" disabled selected>-- Choose a Feature Film --</option>';
@@ -694,6 +777,16 @@ function initBookingWizard() {
           }
         }
       }
+
+      if (dayParam && dateSelect) {
+        const targetDate = getDateValueForWeekdayName(dayParam);
+        if (targetDate) {
+          dateSelect.value = targetDate;
+          bookingState.date = targetDate;
+        }
+      }
+
+      updateAvailableShowtimes();
     } catch (error) {
       console.error('Movie dropdown load error:', error);
       movieSelect.innerHTML = '<option value="Please Select" disabled selected>-- Choose a Feature Film --</option>';
@@ -738,28 +831,31 @@ function initBookingWizard() {
     }
   }
 
-  // Showtime Chips Selection
   document.querySelectorAll('.time-chip').forEach(chip => {
     chip.addEventListener('click', () => {
+      const value = chip.getAttribute('data-time') || chip.textContent.trim();
+      const selectedMovie = getSelectedMovieData();
+      const selectedDay = getWeekdayNameFromDate(dateSelect?.value || '');
+      const availableTimes = selectedMovie?.showtimes?.[selectedDay] || [];
+
+      if (!availableTimes.includes(value)) return;
+
       document.querySelectorAll('.time-chip').forEach(c => c.classList.remove('active'));
       chip.classList.add('active');
-      bookingState.time = chip.getAttribute('data-time') || chip.textContent.trim();
+      bookingState.time = value;
       const timeSelect = document.getElementById('Time');
       if (timeSelect) timeSelect.value = bookingState.time;
     });
   });
 
   if (timeParam) {
-    document.querySelectorAll('.time-chip').forEach(chip => {
-      if (chip.textContent.includes(timeParam)) {
-        chip.click();
-      }
-    });
+    const matchingChip = [...document.querySelectorAll('.time-chip')].find(chip => chip.getAttribute('data-time') === timeParam);
+    matchingChip?.click();
   }
 
-  // Movie Dropdown Change Listener
   movieSelect?.addEventListener('change', () => {
     bookingState.movie = movieSelect.value;
+    updateAvailableShowtimes();
   });
 
   // Ticket Counter Buttons (+ / -)
