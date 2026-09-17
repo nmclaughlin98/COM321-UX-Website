@@ -359,7 +359,24 @@ function filterMovies() {
   renderTimetable();
 }
 
-window.generateTimetablePdf = function () {
+async function loadPdfLogoDataUrl() {
+  try {
+    const response = await fetch('assets/Images/logo.png');
+    if (!response.ok) return null;
+
+    const blob = await response.blob();
+    return await new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onloadend = () => resolve(reader.result);
+      reader.readAsDataURL(blob);
+    });
+  } catch (error) {
+    console.warn('Unable to load PDF logo:', error);
+    return null;
+  }
+}
+
+window.generateTimetablePdf = async function () {
   if (!window.jspdf || !window.jspdf.jsPDF) {
     window.print();
     return;
@@ -368,17 +385,22 @@ window.generateTimetablePdf = function () {
   const { jsPDF } = window.jspdf;
   const pdf = new jsPDF({ unit: 'pt', format: 'a4' });
   const margin = 40;
-  let y = 60;
+  const logoDataUrl = await loadPdfLogoDataUrl();
+  let y = 52;
+
+  if (logoDataUrl) {
+    pdf.addImage(logoDataUrl, 'PNG', margin, 18, 42, 42);
+  }
 
   pdf.setFont('helvetica', 'bold');
   pdf.setFontSize(18);
-  pdf.text('Blockbuster Theatre Timetable', margin, y);
+  pdf.text('Blockbuster Theatre Timetable', margin + (logoDataUrl ? 54 : 0), y);
   y += 26;
 
   const weekText = document.getElementById('weekCommencingLabel')?.textContent || 'Schedule for Week Commencing';
   pdf.setFont('helvetica', 'normal');
   pdf.setFontSize(11);
-  pdf.text(weekText, margin, y);
+  pdf.text(weekText, margin + (logoDataUrl ? 54 : 0), y);
   y += 26;
 
   const cards = [...document.querySelectorAll('.movie-card')];
