@@ -40,6 +40,33 @@
 		height: 70px;
 	}
 
+	.page-banner {
+		padding-top: 32px;
+	}
+
+	.timetable-controls {
+		padding: 0 14px;
+	}
+
+	.day-tabs {
+		gap: 8px;
+	}
+
+	.day-tab {
+		padding: 9px 13px;
+		font-size: 0.72rem;
+	}
+
+	.movie-card {
+		grid-template-columns: 1fr;
+		padding: 18px 16px;
+		gap: 16px;
+	}
+
+	.showtimes-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
 	.primary-nav {
 		display: flex;
 		position: fixed;
@@ -272,4 +299,3 @@
 		grid-template-columns: 1fr;
 	}
 }
-
