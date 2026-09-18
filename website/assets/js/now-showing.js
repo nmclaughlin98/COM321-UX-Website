@@ -14,6 +14,43 @@ async function loadNowShowingMovies() {
   }
 }
 
+const sortSelect = document.getElementById('movie-sort-select');
+
+function sortMovies(movies, sortValue) {
+  const sorted = [...movies];
+
+  switch (sortValue) {
+    case 'title-asc':
+      sorted.sort((a, b) => a.title.localeCompare(b.title, undefined, { sensitivity: 'base' }));
+      break;
+    case 'title-desc':
+      sorted.sort((a, b) => b.title.localeCompare(a.title, undefined, { sensitivity: 'base' }));
+      break;
+    case 'release-desc':
+      sorted.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
+      break;
+    case 'release-asc':
+      sorted.sort((a, b) => new Date(a.releaseDate) - new Date(b.releaseDate));
+      break;
+    case 'score-desc':
+      sorted.sort((a, b) => (b.score ?? 0) - (a.score ?? 0));
+      break;
+    case 'score-asc':
+      sorted.sort((a, b) => (a.score ?? 0) - (b.score ?? 0));
+      break;
+    default:
+      return movies;
+  }
+
+  return sorted;
+}
+
+sortSelect.addEventListener('change', () => {
+  // Apply current search + genre filter, then:
+  const sorted = sortMovies(filteredMovies, sortSelect.value);
+  renderMovies(sorted);
+});
+
 function inferGenreKey(movie) {
   const genre = (movie.genre || '').toLowerCase();
 
