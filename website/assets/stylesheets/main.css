@@ -2545,6 +2545,21 @@ hr {
   margin: 10px 0;
 }
 
+.sort-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sort-select {
+  min-width: 240px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: inherit;
+  color: inherit;
+  border: 1px solid currentColor;
+}
+
 /* ==========================================================================
    Modern Cinema Footer
    ========================================================================== */

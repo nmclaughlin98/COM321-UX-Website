@@ -57,6 +57,18 @@
         <input type="text" id="movie-search-input" class="search-input" placeholder="Search by movie title...">
       </div>
 
+      <div class="sort-wrapper">
+        <label for="movie-sort-select">Sort movies:</label>
+        <select id="movie-sort-select" class="sort-select" name="sort" aria-label="Sort movies">
+          <option value="title-asc" selected>Alphabetical (A–Z)</option>
+          <option value="title-desc">Alphabetical (Z–A)</option>
+          <option value="release-desc">Release date (newest first)</option>
+          <option value="release-asc">Release date (oldest first)</option>
+          <option value="score-desc">Popularity / score (highest first)</option>
+          <option value="score-asc">Popularity / score (lowest first)</option>
+        </select>
+      </div>
+
       <div class="genre-tabs">
         <button class="genre-tab active" data-genre="all">All Genres</button>
         <button class="genre-tab" data-genre="action">Action</button>

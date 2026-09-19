@@ -261,61 +261,15 @@ const moviesData = [
 
 let selectedDay = 'Monday';
 
-function updateWeekLabel() {
-  const weekLabel = document.getElementById('weekCommencingLabel');
-  if (!weekLabel) return;
-
-  const today = new Date();
-  const day = today.getDay();
-  const diffToMonday = (day === 0 ? -6 : 1 - day);
-  const weekStart = new Date(today);
-  weekStart.setHours(0, 0, 0, 0);
-  weekStart.setDate(today.getDate() + diffToMonday);
-
-  const formatter = new Intl.DateTimeFormat('en-GB', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric'
-  });
-
-  weekLabel.textContent = `Schedule for Week Commencing ${formatter.format(weekStart)}`;
-}
-
-let timetableMovies = [];
-
-async function loadTimetableMovies() {
-  try {
-    const response = await fetch('assets/data/movies.json');
-    if (!response.ok) throw new Error('Unable to load timetable data');
-
-    const movies = await response.json();
-    timetableMovies = movies.filter(movie => movie.visible !== false);
-    renderTimetable();
-  } catch (error) {
-    console.error('Timetable load error:', error);
-    const container = document.getElementById('timetableList');
-    if (container) {
-      container.innerHTML = '<p class="empty-state">Timetable is temporarily unavailable.</p>';
-    }
-  }
-}
-
 function renderTimetable() {
   const container = document.getElementById('timetableList');
-  const searchInput = document.getElementById('movieSearch');
-  const searchVal = searchInput ? searchInput.value.toLowerCase() : '';
-
-  if (!container) return;
+  const searchVal = document.getElementById('movieSearch').value.toLowerCase();
   container.innerHTML = '';
 
-  const sourceMovies = timetableMovies.length ? timetableMovies : moviesData;
-  const sortedMovies = [...sourceMovies].sort((a, b) => a.title.localeCompare(b.title));
-
-  sortedMovies.forEach(movie => {
+  moviesData.forEach(movie => {
     if (searchVal && !movie.title.toLowerCase().includes(searchVal)) return;
 
-    const showtimes = movie.showtimes ? (movie.showtimes[selectedDay] || []) : (movie.schedule ? (movie.schedule[selectedDay] || []) : ((selectedDay === 'Monday') ? (movie.standard || []) : (movie.tuesdayToSunday || [])));
-    const times = showtimes;
+    let times = movie.schedule ? (movie.schedule[selectedDay] || []) : ((selectedDay === 'Monday') ? movie.standard : movie.tuesdayToSunday);
 
     if (times.length === 0) return;
     const uniqueTimes = [...new Set(times)];
@@ -324,24 +278,24 @@ function renderTimetable() {
     card.className = 'movie-card';
 
     const showtimesHTML = uniqueTimes.map((time, idx) => `
-      <a href="bookNow.html?movie=${encodeURIComponent(movie.title)}&time=${time}&day=${selectedDay}" class="showtime-btn">
-        ${time}
-        <span>Screen ${idx + 1}</span>
-      </a>
-    `).join('');
+                    <a href="bookNow.html?movie=${encodeURIComponent(movie.title)}&time=${time}&day=${selectedDay}" class="showtime-btn">
+                        ${time}
+                        <span>Screen ${idx + 1}</span>
+                    </a>
+                `).join('');
 
     card.innerHTML = `
-      <div class="movie-info">
-        <div class="movie-title">${movie.title}</div>
-        <div class="movie-meta">
-          <span class="badge-genre">${movie.genre}</span>
-          <span>2D / 4K Laser</span>
-        </div>
-      </div>
-      <div class="showtimes-grid">
-        ${showtimesHTML}
-      </div>
-    `;
+                    <div class="movie-info">
+                        <div class="movie-title">${movie.title}</div>
+                        <div class="movie-meta">
+                            <span class="badge-genre">${movie.genre}</span>
+                            <span>2D / 4K Laser</span>
+                        </div>
+                    </div>
+                    <div class="showtimes-grid">
+                        ${showtimesHTML}
+                    </div>
+                `;
 
     container.appendChild(card);
   });
@@ -359,8 +313,7 @@ function filterMovies() {
   renderTimetable();
 }
 
-updateWeekLabel();
-loadTimetableMovies();
+renderTimetable();
 
 /* ==========================================================================
    4. Universal Trailer Lightbox Modal
@@ -639,192 +592,43 @@ function initBookingWizard() {
     bookingRef: 'BBT-' + Math.floor(100000 + Math.random() * 900000)
   };
 
+  // Synchronize initial & selected date value into booking state
   const dateSelect = document.getElementById('dateSelect');
   if (dateSelect) {
     if (dateSelect.value) bookingState.date = dateSelect.value;
     dateSelect.addEventListener('change', () => {
       bookingState.date = dateSelect.value;
-      updateAvailableShowtimes();
     });
   }
 
+  // URL Parameter auto-prefill (e.g. bookNow.html?movie=Infinity_War&day=Fri 20 Sep 2026&time=19:00)
   const urlParams = new URLSearchParams(window.location.search);
   const movieParam = urlParams.get('movie');
   const timeParam = urlParams.get('time');
   const dayParam = urlParams.get('day');
 
   const movieSelect = document.getElementById('Movie');
-  const showtimeContainer = document.querySelector('.showtime-chips');
-
-  function renderTimeChips(availableTimes, selectedTime) {
-    const timeInput = document.getElementById('Time');
-    if (!showtimeContainer) return;
-
-    showtimeContainer.innerHTML = '';
-
-    if (!Array.isArray(availableTimes) || !availableTimes.length) {
-      if (timeInput) timeInput.value = '';
-      bookingState.time = '';
-      return;
-    }
-
-    const preferredTime = availableTimes.includes(selectedTime)
-      ? selectedTime
-      : availableTimes.includes(bookingState.time)
-        ? bookingState.time
-        : availableTimes[0];
-
-    availableTimes.forEach(time => {
-      const chip = document.createElement('button');
-      chip.type = 'button';
-      chip.className = 'time-chip';
-      chip.setAttribute('data-time', time);
-      chip.textContent = time;
-
-      if (time === preferredTime) {
-        chip.classList.add('active');
+  if (movieSelect && movieParam) {
+    for (let i = 0; i < movieSelect.options.length; i++) {
+      if (movieSelect.options[i].text.toLowerCase().includes(movieParam.toLowerCase()) ||
+        movieSelect.options[i].value.toLowerCase().includes(movieParam.toLowerCase())) {
+        movieSelect.selectedIndex = i;
+        bookingState.movie = movieSelect.options[i].value;
+        break;
       }
-
-      chip.addEventListener('click', () => {
-        const value = chip.getAttribute('data-time') || chip.textContent.trim();
-        const selectedMovie = getSelectedMovieData();
-        const selectedDay = getWeekdayNameFromDate(dateSelect?.value || '');
-        const availableTimes = selectedMovie?.showtimes?.[selectedDay] || [];
-
-        if (!availableTimes.includes(value)) return;
-
-        document.querySelectorAll('.time-chip').forEach(c => c.classList.remove('active'));
-        chip.classList.add('active');
-        bookingState.time = value;
-
-        if (timeInput) timeInput.value = bookingState.time;
-      });
-
-      showtimeContainer.appendChild(chip);
-    });
-
-    if (timeInput) timeInput.value = preferredTime;
-    bookingState.time = preferredTime;
-  }
-
-  function getWeekdayNameFromDate(dateValue) {
-    if (!dateValue) return 'Monday';
-    const parsed = new Date(dateValue);
-    if (Number.isNaN(parsed.getTime())) return 'Monday';
-    return ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][parsed.getDay()];
-  }
-
-  function getDateValueForWeekdayName(dayName) {
-    const target = dayName || 'Monday';
-    const names = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const targetIndex = names.indexOf(target);
-    if (targetIndex === -1) return '';
-
-    const today = new Date();
-    const currentDayIndex = today.getDay();
-    const daysSinceMonday = (currentDayIndex === 0 ? -6 : 1 - currentDayIndex);
-    const mondayOfCurrentWeek = new Date(today);
-    mondayOfCurrentWeek.setHours(0, 0, 0, 0);
-    mondayOfCurrentWeek.setDate(today.getDate() + daysSinceMonday);
-
-    const targetDate = new Date(mondayOfCurrentWeek);
-    targetDate.setDate(mondayOfCurrentWeek.getDate() + ((targetIndex + 6) % 7));
-
-    return targetDate.toISOString().split('T')[0];
-  }
-
-  function getSelectedMovieData() {
-    if (!movieSelect || !movieSelect.value || movieSelect.value === 'Please Select') return null;
-
-    const movieTitle = movieSelect.value;
-    const movie = window.movieData?.find(item => item.title === movieTitle);
-    if (!movie) return null;
-
-    return movie;
-  }
-
-  function updateAvailableShowtimes() {
-    const timeInput = document.getElementById('Time');
-    const selectedDate = dateSelect?.value || '';
-    const selectedDay = getWeekdayNameFromDate(selectedDate);
-    const selectedMovie = getSelectedMovieData();
-
-    if (!selectedMovie || !selectedMovie.showtimes || !selectedMovie.showtimes[selectedDay]) {
-      renderTimeChips([], '');
-      if (timeInput) timeInput.value = '';
-      bookingState.time = '';
-      return;
-    }
-
-    const availableTimes = selectedMovie.showtimes[selectedDay];
-    const preferredTime = timeParam && availableTimes.includes(timeParam)
-      ? timeParam
-      : availableTimes.includes(bookingState.time)
-        ? bookingState.time
-        : availableTimes[0];
-
-    renderTimeChips(availableTimes, preferredTime);
-    if (timeInput) timeInput.value = preferredTime || '';
-    bookingState.time = preferredTime || '';
-  }
-
-  async function populateMovieOptions() {
-    if (!movieSelect) return;
-
-    try {
-      const response = await fetch('assets/data/movies.json');
-      if (!response.ok) throw new Error('Unable to load movie list');
-
-      const movies = await response.json();
-      window.movieData = movies;
-      const visibleMovies = movies.filter(movie => movie.visible !== false).sort((a, b) => a.title.localeCompare(b.title));
-
-      movieSelect.innerHTML = '<option value="Please Select" disabled selected>-- Choose a Feature Film --</option>';
-
-      visibleMovies.forEach(movie => {
-        const option = document.createElement('option');
-        option.value = movie.title;
-        option.textContent = `${movie.title} (${movie.rating || 'NR'})`;
-        movieSelect.appendChild(option);
-      });
-
-      const preferredDefault = 'Avengers: Infinity War';
-      const defaultIndex = [...movieSelect.options].findIndex(option => option.value === preferredDefault);
-      if (defaultIndex >= 0) {
-        movieSelect.selectedIndex = defaultIndex;
-        bookingState.movie = movieSelect.value;
-      }
-
-      if (movieParam) {
-        for (let i = 0; i < movieSelect.options.length; i++) {
-          const optionText = movieSelect.options[i].text.toLowerCase();
-          const optionValue = movieSelect.options[i].value.toLowerCase();
-          const paramMatch = movieParam.toLowerCase();
-
-          if (optionText.includes(paramMatch) || optionValue.includes(paramMatch)) {
-            movieSelect.selectedIndex = i;
-            bookingState.movie = movieSelect.options[i].value;
-            break;
-          }
-        }
-      }
-
-      if (dayParam && dateSelect) {
-        const targetDate = getDateValueForWeekdayName(dayParam);
-        if (targetDate) {
-          dateSelect.value = targetDate;
-          bookingState.date = targetDate;
-        }
-      }
-
-      updateAvailableShowtimes();
-    } catch (error) {
-      console.error('Movie dropdown load error:', error);
-      movieSelect.innerHTML = '<option value="Please Select" disabled selected>-- Choose a Feature Film --</option>';
     }
   }
 
-  populateMovieOptions();
+  if (dateSelect && dayParam) {
+    const matchingDate = Array.from(dateSelect.options).find(option =>
+      option.value.toLowerCase() === dayParam.toLowerCase()
+    );
+
+    if (matchingDate) {
+      dateSelect.value = matchingDate.value;
+      bookingState.date = matchingDate.value;
+    }
+  }
 
   // Update initial active fieldset
   function updateStep(newStep) {
@@ -862,33 +666,28 @@ function initBookingWizard() {
     }
   }
 
-  showtimeContainer?.addEventListener('click', (event) => {
-    const chip = event.target.closest('.time-chip');
-    if (!chip) return;
-
-    const value = chip.getAttribute('data-time') || chip.textContent.trim();
-    const selectedMovie = getSelectedMovieData();
-    const selectedDay = getWeekdayNameFromDate(dateSelect?.value || '');
-    const availableTimes = selectedMovie?.showtimes?.[selectedDay] || [];
-
-    if (!availableTimes.includes(value)) return;
-
-    document.querySelectorAll('.time-chip').forEach(c => c.classList.remove('active'));
-    chip.classList.add('active');
-    bookingState.time = value;
-
-    const timeSelect = document.getElementById('Time');
-    if (timeSelect) timeSelect.value = bookingState.time;
+  // Showtime Chips Selection
+  document.querySelectorAll('.time-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.time-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      bookingState.time = chip.getAttribute('data-time') || chip.textContent.trim();
+      const timeSelect = document.getElementById('Time');
+      if (timeSelect) timeSelect.value = bookingState.time;
+    });
   });
 
   if (timeParam) {
-    const matchingChip = [...document.querySelectorAll('.time-chip')].find(chip => chip.getAttribute('data-time') === timeParam);
-    matchingChip?.click();
+    document.querySelectorAll('.time-chip').forEach(chip => {
+      if (chip.textContent.includes(timeParam)) {
+        chip.click();
+      }
+    });
   }
 
+  // Movie Dropdown Change Listener
   movieSelect?.addEventListener('change', () => {
     bookingState.movie = movieSelect.value;
-    updateAvailableShowtimes();
   });
 
   // Ticket Counter Buttons (+ / -)
@@ -955,8 +754,8 @@ function initBookingWizard() {
 
   seats.forEach((seat, index) => {
     // Generate row letter & seat number if not set
-    const row = String.fromCharCode(65 + Math.floor(index / 12));
-    const seatNum = (index % 12) + 1;
+    const row = String.fromCharCode(65 + Math.floor(index / 10));
+    const seatNum = (index % 10) + 1;
     const seatLabel = `${row}${seatNum}`;
     seat.setAttribute('data-seat-id', seatLabel);
     seat.title = `Seat ${seatLabel}`;

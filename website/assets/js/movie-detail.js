@@ -51,7 +51,7 @@ async function loadMovieDetail() {
     })
     .join('');
 
-  bookLink.href = `bookNow.html?movie=${encodeURIComponent(movie.title)}`;
+  bookLink.href = `../bookNow.html?movie=${encodeURIComponent(movie.title)}`;
 }
 
 async function fetchMovieData(slug) {

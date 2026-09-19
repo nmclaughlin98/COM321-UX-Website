@@ -179,6 +179,13 @@
 		font-size: 14px;
 		padding: 8px 14px;
 	}
+
+	.genre-filter-container {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-end;
+		gap: 16px;
+	}
 }
 
 /* Small Phones (480px and down) */
