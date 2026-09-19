@@ -2538,6 +2538,13 @@ iframe.trailer {
   transform: translateY(-2px);
 }
 
+.show-time.active {
+  background: var(--accent-red);
+  border-color: var(--accent-red);
+  color: #fff;
+  box-shadow: 0 0 0 2px rgba(157, 36, 59, 0.25);
+}
+
 hr {
   border: none;
   border-top: 1px solid var(--border-subtle);
