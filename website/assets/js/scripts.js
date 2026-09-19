@@ -553,6 +553,47 @@ function initGenreFilterAndSearch() {
 /* ==========================================================================
    10. Interactive Ticket Booking Flow (bookNow.html)
    ========================================================================== */
+async function populateMovieSelect() {
+  const movieSelect = document.getElementById('Movie');
+  if (!movieSelect) return;
+
+  try {
+    const response = await fetch('assets/data/movies.json');
+    if (!response.ok) throw new Error('Unable to load movie list');
+
+    const movies = await response.json();
+    const sortedMovies = [...movies]
+      .filter(movie => movie.visible !== false)
+      .sort((a, b) => a.title.localeCompare(b.title, undefined, { sensitivity: 'base' }));
+
+    const placeholder = movieSelect.querySelector('option[value="Please Select"]');
+    if (placeholder) placeholder.disabled = true;
+
+    sortedMovies.forEach(movie => {
+      const option = document.createElement('option');
+      option.value = movie.title;
+      option.textContent = movie.title;
+      movieSelect.appendChild(option);
+    });
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const movieParam = urlParams.get('movie');
+    if (movieParam) {
+      const matchingOption = Array.from(movieSelect.options).find(option =>
+        option.value.toLowerCase() === movieParam.toLowerCase() ||
+        option.text.toLowerCase() === movieParam.toLowerCase()
+      );
+
+      if (matchingOption) {
+        movieSelect.value = matchingOption.value;
+      }
+    }
+  } catch (error) {
+    console.error(error);
+    movieSelect.innerHTML = '<option value="Please Select" disabled selected>Unable to load movie list</option>';
+  }
+}
+
 function initBookingWizard() {
   const form = document.getElementById('myForm');
   if (!form) return;
@@ -609,13 +650,14 @@ function initBookingWizard() {
 
   const movieSelect = document.getElementById('Movie');
   if (movieSelect && movieParam) {
-    for (let i = 0; i < movieSelect.options.length; i++) {
-      if (movieSelect.options[i].text.toLowerCase().includes(movieParam.toLowerCase()) ||
-        movieSelect.options[i].value.toLowerCase().includes(movieParam.toLowerCase())) {
-        movieSelect.selectedIndex = i;
-        bookingState.movie = movieSelect.options[i].value;
-        break;
-      }
+    const matchingOption = Array.from(movieSelect.options).find(option =>
+      option.value.toLowerCase() === movieParam.toLowerCase() ||
+      option.text.toLowerCase() === movieParam.toLowerCase()
+    );
+
+    if (matchingOption) {
+      movieSelect.value = matchingOption.value;
+      bookingState.movie = matchingOption.value;
     }
   }
 
@@ -679,8 +721,12 @@ function initBookingWizard() {
 
   if (timeParam) {
     document.querySelectorAll('.time-chip').forEach(chip => {
-      if (chip.textContent.includes(timeParam)) {
-        chip.click();
+      const chipTime = (chip.getAttribute('data-time') || chip.textContent.trim());
+      if (chipTime === timeParam) {
+        chip.classList.add('active');
+        bookingState.time = chipTime;
+        const timeSelect = document.getElementById('Time');
+        if (timeSelect) timeSelect.value = chipTime;
       }
     });
   }
