@@ -178,113 +178,113 @@ function initHeroCarousel() {
   startAutoplay();
 }
 
-        const moviesData = [
-            { title: "Avengers: Infinity War", genre: "Action", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
-            { title: "Spider-Man: Homecoming", genre: "Action", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
-            { title: "Spectre", genre: "Action", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
-            { title: "Deadpool 2", genre: "Action", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
-            { title: "Elf", genre: "Comedy / Kids", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
-            { title: "Ralph Breaks the Internet", genre: "Animation / Kids", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
-            { title: "Nobody's Fool", genre: "Comedy", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
-            { title: "The Grinch", genre: "Animation / Kids", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
-            { title: "Johnny English: Strikes Again", genre: "Comedy", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
-            { 
-                title: "The Shining", genre: "Horror", 
-                schedule: {
-                    Monday: ["17:00", "21:00", "23:00"],
-                    Tuesday: ["17:00", "21:00", "23:00"],
-                    Wednesday: ["17:30", "21:00", "23:00"],
-                    Thursday: ["17:00", "21:00", "23:00"],
-                    Friday: ["17:00", "21:00", "23:00"],
-                    Saturday: ["17:00", "21:45", "23:00"],
-                    Sunday: ["11:00", "21:00"]
-                }
-            },
-            { 
-                title: "The Exorcist", genre: "Horror", 
-                schedule: {
-                    Monday: ["17:00", "21:00", "23:00"],
-                    Tuesday: ["17:00", "21:00", "23:00"],
-                    Wednesday: ["17:30", "21:00", "23:00"],
-                    Thursday: ["17:00", "21:00", "23:00"],
-                    Friday: ["17:00", "21:00", "23:00"],
-                    Saturday: ["17:00", "21:45", "23:00"],
-                    Sunday: ["11:00", "21:00"]
-                }
-            },
-            { 
-                title: "Poltergeist", genre: "Horror", 
-                schedule: {
-                    Monday: ["17:00", "21:00", "23:00"],
-                    Tuesday: ["17:00", "21:00", "23:00"],
-                    Wednesday: ["17:30", "21:00", "23:00"],
-                    Thursday: ["17:00", "21:00", "23:00"],
-                    Friday: ["17:00", "21:00", "23:00"],
-                    Saturday: ["17:00", "21:45", "23:00"],
-                    Sunday: ["11:00", "21:00"]
-                }
-            },
-            { 
-                title: "The Conjuring", genre: "Horror", 
-                schedule: {
-                    Monday: ["17:00", "21:00", "23:00"],
-                    Tuesday: ["17:00", "21:00", "23:00"],
-                    Wednesday: ["17:30", "21:00", "23:00"],
-                    Thursday: ["17:00", "21:00", "23:00"],
-                    Friday: ["17:00", "21:00", "23:00"],
-                    Saturday: ["17:00", "21:45", "23:00"],
-                    Sunday: ["11:00", "21:00"]
-                }
-            },
-            { 
-                title: "The Ring", genre: "Horror", 
-                schedule: {
-                    Monday: ["17:00", "21:00", "23:00"],
-                    Tuesday: ["17:00", "21:00", "23:00"],
-                    Wednesday: ["17:30", "21:00", "23:00"],
-                    Thursday: ["17:00", "21:00", "23:00"],
-                    Friday: ["17:00", "21:00", "23:00"],
-                    Saturday: ["17:00", "21:45", "23:00"],
-                    Sunday: ["11:00", "21:00"]
-                }
-            },
-            { title: "Aladdin", genre: "Classic / Family", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
-            { title: "E.T. - The Extra-Terrestrial", genre: "Sci-Fi / Family", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
-            { title: "Toy Story", genre: "Animation", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
-            { title: "Star Wars: The Last Jedi", genre: "Sci-Fi", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
-            { title: "The Godfather", genre: "Classic / Drama", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
-            { title: "Pulp Fiction", genre: "Classic / Crime", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
-            { title: "Raging Bull", genre: "Classic / Drama", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
-            { title: "One Flew Over The Cuckoo's Nest", genre: "Classic / Drama", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
-            { title: "Forrest Gump", genre: "Classic / Drama", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] }
-        ];
+const moviesData = [
+  { title: "Avengers: Infinity War", genre: "Action", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+  { title: "Spider-Man: Homecoming", genre: "Action", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+  { title: "Spectre", genre: "Action", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+  { title: "Deadpool 2", genre: "Action", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+  { title: "Elf", genre: "Comedy / Kids", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+  { title: "Ralph Breaks the Internet", genre: "Animation / Kids", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+  { title: "Nobody's Fool", genre: "Comedy", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+  { title: "The Grinch", genre: "Animation / Kids", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+  { title: "Johnny English: Strikes Again", genre: "Comedy", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+  {
+    title: "The Shining", genre: "Horror",
+    schedule: {
+      Monday: ["17:00", "21:00", "23:00"],
+      Tuesday: ["17:00", "21:00", "23:00"],
+      Wednesday: ["17:30", "21:00", "23:00"],
+      Thursday: ["17:00", "21:00", "23:00"],
+      Friday: ["17:00", "21:00", "23:00"],
+      Saturday: ["17:00", "21:45", "23:00"],
+      Sunday: ["11:00", "21:00"]
+    }
+  },
+  {
+    title: "The Exorcist", genre: "Horror",
+    schedule: {
+      Monday: ["17:00", "21:00", "23:00"],
+      Tuesday: ["17:00", "21:00", "23:00"],
+      Wednesday: ["17:30", "21:00", "23:00"],
+      Thursday: ["17:00", "21:00", "23:00"],
+      Friday: ["17:00", "21:00", "23:00"],
+      Saturday: ["17:00", "21:45", "23:00"],
+      Sunday: ["11:00", "21:00"]
+    }
+  },
+  {
+    title: "Poltergeist", genre: "Horror",
+    schedule: {
+      Monday: ["17:00", "21:00", "23:00"],
+      Tuesday: ["17:00", "21:00", "23:00"],
+      Wednesday: ["17:30", "21:00", "23:00"],
+      Thursday: ["17:00", "21:00", "23:00"],
+      Friday: ["17:00", "21:00", "23:00"],
+      Saturday: ["17:00", "21:45", "23:00"],
+      Sunday: ["11:00", "21:00"]
+    }
+  },
+  {
+    title: "The Conjuring", genre: "Horror",
+    schedule: {
+      Monday: ["17:00", "21:00", "23:00"],
+      Tuesday: ["17:00", "21:00", "23:00"],
+      Wednesday: ["17:30", "21:00", "23:00"],
+      Thursday: ["17:00", "21:00", "23:00"],
+      Friday: ["17:00", "21:00", "23:00"],
+      Saturday: ["17:00", "21:45", "23:00"],
+      Sunday: ["11:00", "21:00"]
+    }
+  },
+  {
+    title: "The Ring", genre: "Horror",
+    schedule: {
+      Monday: ["17:00", "21:00", "23:00"],
+      Tuesday: ["17:00", "21:00", "23:00"],
+      Wednesday: ["17:30", "21:00", "23:00"],
+      Thursday: ["17:00", "21:00", "23:00"],
+      Friday: ["17:00", "21:00", "23:00"],
+      Saturday: ["17:00", "21:45", "23:00"],
+      Sunday: ["11:00", "21:00"]
+    }
+  },
+  { title: "Aladdin", genre: "Classic / Family", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+  { title: "E.T. - The Extra-Terrestrial", genre: "Sci-Fi / Family", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+  { title: "Toy Story", genre: "Animation", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+  { title: "Star Wars: The Last Jedi", genre: "Sci-Fi", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+  { title: "The Godfather", genre: "Classic / Drama", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+  { title: "Pulp Fiction", genre: "Classic / Crime", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+  { title: "Raging Bull", genre: "Classic / Drama", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+  { title: "One Flew Over The Cuckoo's Nest", genre: "Classic / Drama", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] },
+  { title: "Forrest Gump", genre: "Classic / Drama", standard: ["11:00", "13:00", "15:00", "19:00"], tuesdayToSunday: ["11:00", "13:00", "13:00", "13:00"] }
+];
 
-        let selectedDay = 'Monday';
+let selectedDay = 'Monday';
 
-        function renderTimetable() {
-            const container = document.getElementById('timetableList');
-            const searchVal = document.getElementById('movieSearch').value.toLowerCase();
-            container.innerHTML = '';
+function renderTimetable() {
+  const container = document.getElementById('timetableList');
+  const searchVal = document.getElementById('movieSearch').value.toLowerCase();
+  container.innerHTML = '';
 
-            moviesData.forEach(movie => {
-                if (searchVal && !movie.title.toLowerCase().includes(searchVal)) return;
+  moviesData.forEach(movie => {
+    if (searchVal && !movie.title.toLowerCase().includes(searchVal)) return;
 
-                let times = movie.schedule ? (movie.schedule[selectedDay] || []) : ((selectedDay === 'Monday') ? movie.standard : movie.tuesdayToSunday);
+    let times = movie.schedule ? (movie.schedule[selectedDay] || []) : ((selectedDay === 'Monday') ? movie.standard : movie.tuesdayToSunday);
 
-                if (times.length === 0) return;
-                const uniqueTimes = [...new Set(times)];
+    if (times.length === 0) return;
+    const uniqueTimes = [...new Set(times)];
 
-                const card = document.createElement('div');
-                card.className = 'movie-card';
-                
-                const showtimesHTML = uniqueTimes.map((time, idx) => `
+    const card = document.createElement('div');
+    card.className = 'movie-card';
+
+    const showtimesHTML = uniqueTimes.map((time, idx) => `
                     <a href="bookNow.html?movie=${encodeURIComponent(movie.title)}&time=${time}&day=${selectedDay}" class="showtime-btn">
                         ${time}
                         <span>Screen ${idx + 1}</span>
                     </a>
                 `).join('');
 
-                card.innerHTML = `
+    card.innerHTML = `
                     <div class="movie-info">
                         <div class="movie-title">${movie.title}</div>
                         <div class="movie-meta">
@@ -297,23 +297,23 @@ function initHeroCarousel() {
                     </div>
                 `;
 
-                container.appendChild(card);
-            });
-        }
+    container.appendChild(card);
+  });
+}
 
-        function filterDay(day) {
-            selectedDay = day;
-            document.querySelectorAll('.day-tab').forEach(btn => {
-                btn.classList.toggle('active', btn.innerText === day);
-            });
-            renderTimetable();
-        }
+function filterDay(day) {
+  selectedDay = day;
+  document.querySelectorAll('.day-tab').forEach(btn => {
+    btn.classList.toggle('active', btn.innerText === day);
+  });
+  renderTimetable();
+}
 
-        function filterMovies() {
-            renderTimetable();
-        }
+function filterMovies() {
+  renderTimetable();
+}
 
-        renderTimetable();
+renderTimetable();
 
 /* ==========================================================================
    4. Universal Trailer Lightbox Modal
@@ -635,14 +635,14 @@ function initBookingWizard() {
       item.classList.toggle('active', idx <= newStep);
       item.classList.toggle('completed', idx < newStep);
     });
-    
+
     currentStep = newStep;
-    
+
     const progressSection = document.getElementById('progressbar');
     const headerOffset = 100;
-    
+
     const sectionTop = progressSection.getBoundingClientRect().top + window.scrollY;
-    
+
     window.scrollTo({
       top: sectionTop - headerOffset,
       behavior: 'smooth'
@@ -742,8 +742,8 @@ function initBookingWizard() {
 
   seats.forEach((seat, index) => {
     // Generate row letter & seat number if not set
-    const row = String.fromCharCode(65 + Math.floor(index / 12));
-    const seatNum = (index % 12) + 1;
+    const row = String.fromCharCode(65 + Math.floor(index / 10));
+    const seatNum = (index % 10) + 1;
     const seatLabel = `${row}${seatNum}`;
     seat.setAttribute('data-seat-id', seatLabel);
     seat.title = `Seat ${seatLabel}`;
