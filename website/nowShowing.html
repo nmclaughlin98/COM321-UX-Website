@@ -7,8 +7,8 @@
   <meta name="description"
     content="Browse movies now showing at Blockbuster Theatres. Book tickets, view showtimes, and watch trailers.">
   <title>Blockbuster Theatres - Now Showing</title>
-  
-  <link rel="icon" type="image/png" href="assets/Images/favicon.png"/>
+
+  <link rel="icon" type="image/png" href="assets/Images/favicon.png" />
 
   <link rel="stylesheet" href="assets/stylesheets/main.css">
   <link rel="stylesheet" href="assets/stylesheets/media-queries.css">
@@ -56,6 +56,18 @@
         <span class="search-icon"></span>
         <label for="movie-search-input">Search by movie title:</label>
         <input type="text" id="movie-search-input" class="search-input" placeholder="Search by movie title...">
+      </div>
+
+      <div class="sort-wrapper">
+        <label for="movie-sort-select">Sort movies:</label>
+        <select id="movie-sort-select" class="sort-select" name="sort" aria-label="Sort movies">
+          <option value="title-asc" selected>Alphabetical (A–Z)</option>
+          <option value="title-desc">Alphabetical (Z–A)</option>
+          <option value="release-desc">Release date (newest first)</option>
+          <option value="release-asc">Release date (oldest first)</option>
+          <option value="score-desc">Popularity / score (highest first)</option>
+          <option value="score-asc">Popularity / score (lowest first)</option>
+        </select>
       </div>
 
       <div class="genre-tabs">

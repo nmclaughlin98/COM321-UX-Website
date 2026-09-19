@@ -601,10 +601,11 @@ function initBookingWizard() {
     });
   }
 
-  // URL Parameter auto-prefill (e.g. bookNow.html?movie=Infinity_War&time=19:00)
+  // URL Parameter auto-prefill (e.g. bookNow.html?movie=Infinity_War&day=Fri 20 Sep 2026&time=19:00)
   const urlParams = new URLSearchParams(window.location.search);
   const movieParam = urlParams.get('movie');
   const timeParam = urlParams.get('time');
+  const dayParam = urlParams.get('day');
 
   const movieSelect = document.getElementById('Movie');
   if (movieSelect && movieParam) {
@@ -615,6 +616,17 @@ function initBookingWizard() {
         bookingState.movie = movieSelect.options[i].value;
         break;
       }
+    }
+  }
+
+  if (dateSelect && dayParam) {
+    const matchingDate = Array.from(dateSelect.options).find(option =>
+      option.value.toLowerCase() === dayParam.toLowerCase()
+    );
+
+    if (matchingDate) {
+      dateSelect.value = matchingDate.value;
+      bookingState.date = matchingDate.value;
     }
   }
 
