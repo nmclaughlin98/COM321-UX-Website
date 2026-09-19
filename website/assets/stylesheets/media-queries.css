@@ -112,6 +112,10 @@
 		box-shadow: 0 10px 22px var(--accent-glow);
 	}
 
+	.nav-cta-btn {
+		padding: 14px 30px !important;
+	}
+
 	.hamburger {
 		display: flex;
 	}
