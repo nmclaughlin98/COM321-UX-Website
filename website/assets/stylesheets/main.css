@@ -2106,9 +2106,9 @@ select option {
   inset: 0;
   z-index: 1;
   background: linear-gradient(to bottom,
-     rgba(12, 13, 18, 0.2) 0%,
-     rgba(12, 13, 18, 0.7) 60%,
-     var(--bg-main) 100%);
+      rgba(12, 13, 18, 0.2) 0%,
+      rgba(12, 13, 18, 0.7) 60%,
+      var(--bg-main) 100%);
   pointer-events: none;
 }
 
@@ -2275,6 +2275,21 @@ hr {
   border: none;
   border-top: 1px solid var(--border-subtle);
   margin: 10px 0;
+}
+
+.sort-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sort-select {
+  min-width: 240px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: inherit;
+  color: inherit;
+  border: 1px solid currentColor;
 }
 
 /* ==========================================================================
