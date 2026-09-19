@@ -192,7 +192,7 @@ header.scrolled {
 }
 
 .header-box:hover .logo {
-  transform: scale(1.3) rotate(-5deg);
+  transform: scale(1.2) rotate(-5deg);
 }
 
 .header-box:hover .header-text {
