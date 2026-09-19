@@ -1,20 +1,4 @@
-async function loadNowShowingMovies() {
-  const container = document.getElementById('now-showing-list');
-  if (!container) return;
-
-  try {
-    const response = await fetch('assets/data/movies.json');
-    if (!response.ok) throw new Error('Unable to load now showing data');
-
-    const movies = await response.json();
-    renderNowShowingMovies(container, movies);
-  } catch (error) {
-    console.error(error);
-    container.innerHTML = '<p>Movie listings are temporarily unavailable.</p>';
-  }
-}
-
-const sortSelect = document.getElementById('movie-sort-select');
+let allMovies = [];
 
 function sortMovies(movies, sortValue) {
   const sorted = [...movies];
@@ -45,12 +29,6 @@ function sortMovies(movies, sortValue) {
   return sorted;
 }
 
-sortSelect.addEventListener('change', () => {
-  // Apply current search + genre filter, then:
-  const sorted = sortMovies(filteredMovies, sortSelect.value);
-  renderMovies(sorted);
-});
-
 function inferGenreKey(movie) {
   const genre = (movie.genre || '').toLowerCase();
 
@@ -64,11 +42,25 @@ function inferGenreKey(movie) {
   return 'all';
 }
 
-function renderNowShowingMovies(container, movies) {
-  // Filter out any movie where visible is explicitly set to false
-  const visibleMovies = movies.filter(movie => movie.visible !== false);
+function getActiveGenre() {
+  return document.querySelector('.genre-tab.active')?.getAttribute('data-genre') || 'all';
+}
 
-  container.innerHTML = visibleMovies.map(movie => {
+function getFilteredMovies() {
+  const searchInput = document.getElementById('movie-search-input');
+  const searchTerm = (searchInput?.value || '').toLowerCase().trim();
+  const activeGenre = getActiveGenre();
+
+  return allMovies.filter(movie => {
+    const title = (movie.title || '').toLowerCase();
+    const matchesSearch = !searchTerm || title.includes(searchTerm);
+    const matchesGenre = activeGenre === 'all' || inferGenreKey(movie) === activeGenre;
+    return matchesSearch && matchesGenre;
+  });
+}
+
+function renderMovies(container, movies) {
+  container.innerHTML = movies.map(movie => {
     const genreKey = inferGenreKey(movie);
     const safeTitle = encodeURIComponent(movie.title);
     const detailSlug = encodeURIComponent(movie.slug || movie.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''));
@@ -81,15 +73,58 @@ function renderNowShowingMovies(container, movies) {
           <div class="overlay-text">${movie.title}</div>
           <div class="runtime">${movie.runtime || 0} mins</div>
           <img class="rating" src="${ratingImage}" alt="${movie.rating || 'Rating'}">
-          <a class="button" href="bookNow.html?movie=${safeTitle}&time=19:00">Book Now</a>
+          <a class="button" href="bookNow.html?movie=${safeTitle}">Book Now</a>
           <a class="button" href="templates/movie-detail.html?movie=${detailSlug}">More Info</a>
         </div>
       </div>
     `;
   }).join('');
+}
 
-  if (typeof window.initGenreFilterAndSearch === 'function') {
-    window.initGenreFilterAndSearch();
+function applySortAndFilters(container) {
+  const sortSelect = document.getElementById('movie-sort-select');
+  const selectedSort = sortSelect?.value || 'title-asc';
+  const filteredMovies = getFilteredMovies();
+  const sortedMovies = sortMovies(filteredMovies, selectedSort);
+  renderMovies(container, sortedMovies);
+}
+
+function setupNowShowingControls(container) {
+  const sortSelect = document.getElementById('movie-sort-select');
+  const searchInput = document.getElementById('movie-search-input');
+  const genreTabs = document.querySelectorAll('.genre-tab');
+
+  sortSelect?.addEventListener('change', () => applySortAndFilters(container));
+  searchInput?.addEventListener('input', () => applySortAndFilters(container));
+
+  genreTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      genreTabs.forEach(item => item.classList.remove('active'));
+      tab.classList.add('active');
+      applySortAndFilters(container);
+    });
+  });
+}
+
+function renderNowShowingMovies(container, movies) {
+  allMovies = movies.filter(movie => movie.visible !== false);
+  setupNowShowingControls(container);
+  applySortAndFilters(container);
+}
+
+async function loadNowShowingMovies() {
+  const container = document.getElementById('now-showing-list');
+  if (!container) return;
+
+  try {
+    const response = await fetch('assets/data/movies.json');
+    if (!response.ok) throw new Error('Unable to load now showing data');
+
+    const movies = await response.json();
+    renderNowShowingMovies(container, movies);
+  } catch (error) {
+    console.error(error);
+    container.innerHTML = '<p>Movie listings are temporarily unavailable.</p>';
   }
 }
 
