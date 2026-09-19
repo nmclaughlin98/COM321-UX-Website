@@ -457,7 +457,7 @@ function showToast(message) {
     toast.className = 'toast-notification';
     document.body.appendChild(toast);
   }
-  toast.innerHTML = `<span>ℹ️</span> <span>${message}</span>`;
+  toast.innerHTML = `<span></span> <span>${message}</span>`;
   toast.classList.add('show');
   setTimeout(() => {
     toast.classList.remove('show');
@@ -553,9 +553,55 @@ function initGenreFilterAndSearch() {
 /* ==========================================================================
    10. Interactive Ticket Booking Flow (bookNow.html)
    ========================================================================== */
-function initBookingWizard() {
+async function populateMovieSelect() {
+  const movieSelect = document.getElementById('Movie');
+  if (!movieSelect) return;
+
+  try {
+    const response = await fetch('assets/data/movies.json');
+    if (!response.ok) throw new Error('Unable to load movie list');
+
+    const movies = await response.json();
+    const sortedMovies = [...movies]
+      .filter(movie => movie.visible !== false)
+      .sort((a, b) => a.title.localeCompare(b.title, undefined, { sensitivity: 'base' }));
+
+    const placeholder = movieSelect.querySelector('option[value="Please Select"]');
+    if (placeholder) placeholder.disabled = true;
+
+    sortedMovies.forEach(movie => {
+      const option = document.createElement('option');
+      option.value = movie.title;
+      option.textContent = movie.title;
+      movieSelect.appendChild(option);
+    });
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const movieParam = urlParams.get('movie');
+    if (movieParam) {
+      const matchingOption = Array.from(movieSelect.options).find(option =>
+        option.value.toLowerCase() === movieParam.toLowerCase() ||
+        option.text.toLowerCase() === movieParam.toLowerCase()
+      );
+
+      if (matchingOption) {
+        movieSelect.value = matchingOption.value;
+      }
+    }
+
+    return sortedMovies;
+  } catch (error) {
+    console.error(error);
+    movieSelect.innerHTML = '<option value="Please Select" disabled selected>Unable to load movie list</option>';
+    return [];
+  }
+}
+
+async function initBookingWizard() {
   const form = document.getElementById('myForm');
   if (!form) return;
+
+  const movies = await populateMovieSelect();
 
   const fieldsets = form.querySelectorAll('fieldset');
   const progressItems = document.querySelectorAll('#progressbar li');
@@ -573,7 +619,7 @@ function initBookingWizard() {
   const bookingState = {
     movie: '',
     date: '',
-    time: '19:00',
+    time: '',
     tickets: {
       adult: 1,
       child: 0,
@@ -594,10 +640,53 @@ function initBookingWizard() {
 
   // Synchronize initial & selected date value into booking state
   const dateSelect = document.getElementById('dateSelect');
+  const timeInput = document.getElementById('Time');
+  const showtimeContainer = document.querySelector('.showtime-chips');
+
+  function getSelectedWeekday() {
+    if (!dateSelect?.value) return '';
+
+    const weekdayMap = {
+      Mon: 'Monday',
+      Tue: 'Tuesday',
+      Wed: 'Wednesday',
+      Thu: 'Thursday',
+      Fri: 'Friday',
+      Sat: 'Saturday',
+      Sun: 'Sunday'
+    };
+
+    return weekdayMap[dateSelect.value.slice(0, 3)] || '';
+  }
+
+  function renderShowtimes(selectedTime = '') {
+    if (!showtimeContainer) return;
+
+    const selectedMovie = movies.find(movie => movie.title === movieSelect?.value);
+    const weekday = getSelectedWeekday();
+    const showtimes = selectedMovie?.showtimes?.[weekday] || [];
+    bookingState.time = showtimes.includes(selectedTime) ? selectedTime : '';
+
+    if (timeInput) timeInput.value = bookingState.time;
+    showtimeContainer.innerHTML = showtimes.length
+      ? showtimes.map(time => `<button type="button" class="time-chip${time === bookingState.time ? ' active' : ''}" data-time="${time}">${time}</button>`).join('')
+      : '<span class="showtime-placeholder">No showtimes available for this film and day.</span>';
+
+    showtimeContainer.querySelectorAll('.time-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        showtimeContainer.querySelectorAll('.time-chip').forEach(item => item.classList.remove('active'));
+        chip.classList.add('active');
+        bookingState.time = chip.dataset.time;
+        if (timeInput) timeInput.value = bookingState.time;
+      });
+    });
+  }
+
   if (dateSelect) {
     if (dateSelect.value) bookingState.date = dateSelect.value;
     dateSelect.addEventListener('change', () => {
       bookingState.date = dateSelect.value;
+      renderShowtimes();
     });
   }
 
@@ -609,13 +698,14 @@ function initBookingWizard() {
 
   const movieSelect = document.getElementById('Movie');
   if (movieSelect && movieParam) {
-    for (let i = 0; i < movieSelect.options.length; i++) {
-      if (movieSelect.options[i].text.toLowerCase().includes(movieParam.toLowerCase()) ||
-        movieSelect.options[i].value.toLowerCase().includes(movieParam.toLowerCase())) {
-        movieSelect.selectedIndex = i;
-        bookingState.movie = movieSelect.options[i].value;
-        break;
-      }
+    const matchingOption = Array.from(movieSelect.options).find(option =>
+      option.value.toLowerCase() === movieParam.toLowerCase() ||
+      option.text.toLowerCase() === movieParam.toLowerCase()
+    );
+
+    if (matchingOption) {
+      movieSelect.value = matchingOption.value;
+      bookingState.movie = matchingOption.value;
     }
   }
 
@@ -629,6 +719,8 @@ function initBookingWizard() {
       bookingState.date = matchingDate.value;
     }
   }
+
+  renderShowtimes(timeParam || '');
 
   // Update initial active fieldset
   function updateStep(newStep) {
@@ -666,28 +758,10 @@ function initBookingWizard() {
     }
   }
 
-  // Showtime Chips Selection
-  document.querySelectorAll('.time-chip').forEach(chip => {
-    chip.addEventListener('click', () => {
-      document.querySelectorAll('.time-chip').forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      bookingState.time = chip.getAttribute('data-time') || chip.textContent.trim();
-      const timeSelect = document.getElementById('Time');
-      if (timeSelect) timeSelect.value = bookingState.time;
-    });
-  });
-
-  if (timeParam) {
-    document.querySelectorAll('.time-chip').forEach(chip => {
-      if (chip.textContent.includes(timeParam)) {
-        chip.click();
-      }
-    });
-  }
-
   // Movie Dropdown Change Listener
   movieSelect?.addEventListener('change', () => {
     bookingState.movie = movieSelect.value;
+    renderShowtimes();
   });
 
   // Ticket Counter Buttons (+ / -)
@@ -837,6 +911,10 @@ function initBookingWizard() {
         }
         if (!bookingState.movie || bookingState.movie === 'Please Select') {
           showToast('Please select a movie to proceed.');
+          return;
+        }
+        if (!bookingState.time) {
+          showToast('Please select a showtime to proceed.');
           return;
         }
       }
